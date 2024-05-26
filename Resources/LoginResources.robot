@@ -82,9 +82,3 @@ Verify the unsuccessfull login with blank credentials
  #   Go To    ${doctor_logout_url}
  #   Click Button    ${pofile_icon}
   #  Click Link    ${doctorlogout_button}
-
-
-
-    
-     
-    
