@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${doctor_button}    xpath:(//a[@class='btn btn-primary width100'])[2]
-${sign_in_button}    xpath://button[text()='Sign In']
+${sign_in_button}    css:button[class='btn']
 ${admin_login}    xpath:(//a[@class='forgot pull-right'])[1]
 
 *** Keywords ***

@@ -31,7 +31,8 @@ ${search_in_birthRate}    xpath://input[@type='search']
 ${assert_birth_record}    xpath://tr[@class='odd']
 ${death_record_list}    xpath://div/table[@class='table table-striped table-bordered table-hover ajaxlist dataTable no-footer']
 ${value}    DREF49
-${Invalid_search_record_assert}    xpath://div[text()='No data available in table ']
+${Invalid_search_record_assert}    xpath=//div[contains(text(), 'No data available in table')] 
+
 *** Keywords ***
 fill the birth record form
     [Arguments]     ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}    ${birthReports}	 
@@ -82,7 +83,7 @@ Invalid search in birth record
     Input Text    ${search_in_birthRate}   1111
 
 assert the invalid birth and death record
-    Element Text Should Be    ${Invalid_search_record_assert}      No data available in table 
+    Element Should Contain   ${Invalid_search_record_assert}    No data available in table  
     
 
 assert the birth record search
@@ -90,6 +91,10 @@ assert the birth record search
 
 search value in death record
     Input Text    ${search_in_birthRate}   Dennis Coates
+
+Invalid value in death record
+    Input Text    ${search_in_birthRate}   dinesh
+
 
 assert value in death record
     Input Text    ${search_in_birthRate}    ${value}
