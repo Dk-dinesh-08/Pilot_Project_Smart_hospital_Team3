@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate the Login form
+Documentation    To validate the invalid search death record
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
@@ -9,7 +9,8 @@ Resource    ../Resources/DoctorResources.robot
 
 
 *** Test Cases ***
-validate add birth record
+validate Invalid search death record
+    [Tags]    regression
     click the log in button
     click the admin login
     Switch Window     new
@@ -17,7 +18,7 @@ validate add birth record
     click the sign In button
     click birth record and death record
     click death record
-    Invalid value in death record
+    Search value in death record
     assert the invalid birth and death record   
     
     

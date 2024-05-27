@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate the user apointment
+Documentation    To validate the Invalid user apointment
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
@@ -16,7 +16,7 @@ ${adress}
 
 *** Test Cases ***
 Invaliduser appointment     ${Date_data}    ${Message_data}    ${adress}
-
+    [Tags]    smoke
 
 *** Keywords ***
 validate Invalid user apointment

@@ -97,6 +97,7 @@ ${doctor_check_box}    (//input[@type="checkbox"])[6]
 ${Pathologist_check_box}    (//input[@type="checkbox"])[8]
 ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
+${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
  
 *** Keywords ***
 
@@ -211,6 +212,7 @@ click add death record
     Click Element    ${add_death_record}
 
 search value in birth record
+    Wait Until Element Is Visible   ${search_in_birthRate} 
     Input Text    ${search_in_birthRate}   3704
 
 Invalid search in birth record
@@ -224,7 +226,7 @@ assert the birth record search
     Wait Until Element Contains   ${assert_birth_record}    BREF66
 
 search value in death record
-    Input Text    ${search_in_birthRate}   Dennis Coates
+    Input Text    ${search_in_birthRate}   4723
 
 Invalid value in death record
     Input Text    ${search_in_birthRate}   dinesh
@@ -292,4 +294,9 @@ Fill the send SMS form
 
 To assert sucessfully message sent
     Element Text Should Be    ${assert_sms}    ${verification_text}
+
+
+check the alert for invalid add death record
+    Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
+    Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
     
