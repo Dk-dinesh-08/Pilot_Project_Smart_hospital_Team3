@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate the user apointment
+Documentation    To validate Invalid slot appointment 
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
@@ -16,7 +16,7 @@ ${adress}
 
 *** Test Cases ***
 user appointment     ${Date_data}    ${Message_data}    ${adress}
-
+    [Tags]    smoke
 
 *** Keywords ***
 validate the invalid slot in user appointment
@@ -28,7 +28,7 @@ validate the invalid slot in user appointment
     alert accpet
     Fill the user apointment remaining form    ${Message_data}    ${adress}
     choose invalid slot
-    alert accpet
+    save button
     
 
 

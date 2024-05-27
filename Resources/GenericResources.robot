@@ -15,9 +15,6 @@ Open the browser with url
     Maximize Browser Window
     Set Selenium Implicit Wait    5
 
-close the browser
-    Close Browser
-
 click accept in alert
     ${alert_present} =    Alert Should Be Present    5s    # Wait for alert
     Run Keyword If    ${alert_present}    click alert button
@@ -29,3 +26,7 @@ click alert button
     Handle Alert    ACCEPT
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

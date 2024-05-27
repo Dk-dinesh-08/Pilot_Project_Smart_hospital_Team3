@@ -35,17 +35,15 @@ Click the Queue button
 Click the Appoinment wise search button
     Click Button    ${doctor_wise_appionment_btn}
 
+<<<<<<< Updated upstream
+=======
+Verify patient queue page opens
+    Element Text Should Not Be    .box-title.titlefix    Patient Queue
+
+>>>>>>> Stashed changes
 Click Appoinment link
     Click Link    ${appoinment_link}
 
-
-Fill the Queue form
-    [Arguments]     ${doctor_name}  ${shift}  ${date}    ${slot}    
-    Select From List By Label    ${doctor_name}
-    Select From List By Label    ${shift}
-    Select From List By Label    ${date}
-    Select From List By Label    ${slot}
-    Click Button    ${search_button}
 
 
     

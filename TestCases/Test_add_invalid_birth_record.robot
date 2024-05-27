@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate the Login form
+Documentation    To validate Invalid birth record
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
@@ -19,8 +19,8 @@ ${CaseId}
 ${FathersName}	   
 ${birthReports}
 *** Test Cases ***
-Login test template    ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}	   ${birthReports}
-
+Login test template    ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}	   ${birthReports}]
+    [Tags]    regression
 
 *** Keywords ***
 validate add birth record

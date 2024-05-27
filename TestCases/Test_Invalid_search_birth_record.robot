@@ -9,7 +9,8 @@ Resource    ../Resources/DoctorResources.robot
 
 
 *** Test Cases ***
-validate add birth record
+validate Invalid search birth record
+    [Tags]    regression
     click the log in button
     click the admin login
     Switch Window     new

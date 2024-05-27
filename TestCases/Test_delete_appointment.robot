@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate appointment history
+Documentation    To validate delete appointment
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
@@ -15,11 +15,7 @@ validate appointment history
     click the log in button
     click the sign In button
     click the my appointment button
-    Collect and count list of history
-    Next page button
-    Collect and count list of history
-    The next page button
-    Collect and count list of history
+    cancel appointment button
 
     
 
