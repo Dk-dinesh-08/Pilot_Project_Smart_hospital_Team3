@@ -54,6 +54,7 @@ ${zip_Code_field}    xpath://div[@class='zipCodeInput input bottom']
 ${pay_button}    xpath://span[@class='iconTick']
 #${pay_button}    css:span[class='iconTick']
 ${mail_iframe}    xpath=//iframe[contains(@src, 'stripe.com')]
+
 *** Keywords ***
 Sucessfull search by bill number
     Click Link    ${pharmacy_option}
@@ -100,7 +101,6 @@ Successfull payment for the bill
 Verify the successfull payment for the bill
     Wait Until Element Is Visible    ${successfull_payment_alert}
     Should Contain    ${successfull_payment_alert}     Success 
-    
     
 click the my appointment button
     Wait Until Element Is Visible    ${My_appointment_button}
@@ -205,5 +205,3 @@ Fill payment form
     Wait Until Element Is Visible    ${pay_button}    20s
     Click Element    ${pay_button}
     Unselect Frame
-
-

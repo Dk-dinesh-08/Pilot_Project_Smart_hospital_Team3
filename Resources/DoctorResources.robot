@@ -11,6 +11,7 @@ ${notification_icon}    xpath://i[@class="fa fa-bell-o"]//parent::a
 ${language_icon}    xpath://button[@class="btn dropdown-toggle selectpicker btn-default"]
 ${betstatus_icon}    xpath://i[@class="fas fa-bed cal15"]//parent::a
 ${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
+${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
 ${valid_hindi_language}    xpath://a[normalize-space()='Hindi']
 ${invalid_hindi_language}    xpath://a[normalize-space()='Spanish']
 ${add_patient_button}    css:a[id="addp"]
@@ -60,6 +61,8 @@ ${assert_birth_record}    xpath://tr[@class='odd']
 ${death_record_list}    xpath://div/table[@class='table table-striped table-bordered table-hover ajaxlist dataTable no-footer']
 ${value}    DREF49
 ${Invalid_search_record_assert}    xpath=//div[contains(text(), 'No data available in table')] 
+${addnewpatient_validalert}    css:div[class='toast-message']
+${addnewpatient_invalidalert}    css:div[class='toast-message'] p
 *** Keywords ***
 
 Change the valid system language
