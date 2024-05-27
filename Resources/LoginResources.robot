@@ -8,7 +8,7 @@ ${password_login}    css:input[id='password']
 ${sigin_btn}         xpath://div[@class="form-bottom"]//button   #//button[text()="Sign In"]
 
 ${admin_login_page_btn}    //a[text()=" Admin Login"]
-${doctor_login_btn}    //a[@class="btn btn-primary width100"]
+${doctor_login_btn}    (//a[@class="btn btn-primary width100"])[2]
 
 ${admin_login_btn}    //i[@class="fa fa-user ispace"]//parent::a
 ${user_login_button}    //ul[@class="top-right"]//a
@@ -35,6 +35,8 @@ click the sign in button
 
 Fill the login form for doctor
     Go to admin page
+    Switch Window    new
     Click Link    ${doctor_login_btn}
+    Sleep     5s
     click the sign in button
 

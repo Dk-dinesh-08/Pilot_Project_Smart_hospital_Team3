@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-27T09:26:30.286123" rpa="false" schemaversion="5">
+<suite id="s1" name="Test validAddStockItem" source="D:\Pilot Project\Pilot_Project_Smart_hospital_Team3\TestCases\Test_validAddStockItem.robot">
+<test id="s1-t1" name="To verify successful addition of stock item" line="15">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:26:30.835110" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-27T09:26:30.835110" elapsed="26.799242"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:26:57.634352" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-27T09:26:57.634352" elapsed="2.180852"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-27T09:26:59.815775" elapsed="6.370954"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-27T09:27:06.188046" elapsed="0.005362"/>
+</kw>
+<status status="PASS" start="2024-05-27T09:26:30.835110" elapsed="35.358865"/>
+</kw>
+<kw name="Go to user login" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:27:06.198931" level="INFO">Clicking link '//ul[@class="top-right"]//a'.</msg>
+<arg>${User_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T09:27:06.198429" elapsed="2.820767"/>
+</kw>
+<status status="PASS" start="2024-05-27T09:27:06.197940" elapsed="2.821256"/>
+</kw>
+<kw name="Go to admin page" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:27:09.021400" level="INFO">Clicking link '//a[text()=" Admin Login"]'.</msg>
+<arg>${admin_login_page_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T09:27:09.021400" elapsed="0.428323"/>
+</kw>
+<status status="PASS" start="2024-05-27T09:27:09.020398" elapsed="0.429325"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-27T09:27:09.451353" elapsed="0.046151"/>
+</kw>
+<kw name="fill the admin login form" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:27:09.500142" level="INFO">Clicking link '//i[@class="fa fa-user ispace"]//parent::a'.</msg>
+<arg>${admin_login_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T09:27:09.500142" elapsed="1.526603"/>
+</kw>
+<status status="PASS" start="2024-05-27T09:27:09.498796" elapsed="1.527949"/>
+</kw>
+<kw name="click the sign in button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:27:11.035943" level="INFO">Clicking button 'xpath://div[@class="form-bottom"]//button'.</msg>
+<arg>${sigin_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T09:27:11.035344" elapsed="9.711294"/>
+</kw>
+<status status="PASS" start="2024-05-27T09:27:11.034844" elapsed="9.711794"/>
+</kw>
+<kw name="Click the inventory button" owner="AdminResources">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${inventory}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-27T09:27:20.749630" elapsed="0.367360"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:27:21.116990" level="INFO">Clicking link '//i[@class="fas fa-luggage-cart"]//parent::a'.</msg>
+<arg>${inventory}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-27T09:27:21.116990" elapsed="0.871065"/>
+</kw>
+<status status="PASS" start="2024-05-27T09:27:20.748020" elapsed="1.240035"/>
+</kw>
+<kw name="Verify item stock list page opened" owner="AdminResources">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-27T09:27:22.003370" level="INFO">Verifying element 'div[class="box-header ptbnull"]&gt;h3' contains exact text 'Item Stock List'.</msg>
+<msg time="2024-05-27T09:27:27.318732" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-43.png"&gt;&lt;img src="selenium-screenshot-43.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-27T09:27:27.319232" level="FAIL">Element with locator 'div[class="box-header ptbnull"]&gt;h3' not found.</msg>
+<arg>${item_stockList}</arg>
+<arg>Item Stock List</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2024-05-27T09:27:22.000872" elapsed="5.327475">Element with locator 'div[class="box-header ptbnull"]&gt;h3' not found.</status>
+</kw>
+<status status="FAIL" start="2024-05-27T09:27:21.998119" elapsed="5.330228">Element with locator 'div[class="box-header ptbnull"]&gt;h3' not found.</status>
+</kw>
+<kw name="Click add stock item" owner="AdminResources">
+<status status="NOT RUN" start="2024-05-27T09:27:27.328347" elapsed="0.000000"/>
+</kw>
+<kw name="Fill add item stock form" owner="AdminResources">
+<status status="NOT RUN" start="2024-05-27T09:27:27.336360" elapsed="0.000000"/>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-27T09:27:27.339657" elapsed="5.319722"/>
+</kw>
+<status status="PASS" start="2024-05-27T09:27:27.338610" elapsed="5.320769"/>
+</kw>
+<status status="FAIL" start="2024-05-27T09:26:30.835110" elapsed="61.824269">Element with locator 'div[class="box-header ptbnull"]&gt;h3' not found.</status>
+</test>
+<doc>To validate successful addition of stock item</doc>
+<status status="FAIL" start="2024-05-27T09:26:30.286123" elapsed="62.373256"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test validAddStockItem">Test validAddStockItem</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -39,6 +39,20 @@ ${patient_search}    //input[@class="form-control search-form search-form3"]
 ${patient_search_button}    (//button[@class="btn btn-flat"]/i)[1]
 ${table_value}    (//a[@class="btn btn-default btn-xs"])[1]
 
+#add stock item
+${inventory}    //i[@class="fas fa-luggage-cart"]//parent::a
+${item_stockList}    div[class="box-header ptbnull"]>h3
+${add_item_stock}    a[class="btn btn-primary btn-sm additemstock"]
+${item_category}    (//div[@class="form-group"])[1]//select[@name="item_category_id"]
+${item}    (//div[@class="form-group"])[2]//select[@name="item_id"]
+${store}    (//div[@class="form-group"])[4]//select[@name="store_id"]
+${supplier}    (//div[@class="form-group"])[3]//select[@name="supplier_id"]
+${quantity}    (//input[@class="form-control miplusinput"])[1]
+${puchase_price}    //input[@class="c"]
+${date}    //input[@value="05/26/2024"]
+${save_btn}    button[id="form1btn"]
+
+
 
 
 *** Keywords ***
@@ -114,3 +128,32 @@ Enter patient name
 Verify the patient search details
     ${name}    Get Text    ${table_value}
     Should Be Equal As Strings    ${name}     Olivier Thomas (1)
+
+
+Click the inventory button
+    Scroll Element Into View    ${inventory}
+    Click Link    ${inventory}
+
+Verify item stock list page opened
+    Element Text Should Be    ${item_stockList}     Item Stock List
+
+
+
+Click add stock item
+    Click Link    ${add_item_stock}
+
+
+Fill add item stock form
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Input Text    ${quantity}    10   
+    Select From List By Label    ${item}    Syringe Pump
+    Select From List By Label    ${store}    Vinay Pharmacy
+    Input Text    ${quantity}    3
+    Input Text    ${puchase_price}    text=50
+
+Click the save button
+    Click Button    ${save_btn}
+
+Verify item added to stock
+    Element Text Should Be    //td/a    Syringe Pump

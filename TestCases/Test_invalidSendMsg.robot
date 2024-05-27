@@ -7,19 +7,19 @@ Test Teardown    close the browser
 Resource    ../Resources/GenericResources.robot
 Resource    ../Resources/AdminResources.robot
 Resource    ../Resources/LoginResources.robot
-Test Template    To validate succesful message send
+Test Template    To validate queue functionality of appoinment option
 
 
 
 *** Test Cases ***
 
-To validate succesful message send     ${Doctor}    ${Shift}    ${Date}    ${Slot}    
+To validate queue functionality of appoinment option     ${Doctor}    ${Shift}    ${Date}    ${Slot}    
      [Documentation]   To verify search results of patient list
      
     
 *** Keywords ***
 
-To validate succesful message send
+To validate queue functionality of appoinment option
     [Arguments]    ${Doctor}    ${Shift}    ${Date}    ${Slot}
     LoginResources.Go to user login
     LoginResources.Go to admin page
