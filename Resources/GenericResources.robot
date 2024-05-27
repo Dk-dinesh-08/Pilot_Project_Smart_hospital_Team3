@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${url}    https://demo.smart-hospital.in/
-${login_button}   //i[@class="fa fa-user"]//parent::a 
+${login_button}    xpath://ul[@class="top-right"]//a
 
 
 *** Keywords ***
@@ -18,4 +18,19 @@ Close the browser
     Close Browser
 
 Click the login in button
-    Click Element    ${login_button}
+    Click Element   ${login_button}
+
+close the browser
+    Close Browser
+
+click accept in alert
+    ${alert_present} =    Alert Should Be Present    5s    # Wait for alert
+    Run Keyword If    ${alert_present}    click alert button
+
+click the log in button
+    Click Element    ${login_button}
+
+click alert button
+    Handle Alert    ACCEPT
+
+

@@ -20,6 +20,9 @@ ${doctor_valid_username}    sonia@gmail.com
 ${doctor_invalid_password}    sonia@gmail
 ${doctor_logout_url}    https://demo.smart-hospital.in/admin/admin/dashboard
 ${doctorlogout_button}    css:a[class='pull-right']
+${doctor_button}    xpath:(//a[@class='btn btn-primary width100'])[2]
+${admin_login}    xpath:(//a[@class='forgot pull-right'])[1]
+
 *** Keywords ***
 Fill the login form with login credentials for doctor
     [Arguments]    ${username}    ${password}
@@ -83,8 +86,12 @@ Verify the unsuccessfull login with blank credentials
  #   Click Button    ${pofile_icon}
   #  Click Link    ${doctorlogout_button}
 
+click the doctor button
+    Click Element    ${doctor_button}
 
+click the sign In button
+    Click Element    ${sign_in_button}
 
-    
-     
-    
+click the admin login
+    Click Element    ${admin_login}
+
