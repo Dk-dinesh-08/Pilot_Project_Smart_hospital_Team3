@@ -6,6 +6,7 @@ Library    SeleniumLibrary
 ${url}    https://demo.smart-hospital.in/
 ${login_button}    xpath://ul[@class="top-right"]//a
 
+
 *** Keywords ***
 Open the browser with url
     Create Webdriver    Chrome
@@ -18,6 +19,7 @@ Close the browser
 
 Click the login in button
     Click Element   ${login_button}
+
 
 close the browser
     Close Browser
@@ -33,4 +35,6 @@ click alert button
     Handle Alert    ACCEPT
 
 
+click the log in button
+    Click Element    ${login_button}
 
