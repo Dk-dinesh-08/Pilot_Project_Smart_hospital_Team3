@@ -33,8 +33,7 @@ ${death_record_list}    xpath://div/table[@class='table table-striped table-bord
 ${value}    DREF49
 ${Invalid_search_record_assert}    xpath=//div[contains(text(), 'No data available in table')] 
 
-<<<<<<< Updated upstream
-=======
+
 #messaging
 ${msg_locator}    //i[@class="fas fa-bullhorn"]/parent::a
 ${post_new_msg_locator}    (//a[@class="btn btn-primary btn-sm"])[1]
@@ -67,7 +66,6 @@ ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
  
->>>>>>> Stashed changes
 *** Keywords ***
 fill the birth record form
     [Arguments]     ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}    ${birthReports}	 
@@ -141,16 +139,8 @@ assert value in death record
         Append To List    ${options_texts}    ${text}
         Run Keyword If    '${text}' == '${value}'    Log To Console  ${text}
         Sleep    5s    
-<<<<<<< Updated upstream
-    END
-=======
     END
 
-
-Verify successful login of doctor
-    Click Link    ${image_icon}
-    # ${user_text}    Get Text    ${doctor_text_locator}
-    Element Text Should Be    ${doctor_text_locator}    Doctor
 
 
 
@@ -202,4 +192,3 @@ check the alert for invalid add death record
     Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
     Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
     
->>>>>>> Stashed changes

@@ -25,8 +25,6 @@ click the log in button
 click alert button
     Handle Alert    ACCEPT
 
+close the browser
+    Close Browser
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes

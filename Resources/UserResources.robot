@@ -36,13 +36,10 @@ ${zip_Code_field}    xpath://div[@class='zipCodeInput input bottom']
 ${pay_button}    xpath://span[@class='iconTick']
 #${pay_button}    css:span[class='iconTick']
 ${mail_iframe}    xpath=//iframe[contains(@src, 'stripe.com')]
-<<<<<<< Updated upstream
-=======
 ${Cancel_appointment_button}    css:i[class='fa fa-trash']
 ${assert_in_empty_add_appointment}    xpath://div[@class='toast toast-error']
 ${Search_feild_in_history}    xpath://div[@class='dataTables_filter']/label/input
 
->>>>>>> Stashed changes
 *** Keywords ***
 click the my appointment button
     Wait Until Element Is Visible    ${My_appointment_button}
@@ -148,8 +145,6 @@ Fill payment form
     Click Element    ${pay_button}
     Unselect Frame
 
-<<<<<<< Updated upstream
-=======
 assert the payment page
     Select Frame    ${mail_iframe}
     Wait Until Element Is Visible    ${mail_feild}    20s
@@ -171,4 +166,3 @@ Enter the value into search
 Enter the aproved value into search
     Wait Until Element Is Visible    ${Search_feild_in_history}
     Input Text    ${Search_feild_in_history}    APPNO5717
->>>>>>> Stashed changes
