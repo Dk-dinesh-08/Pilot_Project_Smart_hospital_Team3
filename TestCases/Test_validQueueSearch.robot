@@ -10,6 +10,12 @@ Resource    ../Resources/LoginResources.robot
 Test Template    To validate succesful queue search
 
 
+*** Variables ***
+${Doctor}
+${Shift}  
+${Date}   
+${Slot}    
+
 
 *** Test Cases ***
 
