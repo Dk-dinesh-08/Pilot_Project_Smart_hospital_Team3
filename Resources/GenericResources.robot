@@ -8,12 +8,18 @@ ${login_button}    xpath://ul[@class="top-right"]//a
 
 
 *** Keywords ***
-
 Open the browser with url
     Create Webdriver    Chrome
     Go To   ${url}    
     Maximize Browser Window
     Set Selenium Implicit Wait    5
+    
+Close the browser
+    Close Browser
+
+Click the login in button
+    Click Element   ${login_button}
+
 
 click accept in alert
     ${alert_present} =    Alert Should Be Present    5s    # Wait for alert
@@ -30,4 +36,7 @@ close the browser
     Close Browser
 =======
 >>>>>>> Stashed changes
+
+click the log in button
+    Click Element    ${login_button}
 
