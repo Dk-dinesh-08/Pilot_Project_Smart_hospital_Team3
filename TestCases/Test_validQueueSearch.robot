@@ -16,6 +16,7 @@ ${Shift}
 ${Date}   
 ${Slot}    
 
+
 *** Test Cases ***
 
 To validate succesful queue search     ${Doctor}    ${Shift}    ${Date}    ${Slot}    

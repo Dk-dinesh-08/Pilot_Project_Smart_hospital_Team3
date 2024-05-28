@@ -15,6 +15,7 @@ ${Shift}
 ${Date}  
 ${Slot}    
 
+
 *** Test Cases ***
 
 To validate queue functionality of appoinment option     ${Doctor}    ${Shift}    ${Date}    ${Slot}    

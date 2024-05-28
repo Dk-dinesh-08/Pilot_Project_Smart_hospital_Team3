@@ -100,9 +100,13 @@ Verify patient queue page opens
     Element Text Should Not Be    .box-title.titlefix    Patient Queue
 
 
+Click the Appoinment wise search button
+    Click Link   ${doctor_wise_appionment_btn}
+
+
+
 Click Appoinment link
     Click Link    ${appoinment_link}
-
 
 
 Verify doctor wise appoinment search
