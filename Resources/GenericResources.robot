@@ -14,9 +14,6 @@ Open the browser with url
     Maximize Browser Window
     Set Selenium Implicit Wait    5
     
-Close the browser
-    Close Browser
-
 Click the login in button
     Click Element   ${login_button}
 
@@ -34,6 +31,10 @@ click alert button
 close the browser
     Close Browser
 
-click the log in button
-    Click Element    ${login_button}
+
+
+
+
+
+
 

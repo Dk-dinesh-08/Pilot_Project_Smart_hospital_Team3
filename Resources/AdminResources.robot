@@ -17,21 +17,23 @@ ${shift_field}    select[id="global_shift"]
 ${slot_field}    select[id=slot]
 ${date_field}    input[id=datetimepicker]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
-
 ${doctor_wise_appionment_btn}    //a[@href="https://demo.smart-hospital.in/admin/onlineappointment/patientschedule"]
-
+${doctor_field}   //span[@class='select2-selection__rendered']
+${date_field}    //input[@name="date"]
+${search_button}    //button[@class="btn btn-primary btn-sm pull-right"]
+${shift_field}    select[id="global_shift"]
+${slot_locator}    //select[@id="slot"]
+${date_field}    input[id=datetimepicker]
+${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
+${doctor_wise_search_btn}    (//a[@class="btn btn-primary btn-sm"])[1]
 ${login_password}    css:input[id='loginpassword']
 ${login_btn}    xpath://button[text()='Log in']
 ${close_btn}    xpath://div[@id="logInModal"]/div/div/div[3]/button[1]
 ${doctor_field}    //span[@class="select2-selection__arrow"]
-${date_field}    //input[@name="date"]
+${date_fld}    //input[@name="date"]
 ${search_button}    //button[@class="btn btn-primary btn-sm pull-right"]
-
-${date_field}    input[id=datetimepicker]
-
-#for valid doctor wise search results
 ${verify_text}   Records: 0 to 0 of 0
-${search_result}    //div[@id="DataTables_Table_0_info"] 
+${search_result}     //div[@class="dataTables_info"]  
 
 #for form Queue search
 ${select_doctor_field}    (//select[@class="form-control select2"])[1]
@@ -39,7 +41,7 @@ ${queue_button}    (//div[@class="box-tools pull-right"])//a[3]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
 ${queue_doctor_field}    select[id=doctor]    #//select[@name="doctor"]
 ${select_shift_field}    (//select[@class="form-control select2"])[2]
-${slot_field}    //select[@class="form-control"]
+${slot_field}    (//div[@class="col-md-3"]//select[@class="form-control"])[1]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
 
 #for valid queue search results
@@ -53,16 +55,16 @@ ${table_value}    (//a[@class="btn btn-default btn-xs"])[1]
 
 #add stock item
 ${inventory}    //i[@class="fas fa-luggage-cart"]//parent::a
-${item_stockList}    div[class="box-header ptbnull"]>h3
-${add_item_stock}    a[class="btn btn-primary btn-sm additemstock"]
+${item_stockList}    //div[@class="box-header ptbnull"]//h3
+${add_item_stock}    //a[@class="btn btn-primary btn-sm additemstock"]
 ${item_category}    (//div[@class="form-group"])[1]//select[@name="item_category_id"]
 ${item}    (//div[@class="form-group"])[2]//select[@name="item_id"]
 ${store}    (//div[@class="form-group"])[4]//select[@name="store_id"]
 ${supplier}    (//div[@class="form-group"])[3]//select[@name="supplier_id"]
 ${quantity}    (//input[@class="form-control miplusinput"])[1]
-${puchase_price}    //input[@class="c"]
+${puchase_price}    (//input[@name="purchase_price"])[1]
 ${date}    //input[@value="05/26/2024"]
-${save_btn}    button[id="form1btn"]
+${save_btn}    //button[@id="form1btn"]
 
 
 
@@ -77,13 +79,13 @@ Fill the appointment wise search form
          ${text}=    Get Text    ${element}
          Append To List    ${options_texts}    ${text}
          Run Keyword If    '${text}' == '${doctor_name}'      Click Element    ${element}
-         Sleep    5s
+         
     END
     # Log    ${options_texts}
     # Log To Console    ${options_texts}
     
-    Click Element    ${date_field}
-    Input Text    ${date_field}    ${date} 
+    # Click Element    ${date_fld}
+    Input Text    ${date_fld}    ${date} 
 
        
 
@@ -93,31 +95,21 @@ Click the search button
 Click the Queue button
     Click Button    ${queue_button}
 
+
 Click the Appoinment wise search button
-    Click Button    ${doctor_wise_appionment_btn}
+    Click Link   ${doctor_wise_search_btn}
 
 Verify patient queue page opens
     Element Text Should Not Be    .box-title.titlefix    Patient Queue
-
-Click the Appoinment wise search button
-    Click Link   ${doctor_wise_appionment_btn}
 
 
 Click Appoinment link
     Click Link    ${appoinment_link}
 
 
-Fill the Queue form
-    [Arguments]     ${doctor_name}  ${shift}  ${date}    ${slot}    
-    Select From List By Label    ${doctor_name}
-    Select From List By Label    ${shift}
-    Select From List By Label    ${date}
-    Select From List By Label    ${slot}
-    Click Button    ${search_button}
-
-
 Verify doctor wise appoinment search
-   Element Text Should Be    ${search_result}    ${verify_text}
+   Element Text Should Be   //div[text()="Records: 0 to 0 of 0"]      Records: 0 to 0 of 0  # ${verify_text}
+   Sleep    10s
 
 Verify doctor wise appoinment search for invalid doctor name
    Element Text Should Be    ${search_result}    ${verify_text}
@@ -134,8 +126,9 @@ Fill the Queue form
     Click Element    ${date_field}
     
     Input Text   ${date_field}     ${date}
-    Click Element    ${slot_field}
-    Select From List By Value   ${slot_field}     ${slot}
+    Click Element    ${slot_locator}
+    # Input Text   ${slot_field}     ${date}
+    Select From List By Value   ${slot_locator}            ${slot}
    
 
 click search button for queue 

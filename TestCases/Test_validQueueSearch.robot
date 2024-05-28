@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Tests to login to login page
+Documentation    To verify succesful queue search  
 Library    SeleniumLibrary
 Library    DataDriver    file=../TestData/QueueSearch_ValidData.xlsx    sheet_name=Sheet1
 Test Setup    Open the Browser with URL
@@ -10,16 +10,25 @@ Resource    ../Resources/LoginResources.robot
 Test Template    To validate succesful queue search
 
 
+*** Variables ***
+
+${Doctor} 
+${Shift}
+${Date}   
+${Slot}  
+
 
 *** Test Cases ***
 
-To validate succesful queue search     ${Doctor}    ${Shift}    ${Date}    ${Slot}    
-    # [Documentation]   To verify search results of patient list
+To validate succesful queue search     ${Doctor}    ${Shift}    ${Date}    ${Slot}   
+    [Tags]    regression 
+    [Documentation]   To verify search results of patient list
      
     
 *** Keywords ***
 
 To validate succesful queue search
+    
     [Arguments]    ${Doctor}    ${Shift}    ${Date}    ${Slot}
     LoginResources.Go to user login
     LoginResources.Go to admin page

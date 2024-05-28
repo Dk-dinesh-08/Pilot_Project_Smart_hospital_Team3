@@ -98,6 +98,8 @@ ${Pathologist_check_box}    (//input[@type="checkbox"])[8]
 ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
+${verification_text_invalid}    The Send Through field is required.
+
  
 *** Keywords ***
 
@@ -212,7 +214,6 @@ click add death record
     Click Element    ${add_death_record}
 
 search value in birth record
-    Wait Until Element Is Visible   ${search_in_birthRate} 
     Input Text    ${search_in_birthRate}   3704
 
 Invalid search in birth record
@@ -226,7 +227,7 @@ assert the birth record search
     Wait Until Element Contains   ${assert_birth_record}    BREF66
 
 search value in death record
-    Input Text    ${search_in_birthRate}   4723
+    Input Text    ${search_in_birthRate}   Dennis Coates
 
 Invalid value in death record
     Input Text    ${search_in_birthRate}   dinesh
@@ -299,4 +300,20 @@ To assert sucessfully message sent
 check the alert for invalid add death record
     Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
     Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
+
+To verify the unsucessful message sent
+    Element Text Should Be    ${assert_sms}    ${verification_text}
+
+
+Fill the send SMS form using invalid details
+    Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy
+    Input Text    ${sms_template}    MSGID0001
+    # Click Element    ${sms_checkbox}
+    Input Text    ${text_area}    Hiiii all
+    Click Element    ${admin_check_box}
+    Click Element    ${doctor_check_box}
+    Click Element    ${Pathologist_check_box}
+    Click Element    ${Pharmacist_check_box}
+    Click Button    ${send_sms_btn}
+
     

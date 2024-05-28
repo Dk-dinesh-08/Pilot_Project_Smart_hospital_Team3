@@ -7,6 +7,7 @@ Resource    ../Resources/GenericResources.robot
 Resource    ../Resources/LoginResources.robot
 Resource    ../Resources/DoctorResources.robot
 Library    DataDriver    file=../TestData/DeathRateForm.xlsx   sheet_name=InvalidLogin
+Library    DataDriver    file=../TestData/DeathRateForm.xlsx   sheet_name=validLogin
 Test Template   validate add death record
 
 *** Variables ***
@@ -31,7 +32,7 @@ validate add death record
     click add death record
     fill the death record form    ${caseID}    ${DeathDate}    ${DeathReports}
     check the alert for invalid add death record
-    
+
 
 
 

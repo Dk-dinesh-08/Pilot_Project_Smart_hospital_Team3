@@ -13,6 +13,7 @@ Resource    ../Resources/LoginResources.robot
 
 
 To verify successful addition of stock item
+    [Tags]    confirmation
     LoginResources.Go to user login
     LoginResources.Go to admin page
     Switch Window    new
