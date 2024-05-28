@@ -14,7 +14,7 @@ Test Template    Successfull addition of new patient
 *** Test Cases ***
 
 addition of new patient   ${patient_name}    ${guardian_name}    ${dob}    ${bloodgroup}    ${marital_status}    ${phone_number}    ${email}    ${address}    ${known_allergies}    ${TPA_ID}    ${TPA_Validity}    ${ni_number}    ${alternate_number}    # robotcode: ignore
-
+    [Tags]    smoke
 *** Keywords ***
 Successfull addition of new patient
     [Arguments]    ${patient_name}    ${guardian_name}    ${dob}    ${bloodgroup}    ${marital_status}    ${phone_number}    ${email}    ${address}    ${known_allergies}    ${TPA_ID}    ${TPA_Validity}    ${ni_number}    ${alternate_number}

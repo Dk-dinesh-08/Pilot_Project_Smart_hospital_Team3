@@ -18,4 +18,19 @@ Close the browser
     Close Browser
 
 Click the login in button
+<<<<<<< Updated upstream
     Click Element    ${login_button}
+=======
+    Click Element   ${login_button}
+
+click accept in alert
+    ${alert_present} =    Alert Should Be Present    5s    # Wait for alert
+    Run Keyword If    ${alert_present}    click alert button
+
+click the log in button
+    Click Element    ${login_button}
+
+click alert button
+    Handle Alert    ACCEPT
+
+>>>>>>> Stashed changes
