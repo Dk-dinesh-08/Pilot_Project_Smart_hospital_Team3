@@ -1,0 +1,28 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test Invalid search death record :: To validate the invalid searc...
+==============================================================================
+validate Invalid search death record                                    
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_search_death_record.robot:12
+    T:  validate Invalid search death record    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_search_death_record.robot:20
+      click death record    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\DoctorResources.robot:194
+      Click Element    ${death_record}
+      |  ${death_record} = xpath://a[text()= ' Death Record'] (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://a[text()= ' Death Record']' not found.
+------------------------------------------------------------------------------
+TestCases.Test Invalid search death record :: To validate the inva... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\5\output.xml

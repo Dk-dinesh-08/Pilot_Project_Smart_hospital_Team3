@@ -1,0 +1,31 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test add invalid birth record :: To validate Invalid birth record   
+==============================================================================
+Login test template                                                     
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_add_invalid_birth_record.robot:22
+    T:  Login test template    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_add_invalid_birth_record.robot:26
+      validate add birth record    Cname=dk    weight=0    birthDate=2024-08-22 00:00:00    Contact=934265611    Address=Salem    CaseId=2222    FathersName=karmegam    birthReports=baby uis fine
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_add_invalid_birth_record.robot:34
+      click birth record    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\DoctorResources.robot:191
+      Click Element    ${birth_record}
+      |  ${birth_record} = xpath://a[text()= ' Birth Record '] (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://a[text()= ' Birth Record ']' not found.
+------------------------------------------------------------------------------
+TestCases.Test add invalid birth record :: To validate Invalid bir... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\13\output.xml
