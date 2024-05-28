@@ -13,13 +13,15 @@ Test Template    To validate queue functionality of appoinment option
 
 *** Test Cases ***
 
-To validate queue functionality of appoinment option     ${Doctor}    ${Shift}    ${Date}    ${Slot}    
+To validate queue functionality of appoinment option     ${Doctor}    ${Shift}    ${Date}    ${Slot}   
+     [Tags]    smoke 
      [Documentation]   To verify search results of patient list
      
     
 *** Keywords ***
 
 To validate queue functionality of appoinment option
+    
     [Arguments]    ${Doctor}    ${Shift}    ${Date}    ${Slot}
     LoginResources.Go to user login
     LoginResources.Go to admin page

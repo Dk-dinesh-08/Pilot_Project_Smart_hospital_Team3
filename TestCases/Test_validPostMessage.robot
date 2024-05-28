@@ -16,6 +16,8 @@ Resource    ../Resources/DoctorResources.robot
     
 To validate the functionality of post a new message
 
+    [Tags]    smoke
+
     LoginResources.Go to user login
     LoginResources.Fill the login form for doctor
     DoctorResources.Verify successful login of doctor

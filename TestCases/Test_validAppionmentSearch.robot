@@ -12,6 +12,7 @@ Resource    ../Resources/LoginResources.robot
 *** Test Cases ***
 
 To verify valid appionment search doctor wise
+    [Tags]    smoke
     [Documentation]   To verify search results of patients with respect to doctor and date
     LoginResources.Go to user login
     LoginResources.Go to admin page

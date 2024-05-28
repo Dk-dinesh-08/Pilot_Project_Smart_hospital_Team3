@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Tests to login to login page
+Documentation    Tests to verify sucessful search of patient list
 Library    SeleniumLibrary
 Test Setup    Open the Browser with URL
 Test Teardown    close the browser
@@ -13,8 +13,9 @@ ${patient_name}    Olivier
 
 
 *** Test Cases ***
-
-LoginResources.Go to user login
+    
+To verify sucessful search of patient list
+    [Tags]    smoke
     LoginResources.Go to user login
     LoginResources.Go to admin page
     Switch Window    new

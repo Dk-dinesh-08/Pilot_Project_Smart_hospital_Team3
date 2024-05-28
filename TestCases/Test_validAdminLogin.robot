@@ -12,6 +12,7 @@ Resource    ../Resources/LoginResources.robot
 *** Test Cases ***
 
 To verify the admin login
+    [Tags]    smoke
     [Documentation]   To verify the login of admin 
     LoginResources.Go to user login
     LoginResources.Go to admin page
