@@ -9,6 +9,7 @@ Resource    ../Resources/UserResources.robot
 
 *** Test Cases ***
 Unsuccessfull search for a bill using bill number
+    [Tags]    regression
     GenericResources.Click the login in button
     LoginResources.Fill the login form by default credentials for user role
     LoginResources.Verify the successfull login with valid credentials for user

@@ -93,12 +93,9 @@ Click the search button
 Click the Queue button
     Click Button    ${queue_button}
 
-Click the Appoinment wise search button
-    Click Button    ${doctor_wise_appionment_btn}
 
 Verify patient queue page opens
     Element Text Should Not Be    .box-title.titlefix    Patient Queue
-
 
 Click the Appoinment wise search button
     Click Link   ${doctor_wise_appionment_btn}

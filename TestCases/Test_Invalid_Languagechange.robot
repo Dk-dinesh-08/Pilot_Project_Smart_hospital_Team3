@@ -11,6 +11,7 @@ Resource    ../Resources/DoctorResources.robot
 *** Test Cases ***
 
 Unsuccessfull system language change
+    [Tags]    regression
     GenericResources.Click the login in button
     LoginResources.Fill the successfull login form by clicking the doctor role
     LoginResources.Verify the successfull login with valid credentials for doctor
