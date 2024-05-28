@@ -37,9 +37,6 @@ ${save_button}    css:button[id="formaddpabtn"]
 
 ${addnewpatient_validalert}    css:div[class='toast-message']
 ${addnewpatient_invalidalert}    css:div[class='toast-message'] p
-<<<<<<< Updated upstream
-
-=======
 #betstatus
 ${bed_145}    xpath://div[text()='FF - 145']
 ${Addmision_date}    css:input[id="admission_date"]
@@ -112,7 +109,6 @@ ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${doctal_consultant_select}    xpath://select[@id='consultant_doctor']
 ${patient_name}    xpath://li[@class='select2-results__option select2-results__option--highlighted']
->>>>>>> Stashed changes
 *** Keywords ***
 
 Change the valid system language
@@ -183,8 +179,7 @@ Verify the successfull adding of new patient
 Verify the unsuccessfull addition of new patient
     Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required. 
 
-<<<<<<< Updated upstream
-=======
+
 Successfull update of the bed status
     Click Link    ${betstatus_icon}
     Click Element    ${bed_145}
@@ -337,5 +332,3 @@ Fill the send SMS form
 
 To assert sucessfully message sent
     Element Text Should Be    ${assert_sms}    ${verification_text}
-    
->>>>>>> Stashed changes
