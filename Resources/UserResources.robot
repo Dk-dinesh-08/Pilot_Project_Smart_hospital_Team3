@@ -58,7 +58,6 @@ ${Cancel_appointment_button}    css:i[class='fa fa-trash']
 ${assert_in_empty_add_appointment}    xpath://div[@class='toast toast-error']
 ${Search_feild_in_history}    xpath://div[@class='dataTables_filter']/label/input
 
-
 *** Keywords ***
 Sucessfull search by bill number
     Click Link    ${pharmacy_option}
@@ -85,10 +84,6 @@ Successfull view of the bill details
 Verify the successfull view of the bill details
     Wait Until Element Is Visible    ${view_detail_assert}
     Element Text Should Be    ${view_detail_assert}    Bill No : PHARMAB307
-
-verify the unsuccessfull view of the bill details
-    Wait Until Element Is Visible    ${view_detail_assert}
-    Element Text Should Not Be    ${view_detail_assert}    Bill No : PHARMAB307
 
 Successfull payment for the bill
     Click Button    ${pay_button}
@@ -231,3 +226,4 @@ Enter the value into search
 Enter the aproved value into search
     Wait Until Element Is Visible    ${Search_feild_in_history}
     Input Text    ${Search_feild_in_history}    APPNO5717
+

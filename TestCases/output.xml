@@ -1,32 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.11.0 on win32)" generated="2024-05-27T01:20:08.235534" rpa="false" schemaversion="5">
-<suite id="s1" name="TestCases" source="C:\Users\KARTHIPRIYA R\OneDrive\Desktop\SmartHospitalGeneralRepository\Pilot_Project_Smart_hospital_Team3\TestCases">
-<suite id="s1-s1" name="Test Invalid Addnewpatient" source="C:\Users\KARTHIPRIYA R\OneDrive\Desktop\SmartHospitalGeneralRepository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_Addnewpatient.robot">
-<test id="s1-s1-t1" name="addition of new patient" line="16">
+<<<<<<< Updated upstream
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T10:00:25.908626" rpa="false" schemaversion="5">
+<suite id="s1" name="Test add invalid birth record" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_add_invalid_birth_record.robot">
+<test id="s1-t1" name="Login test template" line="22">
+=======
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-29T00:16:18.791318" rpa="false" schemaversion="5">
+<suite id="s1" name="Test validAddStockItem" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_validAddStockItem.robot">
+<test id="s1-t1" name="To verify successful addition of stock item" line="15">
+>>>>>>> Stashed changes
 <kw name="Open the browser with url" owner="GenericResources" type="SETUP">
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:26.911743" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2024-05-29T00:16:18.995428" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
 <arg>Chrome</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2024-05-28T10:00:26.911743" elapsed="1.660000"/>
+<status status="PASS" start="2024-05-29T00:16:18.995428" elapsed="1.710437"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:28.571743" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<msg time="2024-05-29T00:16:20.705865" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-28T10:00:28.571743" elapsed="5.379182"/>
+<status status="PASS" start="2024-05-29T00:16:20.705865" elapsed="5.646500"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-27T01:20:15.947934" elapsed="0.034968"/>
+<<<<<<< Updated upstream
+<status status="PASS" start="2024-05-28T10:00:33.950925" elapsed="0.046667"/>
+=======
+<status status="PASS" start="2024-05-29T00:16:26.352365" elapsed="0.036496"/>
+>>>>>>> Stashed changes
 </kw>
 <kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
 <arg>5</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2024-05-27T01:20:15.984368" elapsed="0.002459"/>
+<<<<<<< Updated upstream
+<status status="PASS" start="2024-05-28T10:00:33.998791" elapsed="0.001002"/>
+=======
+<status status="PASS" start="2024-05-29T00:16:26.389847" elapsed="0.002001"/>
+>>>>>>> Stashed changes
 </kw>
-<status status="PASS" start="2024-05-28T10:00:26.911743" elapsed="7.088050"/>
+<status status="PASS" start="2024-05-29T00:16:18.995428" elapsed="7.396420"/>
 </kw>
+<<<<<<< Updated upstream
 <kw name="validate add birth record">
 <kw name="click the log in button" owner="GenericResources">
 <kw name="Click Element" owner="SeleniumLibrary">
@@ -37,234 +51,7 @@
 </kw>
 <status status="PASS" start="2024-05-28T10:00:34.000795" elapsed="4.023855"/>
 </kw>
-<kw name="Fill the successfull login form by clicking the doctor role" owner="LoginResources">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:17.662582" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
-<arg>${admin_login_button}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:17.662582" elapsed="0.123739"/>
-</kw>
-<kw name="Switch Window" owner="SeleniumLibrary">
-<arg>new</arg>
-<doc>Switches to browser window matching ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:17.787188" elapsed="0.013996"/>
-</kw>
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:17.801184" level="INFO">Clicking link 'xpath://a[text()='Doctor']'.</msg>
-<arg>${valid_doctor_button}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:17.801184" elapsed="0.750364"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:18.552565" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
-<arg>${signin_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:18.552565" elapsed="6.067656"/>
-</kw>
-<status status="PASS" start="2024-05-27T01:20:17.662582" elapsed="6.957639"/>
-</kw>
-<kw name="Verify the successfull login with valid credentials for doctor" owner="LoginResources">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:24.620221" level="INFO">Clicking link 'css:a[class="dropdown-toggle"]'.</msg>
-<arg>${pofile_icon}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:24.620221" elapsed="0.101673"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${profile_name}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-05-27T01:20:24.721894" elapsed="0.045426"/>
-</kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:24.767320" level="INFO">Verifying element 'css:div[class="sstopuser-test"] h5' contains exact text 'Doctor'.</msg>
-<arg>${profile_name}</arg>
-<arg>Doctor</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-05-27T01:20:24.767320" elapsed="0.030969"/>
-</kw>
-<status status="PASS" start="2024-05-27T01:20:24.620221" elapsed="0.178068"/>
-</kw>
-<kw name="Addition of new patient in the IPD inpatient with valid Credentials" owner="DoctorResources">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:24.800916" level="INFO">Clicking link 'xpath://i[@class="fas fa-procedures"]//parent::a'.</msg>
-<arg>${IPD_in_patient}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:24.800916" elapsed="0.751673"/>
-</kw>
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:25.552589" level="INFO">Clicking link 'css:a[id="addp"]'.</msg>
-<arg>${add_patient_button}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:25.552589" elapsed="0.085413"/>
-</kw>
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:25.638002" level="INFO">Clicking link 'css:a[id="addpip"]'.</msg>
-<arg>${new_patient_button}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:25.638002" elapsed="0.248075"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:25.886077" level="INFO">Typing text '' into text field 'css:input[id="name"]'.</msg>
-<arg>${name_field}</arg>
-<arg>${patient_name}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:25.886077" elapsed="0.382811"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:26.268888" level="INFO">Typing text 'krish' into text field 'css:div[class="col-lg-6 col-md-6 col-sm-6"] input[name="guardian_name"]'.</msg>
-<arg>${guardian_name_field}</arg>
-<arg>${guardian_name}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:26.268888" elapsed="0.156574"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:26.425462" level="INFO">Typing text '05/29/2002' into text field 'xpath://div[@class="col-sm-4"]//input[@name="dob"]'.</msg>
-<arg>${dob_field}</arg>
-<arg>${dob}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:26.425462" elapsed="0.235401"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:26.660863" level="INFO">Typing text '9977554433' into text field 'css:input[id="number"]'.</msg>
-<arg>${phone_number_field}</arg>
-<arg>${phone_number}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:26.660863" elapsed="0.174339"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:26.836722" level="INFO">Typing text 'praburam@gmail.com' into text field 'css:input[id="addformemail"]'.</msg>
-<arg>${email_field}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:26.835202" elapsed="0.168588"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:27.003790" level="INFO">Typing text 'kaveri avenu,amman nager,coimbatore-98' into text field 'css:input[name="address"]'.</msg>
-<arg>${address_field}</arg>
-<arg>${address}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:27.003790" elapsed="0.182489"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:27.186279" level="INFO">Typing text 'voimiting' into text field 'css:div[class="col-lg-12 col-md-12 col-sm-12"] textarea[name="known_allergies"]'.</msg>
-<arg>${known_allergies_field}</arg>
-<arg>${known_allergies}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:27.186279" elapsed="0.134584"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:27.320863" level="INFO">Typing text '1876548' into text field 'css:input[name="insurance_id"]'.</msg>
-<arg>${TPA_ID_field}</arg>
-<arg>${TPA_ID}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:27.320863" elapsed="0.141341"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:27.462204" level="INFO">Typing text '2026-09-01 00:00:00' into text field 'css:input[name="validity"]'.</msg>
-<arg>${TPA_validity_field}</arg>
-<arg>${TPA_Validity}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:27.462204" elapsed="0.224370"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:27.686574" level="INFO">Typing text '345678' into text field 'css:input[name="identification_number"]'.</msg>
-<arg>${national_identity_number_field}</arg>
-<arg>${ni_number}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:27.686574" elapsed="0.144490"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:27.833932" level="INFO">Typing text '9876543456' into text field 'css:input[id="custom_fields[patient][3]"]'.</msg>
-<arg>${alternate_number_field}</arg>
-<arg>${alternate_number}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:27.833857" elapsed="0.141102"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:27.974959" level="INFO">Clicking button 'css:button[id="formaddpabtn"]'.</msg>
-<arg>${save_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-27T01:20:27.974959" elapsed="0.145648"/>
-</kw>
-<arg>${patient_name}</arg>
-<arg>${guardian_name}</arg>
-<arg>${dob}</arg>
-<arg>${bloodgroup}</arg>
-<arg>${marital_status}</arg>
-<arg>${phone_number}</arg>
-<arg>${email}</arg>
-<arg>${address}</arg>
-<arg>${known_allergies}</arg>
-<arg>${TPA_ID}</arg>
-<arg>${TPA_Validity}</arg>
-<arg>${ni_number}</arg>
-<arg>${alternate_number}</arg>
-<status status="PASS" start="2024-05-27T01:20:24.798289" elapsed="3.322318"/>
-</kw>
-<kw name="Verify the unsuccessfull addition of new patient" owner="DoctorResources">
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:28.120607" level="INFO">Verifying element 'css:div[class='toast-message'] p' contains exact text 'The Name field is required.'.</msg>
-<arg>${addnewpatient_invalidalert}</arg>
-<arg>The Name field is required.</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-05-27T01:20:28.120607" elapsed="0.375235"/>
-</kw>
-<status status="PASS" start="2024-05-27T01:20:28.120607" elapsed="0.375985"/>
-</kw>
-<arg>patient_name=</arg>
-<arg>guardian_name=krish</arg>
-<arg>dob=05/29/2002</arg>
-<arg>bloodgroup=O+</arg>
-<arg>marital_status=Single</arg>
-<arg>phone_number=9977554433</arg>
-<arg>email=praburam@gmail.com</arg>
-<arg>address=kaveri avenu,amman nager,coimbatore-98</arg>
-<arg>known_allergies=voimiting</arg>
-<arg>TPA_ID=1876548</arg>
-<arg>TPA_Validity=2026-09-01 00:00:00</arg>
-<arg>ni_number=345678</arg>
-<arg>alternate_number=9876543456</arg>
-<status status="PASS" start="2024-05-27T01:20:15.988827" elapsed="12.507765"/>
-</kw>
-<kw name="Close the browser" owner="GenericResources" type="TEARDOWN">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-05-27T01:20:28.496807" elapsed="2.286384"/>
-</kw>
-<status status="PASS" start="2024-05-27T01:20:28.496807" elapsed="2.286384"/>
-</kw>
-<status status="PASS" start="2024-05-27T01:20:09.911318" elapsed="20.871873"/>
-</test>
-<doc>Test case to add new patient in the patient list</doc>
-<status status="PASS" start="2024-05-27T01:20:08.273314" elapsed="22.509877"/>
-</suite>
-<suite id="s1-s2" name="Test Invalid Billsearch" source="C:\Users\KARTHIPRIYA R\OneDrive\Desktop\SmartHospitalGeneralRepository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_Billsearch.robot">
-<test id="s1-s2-t1" name="Unsuccessfull search for a bill using bill number" line="11">
-<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:30.804929" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<arg>Chrome</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2024-05-27T01:20:30.804929" elapsed="2.065211"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-05-27T01:20:32.871098" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
-<arg>${url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-05-27T01:20:32.870669" elapsed="3.494548"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-05-27T01:20:36.365217" elapsed="0.031603"/>
-</kw>
-<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
-<arg>5</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2024-05-27T01:20:36.396820" elapsed="0.003730"/>
-</kw>
-<status status="PASS" start="2024-05-27T01:20:30.804929" elapsed="5.595947"/>
-</kw>
-<kw name="Click the login in button" owner="GenericResources">
+<kw name="click the admin login" owner="LoginResources">
 <kw name="Click Element" owner="SeleniumLibrary">
 <msg time="2024-05-28T10:00:38.026043" level="INFO">Clicking element 'xpath:(//a[@class='forgot pull-right'])[1]'.</msg>
 <arg>${admin_login}</arg>
@@ -272,10 +59,30 @@
 <status status="PASS" start="2024-05-28T10:00:38.026043" elapsed="0.127194"/>
 </kw>
 <status status="PASS" start="2024-05-28T10:00:38.024650" elapsed="0.128587"/>
+=======
+<kw name="Go to user login" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:26.394735" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
+<arg>${User_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T00:16:26.393726" elapsed="1.487407"/>
+</kw>
+<status status="PASS" start="2024-05-29T00:16:26.392848" elapsed="1.488285"/>
+</kw>
+<kw name="Go to admin page" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:27.883124" level="INFO">Clicking link '//a[text()=" Admin Login"]'.</msg>
+<arg>${admin_login_page_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T00:16:27.883124" elapsed="0.147120"/>
+</kw>
+<status status="PASS" start="2024-05-29T00:16:27.882124" elapsed="0.148291"/>
+>>>>>>> Stashed changes
 </kw>
 <kw name="Switch Window" owner="SeleniumLibrary">
 <arg>new</arg>
 <doc>Switches to browser window matching ``locator``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2024-05-28T10:00:38.153237" elapsed="0.026081"/>
 </kw>
 <kw name="click the doctor button" owner="LoginResources">
@@ -286,165 +93,142 @@
 <status status="PASS" start="2024-05-28T10:00:38.179318" elapsed="0.922520"/>
 </kw>
 <status status="PASS" start="2024-05-28T10:00:38.179318" elapsed="0.922520"/>
+=======
+<status status="PASS" start="2024-05-29T00:16:28.031490" elapsed="0.020403"/>
+</kw>
+<kw name="fill the admin login form" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:28.051893" level="INFO">Clicking link '//i[@class="fa fa-user ispace"]//parent::a'.</msg>
+<arg>${admin_login_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T00:16:28.051893" elapsed="0.626757"/>
+</kw>
+<status status="PASS" start="2024-05-29T00:16:28.051893" elapsed="0.626757"/>
+>>>>>>> Stashed changes
 </kw>
 <kw name="Click the signin button" owner="LoginResources">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:39.102840" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<msg time="2024-05-29T00:16:28.681643" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
 <arg>${signin_button}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:39.102840" elapsed="8.507090"/>
+<status status="PASS" start="2024-05-29T00:16:28.681643" elapsed="4.434847"/>
 </kw>
-<status status="PASS" start="2024-05-28T10:00:39.102840" elapsed="8.507090"/>
+<status status="PASS" start="2024-05-29T00:16:28.680644" elapsed="4.435846"/>
 </kw>
-<kw name="click birth record and death record" owner="DoctorResources">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:47.609930" level="INFO">Clicking element 'xpath://a/i[@class='fa fa-birthday-cake']'.</msg>
-<arg>${birth_record_death_record}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:47.609930" elapsed="0.056219"/>
+<kw name="Click the inventory button" owner="AdminResources">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${inventory}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-29T00:16:33.116490" elapsed="0.298683"/>
 </kw>
-<status status="PASS" start="2024-05-28T10:00:47.609930" elapsed="0.057217"/>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:33.415173" level="INFO">Clicking link '//i[@class="fas fa-luggage-cart"]//parent::a'.</msg>
+<arg>${inventory}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T00:16:33.415173" elapsed="0.570950"/>
 </kw>
-<kw name="click birth record" owner="DoctorResources">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:47.667147" level="INFO">Clicking element 'xpath://a[text()= ' Birth Record ']'.</msg>
-<arg>${birth_record}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:47.667147" elapsed="0.712530"/>
+<status status="PASS" start="2024-05-29T00:16:33.116490" elapsed="0.869633"/>
 </kw>
-<status status="PASS" start="2024-05-28T10:00:47.667147" elapsed="0.712530"/>
+<kw name="Verify item stock list page opened" owner="AdminResources">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:33.987619" level="INFO">Verifying element '//div[@class="box-header ptbnull"]//h3' contains exact text 'Item Stock List'.</msg>
+<arg>${item_stockList}</arg>
+<arg>Item Stock List</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-05-29T00:16:33.987619" elapsed="0.054348"/>
 </kw>
-<kw name="click add birth record" owner="DoctorResources">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:48.380694" level="INFO">Clicking element 'xpath://a[@class='btn btn-primary btn-sm birthrecord']'.</msg>
-<arg>${add_birth_record}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:48.380694" elapsed="0.070408"/>
+<status status="PASS" start="2024-05-29T00:16:33.986123" elapsed="0.055844"/>
 </kw>
-<status status="PASS" start="2024-05-28T10:00:48.379677" elapsed="0.073333"/>
+<kw name="Click add stock item" owner="AdminResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:34.042673" level="INFO">Clicking link '//a[@class="btn btn-primary btn-sm additemstock"]'.</msg>
+<arg>${add_item_stock}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T00:16:34.042673" elapsed="0.176311"/>
 </kw>
-<kw name="fill the birth record form" owner="DoctorResources">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:48.453010" level="INFO">Clicking element 'xpath:(//select[@class='form-control'])[1]'.</msg>
-<arg>${Gender_drop_down}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:48.453010" elapsed="0.257154"/>
+<status status="PASS" start="2024-05-29T00:16:34.042673" elapsed="0.177315"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:48.710164" level="INFO">Clicking element 'xpath:(//option[@value='Male'])[1]'.</msg>
-<arg>${Gender_option_male}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:48.710164" elapsed="0.054358"/>
+<kw name="Fill add item stock form" owner="AdminResources">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:34.221990" level="INFO">Selecting options from selection list '(//div[@class="form-group"])[1]//select[@name="item_category_id"]' by label Medical Equipment.</msg>
+<arg>${item_category}</arg>
+<arg>Medical Equipment</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-05-29T00:16:34.221990" elapsed="0.156444"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:48.764522" level="INFO">Typing text '0' into text field 'name:weight'.</msg>
-<arg>${weight_feild}</arg>
-<arg>${weight}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:48.764522" elapsed="0.183967"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:48.948489" level="INFO">Typing text '2024-08-22 00:00:00' into text field 'id:birth_date'.</msg>
-<arg>${birth_date_feild}</arg>
-<arg>${birthDate}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:48.948489" elapsed="0.331704"/>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:34.379338" level="INFO">Selecting options from selection list '(//div[@class="form-group"])[3]//select[@name="supplier_id"]' by label Quick Service.</msg>
+<arg>${supplier}</arg>
+<arg>Quick Service</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-05-29T00:16:34.379338" elapsed="0.061984"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:49.280193" level="INFO">Typing text '934265611' into text field 'id:contact'.</msg>
-<arg>${contact_feild}</arg>
-<arg>${contact}</arg>
+<msg time="2024-05-29T00:16:34.441322" level="INFO">Typing text '10' into text field '(//input[@class="form-control miplusinput"])[1]'.</msg>
+<arg>${quantity}</arg>
+<arg>10</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:49.280193" elapsed="0.273945"/>
+<status status="PASS" start="2024-05-29T00:16:34.441322" elapsed="0.103741"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:34.545063" level="INFO">Selecting options from selection list '(//div[@class="form-group"])[2]//select[@name="item_id"]' by label Syringe Pump.</msg>
+<arg>${item}</arg>
+<arg>Syringe Pump</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-05-29T00:16:34.545063" elapsed="0.198177"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-05-29T00:16:34.743240" level="INFO">Selecting options from selection list '(//div[@class="form-group"])[4]//select[@name="store_id"]' by label Vinay Pharmacy.</msg>
+<arg>${store}</arg>
+<arg>Vinay Pharmacy</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-05-29T00:16:34.743240" elapsed="0.162497"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:49.554138" level="INFO">Typing text 'Salem' into text field 'id:address'.</msg>
-<arg>${adress_feild}</arg>
-<arg>${Address}</arg>
+<msg time="2024-05-29T00:16:34.905737" level="INFO">Typing text '3' into text field '(//input[@class="form-control miplusinput"])[1]'.</msg>
+<arg>${quantity}</arg>
+<arg>3</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:49.554138" elapsed="0.275535"/>
+<status status="PASS" start="2024-05-29T00:16:34.905737" elapsed="0.093582"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:49.830274" level="INFO">Typing text '2222' into text field 'id:case_id'.</msg>
-<arg>${case_id_feild}</arg>
-<arg>${CaseId}</arg>
+<msg time="2024-05-29T00:16:34.999319" level="INFO">Typing text '50' into text field '(//input[@name="purchase_price"])[1]'.</msg>
+<arg>${puchase_price}</arg>
+<arg>text=50</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:49.830274" elapsed="0.216855"/>
+<status status="PASS" start="2024-05-29T00:16:34.999319" elapsed="0.125025"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:50.047129" level="INFO">Typing text 'karmegam' into text field 'id:father_name'.</msg>
-<arg>${fathers_name_feild}</arg>
-<arg>${FathersName}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:50.047129" elapsed="0.225116"/>
+<status status="PASS" start="2024-05-29T00:16:34.220989" elapsed="0.903355"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:50.272245" level="INFO">Typing text 'baby uis fine' into text field 'id:birth_report'.</msg>
-<arg>${b_reports}</arg>
-<arg>${birthReports}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:50.272245" elapsed="0.257676"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-05-28T10:00:50.529921" level="INFO">Clicking button 'id:formaddbtn'.</msg>
-<arg>${save_btn}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-05-28T10:00:50.529921" elapsed="0.143741"/>
-</kw>
-<arg>${Cname}</arg>
-<arg>${weight}</arg>
-<arg>${birthDate}</arg>
-<arg>${Contact}</arg>
-<arg>${Address}</arg>
-<arg>${CaseId}</arg>
-<arg>${FathersName}</arg>
-<arg>${birthReports}</arg>
-<status status="PASS" start="2024-05-28T10:00:48.453010" elapsed="2.220652"/>
-</kw>
-<arg>Cname=dk</arg>
-<arg>weight=0</arg>
-<arg>birthDate=2024-08-22 00:00:00</arg>
-<arg>Contact=934265611</arg>
-<arg>Address=Salem</arg>
-<arg>CaseId=2222</arg>
-<arg>FathersName=karmegam</arg>
-<arg>birthReports=baby uis fine</arg>
-<status status="PASS" start="2024-05-28T10:00:34.000795" elapsed="16.672867"/>
-</kw>
-<kw name="Close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-05-28T10:00:50.681890" elapsed="2.245638"/>
+<status status="PASS" start="2024-05-29T00:16:35.124344" elapsed="2.175799"/>
 </kw>
-<status status="PASS" start="2024-05-28T10:00:50.681890" elapsed="2.245638"/>
+<status status="PASS" start="2024-05-29T00:16:35.124344" elapsed="2.175799"/>
 </kw>
-<tag>regression</tag>
-<status status="PASS" start="2024-05-28T10:00:26.911743" elapsed="26.018020"/>
+<tag>confirmation</tag>
+<status status="PASS" start="2024-05-29T00:16:18.995428" elapsed="18.305944"/>
 </test>
-<doc>To validate Invalid birth record</doc>
-<status status="PASS" start="2024-05-28T10:00:25.908626" elapsed="27.021137"/>
+<doc>To validate successful addition of stock item</doc>
+<status status="PASS" start="2024-05-29T00:16:18.791318" elapsed="18.512374"/>
 </suite>
 <statistics>
 <total>
-<stat pass="14" fail="4" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<<<<<<< Updated upstream
+<stat pass="1" fail="0" skip="0">regression</stat>
 </tag>
 <suite>
-<stat pass="14" fail="4" skip="0" id="s1" name="TestCases">TestCases</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test Invalid Addnewpatient">TestCases.Test Invalid Addnewpatient</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s2" name="Test Invalid Billsearch">TestCases.Test Invalid Billsearch</stat>
-<stat pass="5" fail="0" skip="0" id="s1-s3" name="Test Invalid Doctorlogin">TestCases.Test Invalid Doctorlogin</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s4" name="Test Invalid Languagechange">TestCases.Test Invalid Languagechange</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s5" name="Test Invalid Viewbillsearch">TestCases.Test Invalid Viewbillsearch</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s6" name="Test Valid Addnewpatient">TestCases.Test Valid Addnewpatient</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s7" name="Test Valid Billsearch">TestCases.Test Valid Billsearch</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s8" name="Test Valid Doctorlogin">TestCases.Test Valid Doctorlogin</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s9" name="Test Valid Languagechange">TestCases.Test Valid Languagechange</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s10" name="Test Valid NotificationDelete">TestCases.Test Valid NotificationDelete</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s11" name="Test Valid Payment">TestCases.Test Valid Payment</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s12" name="Test Valid Userlogin">TestCases.Test Valid Userlogin</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s13" name="Test Valid Viewbilldetails">TestCases.Test Valid Viewbilldetails</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test add invalid birth record">Test add invalid birth record</stat>
+=======
+<stat pass="1" fail="0" skip="0">confirmation</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test validAddStockItem">Test validAddStockItem</stat>
+>>>>>>> Stashed changes
 </suite>
 </statistics>
 <errors>

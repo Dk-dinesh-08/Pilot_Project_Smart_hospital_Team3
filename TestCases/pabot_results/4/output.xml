@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T16:58:33.265407" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test Invalid search birth record" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_search_birth_record.robot">
+<test id="s1-s1-t1" name="validate Invalid search birth record" line="12">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:58:33.801844" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T16:58:33.800536" elapsed="10.547200"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:58:44.351754" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T16:58:44.350738" elapsed="29.254720"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T16:59:13.605458" elapsed="0.116674"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T16:59:13.723135" elapsed="0.019839"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:58:33.795406" elapsed="39.947568"/>
+</kw>
+<kw name="click the log in button" owner="GenericResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:13.756036" level="INFO">Clicking element 'xpath://ul[@class="top-right"]//a'.</msg>
+<msg time="2024-05-28T16:59:19.035476" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-28T16:59:19.035476" level="FAIL">Element with locator 'xpath://ul[@class="top-right"]//a' not found.</msg>
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-28T16:59:13.745485" elapsed="5.292512">Element with locator 'xpath://ul[@class="top-right"]//a' not found.</status>
+</kw>
+<status status="FAIL" start="2024-05-28T16:59:13.743977" elapsed="5.294020">Element with locator 'xpath://ul[@class="top-right"]//a' not found.</status>
+</kw>
+<kw name="click the admin login" owner="LoginResources">
+<status status="NOT RUN" start="2024-05-28T16:59:19.037997" elapsed="0.000000"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T16:59:19.037997" elapsed="0.003375"/>
+</kw>
+<kw name="click the doctor button" owner="LoginResources">
+<status status="NOT RUN" start="2024-05-28T16:59:19.042388" elapsed="0.000000"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<status status="NOT RUN" start="2024-05-28T16:59:19.042388" elapsed="0.000000"/>
+</kw>
+<kw name="click birth record and death record" owner="DoctorResources">
+<status status="NOT RUN" start="2024-05-28T16:59:19.043402" elapsed="0.000000"/>
+</kw>
+<kw name="click birth record" owner="DoctorResources">
+<status status="NOT RUN" start="2024-05-28T16:59:19.043402" elapsed="0.000995"/>
+</kw>
+<kw name="Invalid search in birth record" owner="DoctorResources">
+<status status="NOT RUN" start="2024-05-28T16:59:19.044397" elapsed="0.000000"/>
+</kw>
+<kw name="assert the invalid birth and death record" owner="DoctorResources">
+<status status="NOT RUN" start="2024-05-28T16:59:19.045403" elapsed="0.000000"/>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T16:59:19.047388" elapsed="4.487695"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:19.046387" elapsed="4.489712"/>
+</kw>
+<tag>regression</tag>
+<status status="FAIL" start="2024-05-28T16:58:33.795406" elapsed="49.740693">Element with locator 'xpath://ul[@class="top-right"]//a' not found.</status>
+</test>
+<doc>To validate the Login form</doc>
+<status status="FAIL" start="2024-05-28T16:58:33.307150" elapsed="50.230492"/>
+</suite>
+<status status="FAIL" start="2024-05-28T16:58:33.287502" elapsed="50.250140"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">regression</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test Invalid search birth record">TestCases.Test Invalid search birth record</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

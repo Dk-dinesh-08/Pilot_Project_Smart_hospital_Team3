@@ -29,7 +29,6 @@ validate the invalid slot in user appointment
     Fill the user apointment remaining form    ${Message_data}    ${adress}
     choose invalid slot
     save button
-    
 
 
     

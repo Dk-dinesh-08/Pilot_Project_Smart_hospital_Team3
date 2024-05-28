@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T16:58:33.337435" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test Valid Notificationdelete" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Valid_Notificationdelete.robot">
+<test id="s1-s1-t1" name="Sucsessfull deletion of notification message" line="13">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:58:33.820718" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T16:58:33.820718" elapsed="9.769459"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:58:43.592258" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T16:58:43.591229" elapsed="2.580187"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T16:58:46.172426" elapsed="6.318877"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T16:58:52.492306" elapsed="0.006003"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:58:33.820718" elapsed="18.681578"/>
+</kw>
+<kw name="Click the login in button" owner="GenericResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:58:52.517430" level="INFO">Clicking element 'xpath://ul[@class="top-right"]//a'.</msg>
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:58:52.513432" elapsed="5.606480"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:58:52.503300" elapsed="5.618661"/>
+</kw>
+<kw name="Fill the successfull login form by clicking the doctor role" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:58:58.142632" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
+<arg>${admin_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:58:58.141634" elapsed="2.920929"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:01.063557" elapsed="0.263591"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:01.328146" level="INFO">Clicking link 'xpath://a[text()='Doctor']'.</msg>
+<arg>${valid_doctor_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:01.328146" elapsed="0.603463"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:01.939605" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:01.932605" elapsed="7.066307"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:58:58.137615" elapsed="10.861297"/>
+</kw>
+<kw name="Verify the successfull login with valid credentials for doctor" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:09.011961" level="INFO">Clicking link 'css:a[class="dropdown-toggle"]'.</msg>
+<arg>${pofile_icon}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:09.001960" elapsed="0.401975"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${profile_name}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-05-28T16:59:09.404940" elapsed="0.136009"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:09.542945" level="INFO">Verifying element 'css:div[class="sstopuser-test"] h5' contains exact text 'Doctor'.</msg>
+<arg>${profile_name}</arg>
+<arg>Doctor</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-05-28T16:59:09.541942" elapsed="0.129774"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:09.000956" elapsed="0.672753"/>
+</kw>
+<kw name="Delete the all notification message" owner="DoctorResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:09.686749" level="INFO">Clicking link 'xpath://i[@class="fa fa-bell-o"]//parent::a'.</msg>
+<arg>${notification_icon}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:09.685788" elapsed="1.265975"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:10.952765" level="INFO">Clicking button 'xpath://i[@class="fa fa-trash"]//parent::button'.</msg>
+<arg>${delete_notification_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:10.952765" elapsed="0.653253"/>
+</kw>
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:11.607078" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="PASS" start="2024-05-28T16:59:11.606546" elapsed="0.023635"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:09.679753" elapsed="1.950428"/>
+</kw>
+<kw name="Verify sucsessfull deletion of all notification messages" owner="DoctorResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:11.634695" level="INFO">Clicking link 'xpath://i[@class="fa fa-bell-o"]//parent::a'.</msg>
+<arg>${notification_icon}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:11.631680" elapsed="1.124994"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:12.759134" level="INFO">Verifying element 'css:div[class="alert alert-danger"]' contains exact text 'No Record Found'.</msg>
+<msg time="2024-05-28T16:59:13.157416" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-28T16:59:13.158396" level="FAIL">The text of element 'css:div[class="alert alert-danger"]' should have been 'No Record Found' but it was 'ningún record fue encontrado'.</msg>
+<arg>css:div[class="alert alert-danger"]</arg>
+<arg>No Record Found</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2024-05-28T16:59:12.756674" elapsed="0.408729">The text of element 'css:div[class="alert alert-danger"]' should have been 'No Record Found' but it was 'ningún record fue encontrado'.</status>
+</kw>
+<status status="FAIL" start="2024-05-28T16:59:11.631165" elapsed="1.535236">The text of element 'css:div[class="alert alert-danger"]' should have been 'No Record Found' but it was 'ningún record fue encontrado'.</status>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T16:59:13.168396" elapsed="11.303794"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:13.167398" elapsed="11.304792"/>
+</kw>
+<status status="FAIL" start="2024-05-28T16:58:33.820718" elapsed="50.651472">The text of element 'css:div[class="alert alert-danger"]' should have been 'No Record Found' but it was 'ningún record fue encontrado'.</status>
+</test>
+<doc>Test case for valid delete all notification messages</doc>
+<status status="FAIL" start="2024-05-28T16:58:33.393143" elapsed="51.079047"/>
+</suite>
+<status status="FAIL" start="2024-05-28T16:58:33.362011" elapsed="51.110179"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test Valid Notificationdelete">TestCases.Test Valid Notificationdelete</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

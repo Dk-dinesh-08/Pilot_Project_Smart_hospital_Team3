@@ -21,7 +21,7 @@ ${birthReports}
 *** Test Cases ***
 Login test template    ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}	   ${birthReports}
     [Tags]    regression 
-    
+
 
 *** Keywords ***
 validate add birth record

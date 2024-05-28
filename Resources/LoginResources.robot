@@ -24,7 +24,7 @@ ${doctor_button}    xpath:(//a[@class='btn btn-primary width100'])[2]
 ${admin_login}    xpath:(//a[@class='forgot pull-right'])[1]
 ${username_login}    css:input[id='email']
 ${password_login}    css:input[id='password']
-${sigin_btn}         xpath://div[@class="form-bottom"]//button   #//button[text()="Sign In"]
+# ${sigin_btn}         xpath://div[@class="form-bottom"]//button   #//button[text()="Sign In"]
 ${admin_login_page_btn}    //a[text()=" Admin Login"]
 ${doctor_login_btn}    (//a[@class="btn btn-primary width100"])[2]
 ${admin_login_btn}    //i[@class="fa fa-user ispace"]//parent::a
@@ -120,5 +120,13 @@ Fill the login form for doctor
     Click Link    ${doctor_login_btn}
     Sleep     5s
     click the sign in button
+
+Fill the login form
+    [Arguments]    ${username}    ${password}
+    Input Text    ${username_field}    ${username} 
+    Input Password    ${password_field}    ${password}
+    Click Button    ${signin_button}
+    
+
 
 

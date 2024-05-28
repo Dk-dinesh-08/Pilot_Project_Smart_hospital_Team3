@@ -1,0 +1,28 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test valid search birth record :: To validate the valid search bi...
+==============================================================================
+validate add birth record                                               
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_valid_search_birth_record.robot:12
+    T:  validate add birth record    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_valid_search_birth_record.robot:21
+      click birth record    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\DoctorResources.robot:191
+      Click Element    ${birth_record}
+      |  ${birth_record} = xpath://a[text()= ' Birth Record '] (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://a[text()= ' Birth Record ']' not found.
+------------------------------------------------------------------------------
+TestCases.Test valid search birth record :: To validate the valid ... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\28\output.xml

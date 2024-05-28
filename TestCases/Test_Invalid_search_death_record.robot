@@ -18,7 +18,7 @@ validate Invalid search death record
     click the sign In button
     click birth record and death record
     click death record
-    Search value in death record
+    Invalid value in death record
     assert the invalid birth and death record   
     
     

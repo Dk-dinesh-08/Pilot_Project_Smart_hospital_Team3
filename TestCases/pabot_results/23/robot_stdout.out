@@ -1,0 +1,31 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test invalidSendMsg :: Tests to login to login page                 
+==============================================================================
+To validate queue functionality of appoinment option :: To verify ...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalidSendMsg.robot:21
+    T:  To validate queue functionality of appoinment option    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalidSendMsg.robot:28
+      To validate queue functionality of appoinment option    Doctor=4    Shift=3    Date=05-22-2024    Slot=56
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalidSendMsg.robot:37
+      Click the Queue button    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\AdminResources.robot:99
+      Click Button    ${queue_button}
+      |  ${queue_button} = (//div[@class="box-tools pull-right"])//a[3] (str)
+______________________________________________________________________________
+| FAIL |
+Button with locator '(//div[@class="box-tools pull-right"])//a[3]' not found.
+------------------------------------------------------------------------------
+TestCases.Test invalidSendMsg :: Tests to login to login page         | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\23\output.xml
