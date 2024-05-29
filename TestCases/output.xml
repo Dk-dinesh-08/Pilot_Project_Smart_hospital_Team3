@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-29T07:05:49.717024" rpa="false" schemaversion="5">
+<suite id="s1" name="Test invalidPatientSearch" source="C:\Users\91989\Desktop\final_copy\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalidPatientSearch.robot">
+<test id="s1-t1" name="To verify unsucessful search of patient list" line="18">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:05:50.038899" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-29T07:05:50.038899" elapsed="2.961939"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:05:53.001727" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-29T07:05:53.001231" elapsed="0.863743"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-29T07:05:53.865470" elapsed="2.248853"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-29T07:05:56.114847" elapsed="0.009759"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:05:50.038899" elapsed="6.087902"/>
+</kw>
+<kw name="Go to user login" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:05:56.128281" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
+<arg>${User_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:05:56.128281" elapsed="1.928093"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:05:56.127786" elapsed="1.928588"/>
+</kw>
+<kw name="Go to admin page" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:05:58.056374" level="INFO">Clicking link '//a[text()=" Admin Login"]'.</msg>
+<arg>${admin_login_page_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:05:58.056374" elapsed="0.424468"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:05:58.056374" elapsed="0.424468"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:05:58.490300" elapsed="0.040512"/>
+</kw>
+<kw name="fill the admin login form" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:05:58.539802" level="INFO">Clicking link '//i[@class="fa fa-user ispace"]//parent::a'.</msg>
+<arg>${admin_login_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:05:58.539303" elapsed="0.707893"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:05:58.538674" elapsed="0.710201"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:05:59.264829" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:05:59.263769" elapsed="4.380126"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:05:59.262841" elapsed="4.381054"/>
+</kw>
+<kw name="Enter patient name" owner="AdminResources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:03.647479" level="INFO">Typing text '1234' into text field '//input[@class="form-control search-form search-form3"]'.</msg>
+<arg>${patient_search}</arg>
+<arg>${patient_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:03.647009" elapsed="0.301572"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:03.952856" level="INFO">Clicking element '(//button[@class="btn btn-flat"]/i)[1]'.</msg>
+<arg>${patient_search_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:03.950573" elapsed="2.038181"/>
+</kw>
+<arg>${invalid_patient_name}</arg>
+<status status="PASS" start="2024-05-29T07:06:03.645837" elapsed="2.342917"/>
+</kw>
+<kw name="Verify invalid patient search results" owner="AdminResources">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:05.993489" level="INFO">Verifying element '//div[@class="dataTables_info"]' contains exact text 'Records: 0 to 0 of 0'.</msg>
+<arg>${search_result}</arg>
+<arg>Records: 0 to 0 of 0</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-05-29T07:06:05.992714" elapsed="0.121510"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:05.992218" elapsed="0.122006"/>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-29T07:06:06.118285" elapsed="2.779290"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:06.117291" elapsed="2.780284"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2024-05-29T07:05:50.038402" elapsed="18.859173"/>
+</test>
+<test id="s1-t2" name="To verify unsucessful search of patient list using blank entry" line="30">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:08.897575" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-29T07:06:08.897575" elapsed="2.946369"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:11.844827" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-29T07:06:11.844151" elapsed="3.970469"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-29T07:06:15.815116" elapsed="0.084886"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-29T07:06:15.900002" elapsed="0.006368"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:08.897575" elapsed="7.009483"/>
+</kw>
+<kw name="Go to user login" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:15.910593" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
+<arg>${User_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:15.909214" elapsed="3.196989"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:15.908221" elapsed="3.198575"/>
+</kw>
+<kw name="Go to admin page" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:19.108461" level="INFO">Clicking link '//a[text()=" Admin Login"]'.</msg>
+<arg>${admin_login_page_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:19.107965" elapsed="0.374267"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:19.107469" elapsed="0.375259"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:19.489494" elapsed="0.040596"/>
+</kw>
+<kw name="fill the admin login form" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:19.534075" level="INFO">Clicking link '//i[@class="fa fa-user ispace"]//parent::a'.</msg>
+<arg>${admin_login_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:19.530090" elapsed="1.132149"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:19.530090" elapsed="1.132637"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:20.669184" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:20.669184" elapsed="6.416886"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:20.669184" elapsed="6.416886"/>
+</kw>
+<kw name="Enter patient name" owner="AdminResources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:27.091277" level="INFO">Typing text '' into text field '//input[@class="form-control search-form search-form3"]'.</msg>
+<arg>${patient_search}</arg>
+<arg>${patient_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:27.091277" elapsed="0.304638"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:27.395915" level="INFO">Clicking element '(//button[@class="btn btn-flat"]/i)[1]'.</msg>
+<arg>${patient_search_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-29T07:06:27.395915" elapsed="1.131729"/>
+</kw>
+<arg>${blank_patient_name}</arg>
+<status status="PASS" start="2024-05-29T07:06:27.090777" elapsed="1.436867"/>
+</kw>
+<kw name="Verify invalid search results" owner="AdminResources">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-29T07:06:28.527644" level="INFO">Verifying element '//div[@class="dataTables_info"]' contains exact text 'Records: 1 to 100 of 149'.</msg>
+<arg>${search_result}</arg>
+<arg>${invalid_patient_search_txt}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-05-29T07:06:28.527644" elapsed="0.445652"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:28.527644" elapsed="0.445652"/>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-29T07:06:28.973296" elapsed="2.718740"/>
+</kw>
+<status status="PASS" start="2024-05-29T07:06:28.973296" elapsed="2.718740"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2024-05-29T07:06:08.897575" elapsed="22.794461"/>
+</test>
+<doc>Tests to verify sucessful search of patient list</doc>
+<status status="PASS" start="2024-05-29T07:05:49.722188" elapsed="41.969848"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Test invalidPatientSearch">Test invalidPatientSearch</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

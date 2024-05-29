@@ -98,6 +98,18 @@ ${Pathologist_check_box}    (//input[@type="checkbox"])[8]
 ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${verification_text_invalid}    The Send Through field is required.
+<<<<<<< Updated upstream
+=======
+${sms_body}    Hiiii all
+${template_id}    MSGID0001
+${title}    Gropu message to doctor,Pathologist,Pharmacy
+
+
+
+${unsuccessful_msg}    (//span[@class="text-danger"])[3]/p
+${unsuccessful_msg_text}    The Notice Date field is required.
+
+>>>>>>> Stashed changes
  
 *** Keywords ***
 
@@ -308,4 +320,44 @@ Fill the send SMS form using invalid details
     Click Element    ${Pathologist_check_box}
     Click Element    ${Pharmacist_check_box}
     Click Button    ${send_sms_btn}
+<<<<<<< Updated upstream
     
+=======
+
+Fill the send SMS form withought clicking send through 
+    Input Text    ${sms_title}    ${title}
+    Input Text    ${sms_template}    ${template_id}
+    Input Text    ${text_area}    ${sms_body}
+    Click Element    ${admin_check_box}
+    Click Element    ${doctor_check_box}
+    Click Element    ${Pathologist_check_box}
+    Click Element    ${Pharmacist_check_box}
+    Click Button    ${send_sms_btn}
+
+
+Fill post new message form using invalid notification date
+        Input Text    ${title_locator}    To my friend
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${publish_on}    05/30/2024
+
+Fill post new message form using invalid title
+        
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${notice_date}    05/29/2024
+        Input Text    ${publish_on}    05/30/2024
+
+    
+Verify unsuccessful msg sent using invalid notification date
+    Element Text Should Be    ${unsuccessful_msg}    ${unsuccessful_msg_text}
+
+Verify unsuccessful msg sent using invalid title
+    Element Text Should Be    (//span[@class="text-danger"])/p    The Title field is required.
+    
+
+>>>>>>> Stashed changes

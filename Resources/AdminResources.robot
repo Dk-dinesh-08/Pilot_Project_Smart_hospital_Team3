@@ -32,6 +32,7 @@ ${search_button}    //button[@class="btn btn-primary btn-sm pull-right"]
 #for valid doctor wise search results
 ${verify_text}   Records: 0 to 0 of 0
 ${search_result}     //div[@class="dataTables_info"]  
+${invalid_patient_search_txt}                 Records: 1 to 100 of 149
 
 #for form Queue search
 ${select_doctor_field}    (//select[@class="form-control select2"])[1]
@@ -50,7 +51,6 @@ ${queue_text}    No Record Found
 ${patient_search}    //input[@class="form-control search-form search-form3"]
 ${patient_search_button}    (//button[@class="btn btn-flat"]/i)[1]
 ${table_value}    (//a[@class="btn btn-default btn-xs"])[1]
-
 #add stock item
 ${inventory}    //i[@class="fas fa-luggage-cart"]//parent::a
 ${item_stockList}    //div[@class="box-header ptbnull"]//h3
@@ -66,6 +66,7 @@ ${save_btn}    //button[@id="form1btn"]
 
 
 
+${error_msg_loc}    //div[@class="toast-message"]/p
 
 *** Keywords ***
 Fill the appointment wise search form
@@ -183,3 +184,48 @@ Click the save button
 Verify item added to stock
     Element Text Should Be    //td/a    Syringe Pump
 
+<<<<<<< Updated upstream
+=======
+Verify doctor wise appoinment search
+    Wait Until Page Contains Element    ${search_result}
+    Element Text Should Be   ${search_result}    ${verify_text}
+
+
+Verify invalid search results 
+    Element Text Should Be   ${search_result}    ${invalid_patient_search_txt}
+
+Verify invalid patient search results 
+    Element Text Should Be   ${search_result}   Records: 0 to 0 of 0
+
+
+Fill add item stock form without purchase price
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Input Text    ${quantity}    10   
+    Select From List By Label    ${item}    Syringe Pump
+    Select From List By Label    ${store}    Vinay Pharmacy
+    Input Text    ${quantity}    3
+
+
+verify add item stock form without purchase price
+    Element Text Should Be    ${error_msg_loc}  The Purchase Price field is required.
+
+
+Fill add item stock form without quantity
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Select From List By Label    ${item}    Syringe Pump
+    Select From List By Label    ${store}    Vinay Pharmacy
+    
+
+verify add item stock form without quantity
+    Element Text Should Be  ${error_msg_loc}  The Quantity field is required.
+
+Fill add item stock form without supplier sore
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Input Text    ${quantity}    10   
+    Select From List By Label    ${item}    Syringe Pump
+    Input Text    ${quantity}    3
+    Input Text    ${puchase_price}    text=50
+>>>>>>> Stashed changes
