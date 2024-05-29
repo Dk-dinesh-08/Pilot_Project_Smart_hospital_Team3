@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T16:59:29.449509" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test add valid death record" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_add_valid_death_record.robot">
+<test id="s1-s1-t1" name="Login test template" line="17">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:33.250095" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T16:59:33.250095" elapsed="6.731676"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:39.983775" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T16:59:39.981771" elapsed="9.154420"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T16:59:49.136191" elapsed="0.444775"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T16:59:49.581965" elapsed="0.007555"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:33.250095" elapsed="16.340405"/>
+</kw>
+<kw name="validate add death record">
+<kw name="click the log in button" owner="GenericResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:49.601075" level="INFO">Clicking element 'xpath://ul[@class="top-right"]//a'.</msg>
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:49.597507" elapsed="3.329179"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:49.594500" elapsed="3.333178"/>
+</kw>
+<kw name="click the admin login" owner="LoginResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:52.930686" level="INFO">Clicking element 'xpath:(//a[@class='forgot pull-right'])[1]'.</msg>
+<arg>${admin_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:52.929672" elapsed="1.092604"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:52.927678" elapsed="1.094598"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:54.024812" elapsed="1.095898"/>
+</kw>
+<kw name="click the doctor button" owner="LoginResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:55.121748" level="INFO">Clicking element 'xpath:(//a[@class='btn btn-primary width100'])[2]'.</msg>
+<arg>${doctor_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.121748" elapsed="1.519810"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:55.121221" elapsed="1.521360"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:56.645581" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:56.644588" elapsed="4.958752"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:56.643585" elapsed="4.959755"/>
+</kw>
+<kw name="click birth record and death record" owner="DoctorResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:01.605339" level="INFO">Clicking element 'xpath://a/i[@class='fa fa-birthday-cake']'.</msg>
+<arg>${birth_record_death_record}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:01.604338" elapsed="0.147958"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:01.603340" elapsed="0.148956"/>
+</kw>
+<kw name="click death record" owner="DoctorResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:01.754443" level="INFO">Clicking element 'xpath://a[text()= ' Death Record']'.</msg>
+<msg time="2024-05-28T17:00:06.936910" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-28T17:00:06.936910" level="FAIL">Element with locator 'xpath://a[text()= ' Death Record']' not found.</msg>
+<arg>${death_record}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-28T17:00:01.753297" elapsed="5.186641">Element with locator 'xpath://a[text()= ' Death Record']' not found.</status>
+</kw>
+<status status="FAIL" start="2024-05-28T17:00:01.753297" elapsed="5.187650">Element with locator 'xpath://a[text()= ' Death Record']' not found.</status>
+</kw>
+<kw name="click add death record" owner="DoctorResources">
+<status status="NOT RUN" start="2024-05-28T17:00:06.940947" elapsed="0.000996"/>
+</kw>
+<kw name="fill the death record form" owner="DoctorResources">
+<arg>${caseID}</arg>
+<arg>${DeathDate}</arg>
+<arg>${DeathReports}</arg>
+<status status="NOT RUN" start="2024-05-28T17:00:06.941943" elapsed="0.000000"/>
+</kw>
+<arg>caseID=Dennis Coates	</arg>
+<arg>DeathDate=2024-05-29 00:00:00</arg>
+<arg>DeathReports=Dennis Coates</arg>
+<status status="FAIL" start="2024-05-28T16:59:49.592492" elapsed="17.351448">Element with locator 'xpath://a[text()= ' Death Record']' not found.</status>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T17:00:06.944940" elapsed="2.594503"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:06.943940" elapsed="2.595503"/>
+</kw>
+<tag>regression</tag>
+<status status="FAIL" start="2024-05-28T16:59:33.248455" elapsed="36.290988">Element with locator 'xpath://a[text()= ' Death Record']' not found.</status>
+</test>
+<status status="FAIL" start="2024-05-28T16:59:29.546805" elapsed="39.994639"/>
+</suite>
+<status status="FAIL" start="2024-05-28T16:59:29.490295" elapsed="40.053148"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">regression</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test add valid death record">TestCases.Test add valid death record</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

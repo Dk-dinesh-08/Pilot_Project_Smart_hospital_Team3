@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T16:59:30.519003" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test delete appointment" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_delete_appointment.robot">
+<test id="s1-s1-t1" name="validate appointment history" line="13">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:31.627012" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T16:59:31.626008" elapsed="5.846620"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:37.473629" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T16:59:37.472628" elapsed="3.675311"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T16:59:41.147939" elapsed="0.306406"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T16:59:41.456348" elapsed="0.022161"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:31.621473" elapsed="9.858053"/>
+</kw>
+<kw name="click the log in button" owner="GenericResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:41.485522" level="INFO">Clicking element 'xpath://ul[@class="top-right"]//a'.</msg>
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:41.483523" elapsed="3.243036"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:41.480524" elapsed="3.247033"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:44.735109" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:44.729554" elapsed="6.797802"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:44.728555" elapsed="6.799804"/>
+</kw>
+<kw name="click the my appointment button" owner="UserResources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${My_appointment_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-28T16:59:51.530375" elapsed="0.482280"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:52.016203" level="INFO">Clicking element 'css:i[class='fas fa-hospital-alt']'.</msg>
+<arg>${My_appointment_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:52.013650" elapsed="2.342357"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:51.528359" elapsed="2.829658"/>
+</kw>
+<kw name="cancel appointment button" owner="UserResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:54.381119" level="INFO">Clicking element 'css:i[class='fa fa-trash']'.</msg>
+<arg>${Cancel_appointment_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:54.363015" elapsed="0.388070"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:54.360033" elapsed="0.392050"/>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T16:59:54.754078" elapsed="7.531386"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:54.753079" elapsed="7.532385"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2024-05-28T16:59:31.618474" elapsed="30.666990"/>
+</test>
+<doc>To validate delete appointment</doc>
+<status status="PASS" start="2024-05-28T16:59:30.585530" elapsed="31.701936"/>
+</suite>
+<status status="PASS" start="2024-05-28T16:59:30.551910" elapsed="31.737554"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test delete appointment">TestCases.Test delete appointment</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

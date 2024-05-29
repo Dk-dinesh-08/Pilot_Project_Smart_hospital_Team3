@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T17:00:51.203455" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test validAppionmentSearch" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_validAppionmentSearch.robot">
+<test id="s1-s1-t1" name="To verify valid appionment search doctor wise" line="14">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:51.974330" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T17:00:51.972279" elapsed="2.231074"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:54.205687" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T17:00:54.204872" elapsed="4.962203"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T17:00:59.168087" elapsed="0.403733"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T17:00:59.571820" elapsed="0.092686"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:51.970280" elapsed="7.694226"/>
+</kw>
+<kw name="Go to user login" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:59.669508" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
+<arg>${User_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:59.666506" elapsed="2.846708"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:59.665511" elapsed="2.847703"/>
+</kw>
+<kw name="Go to admin page" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:02.515215" level="INFO">Clicking link '//a[text()=" Admin Login"]'.</msg>
+<arg>${admin_login_page_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:02.514215" elapsed="0.956249"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:02.513214" elapsed="0.958456"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:03.471670" elapsed="0.077125"/>
+</kw>
+<kw name="fill the admin login form" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:03.550792" level="INFO">Clicking link '//i[@class="fa fa-user ispace"]//parent::a'.</msg>
+<arg>${admin_login_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:03.550792" elapsed="1.166996"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:03.549791" elapsed="1.169037"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:04.729314" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:04.721780" elapsed="4.374539"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:04.719805" elapsed="4.376514"/>
+</kw>
+<kw name="Click Appoinment link" owner="AdminResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:09.098318" level="INFO">Clicking link '//ul[@class="sidebar-menu verttop"]//li[3]/a'.</msg>
+<arg>${appoinment_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:09.097321" elapsed="1.060998"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:09.096319" elapsed="1.062000"/>
+</kw>
+<kw name="Click the Appoinment wise search button" owner="AdminResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:10.160845" level="INFO">Clicking link '(//a[@class="btn btn-primary btn-sm"])[1]'.</msg>
+<arg>${doctor_wise_search_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:10.159897" elapsed="0.986210"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:10.159897" elapsed="0.987227"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-28T17:01:11.151659" level="INFO">${option_to_select} = Sonia Bush (9002)</msg>
+<var>${option_to_select}</var>
+<arg>Sonia Bush (9002)</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-28T17:01:11.147637" elapsed="0.005031"/>
+</kw>
+<kw name="Fill the appointment wise search form" owner="AdminResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:11.160243" level="INFO">Clicking element 'span[id='select2-doctor-container']'.</msg>
+<msg time="2024-05-28T17:01:16.357619" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-28T17:01:16.358618" level="FAIL">Element with locator 'span[id='select2-doctor-container']' not found.</msg>
+<arg>${doctor_field}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-28T17:01:11.155183" elapsed="5.207435">Element with locator 'span[id='select2-doctor-container']' not found.</status>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<var>${list_of_elements}</var>
+<arg>//span[@class="select2-results"]//li</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:16.367266" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<var>${options_texts}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:16.368273" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:16.369270" elapsed="0.000998"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${options_texts}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:16.370268" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${text}' == '${doctor_name}'</arg>
+<arg>Click Element</arg>
+<arg>${element}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:16.371282" elapsed="0.000000"/>
+</kw>
+<var name="${element}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:16.369270" elapsed="0.002012"/>
+</iter>
+<var>${element}</var>
+<value>@{list_of_elements}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:16.369270" elapsed="0.002012"/>
+</for>
+<arg>${option_to_select}</arg>
+<status status="FAIL" start="2024-05-28T17:01:11.154170" elapsed="5.219059">Element with locator 'span[id='select2-doctor-container']' not found.</status>
+</kw>
+<kw name="Enter the date feild" owner="AdminResources">
+<status status="NOT RUN" start="2024-05-28T17:01:16.375245" elapsed="0.000000"/>
+</kw>
+<kw name="Click the search button" owner="AdminResources">
+<status status="NOT RUN" start="2024-05-28T17:01:16.376239" elapsed="0.000000"/>
+</kw>
+<kw name="Verify doctor wise appoinment search" owner="AdminResources">
+<status status="NOT RUN" start="2024-05-28T17:01:16.377242" elapsed="0.000000"/>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T17:01:16.378745" elapsed="2.545344"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:16.378621" elapsed="2.545468"/>
+</kw>
+<doc>To verify search results of patients with respect to doctor and date</doc>
+<tag>smoke</tag>
+<status status="FAIL" start="2024-05-28T17:00:51.967284" elapsed="26.956805">Element with locator 'span[id='select2-doctor-container']' not found.</status>
+</test>
+<doc>To verify valid appionment search doctor wise</doc>
+<status status="FAIL" start="2024-05-28T17:00:51.285491" elapsed="27.638598"/>
+</suite>
+<status status="FAIL" start="2024-05-28T17:00:51.238132" elapsed="27.685957"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test validAppionmentSearch">TestCases.Test validAppionmentSearch</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

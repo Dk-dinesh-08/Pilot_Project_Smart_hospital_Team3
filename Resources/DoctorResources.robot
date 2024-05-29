@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    A Doctor page resource file with reusable keywords and variables.
 Library    SeleniumLibrary
+Library     Collections
 
 *** Variables ***
 #Home page 
@@ -10,9 +11,8 @@ ${IPD_in_patient}    xpath://i[@class="fas fa-procedures"]//parent::a
 ${notification_icon}    xpath://i[@class="fa fa-bell-o"]//parent::a
 ${language_icon}    xpath://button[@class="btn dropdown-toggle selectpicker btn-default"]
 ${betstatus_icon}    xpath://i[@class="fas fa-bed cal15"]//parent::a
-
 ${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
-
+${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
 ${valid_hindi_language}    xpath://a[normalize-space()='Hindi']
 ${invalid_hindi_language}    xpath://a[normalize-space()='Spanish']
 #add new patient form
@@ -34,7 +34,6 @@ ${TPA_validity_field}    css:input[name="validity"]
 ${national_identity_number_field}    css:input[name="identification_number"]
 ${alternate_number_field}    css:input[id="custom_fields[patient][3]"]
 ${save_button}    css:button[id="formaddpabtn"]
-
 ${addnewpatient_validalert}    css:div[class='toast-message']
 ${addnewpatient_invalidalert}    css:div[class='toast-message'] p
 #betstatus
@@ -44,6 +43,7 @@ ${patientSelect_field}    xpath://span[@class="select2-selection select2-selecti
 ${patientinput_field}    css:input[class="select2-search__field"]
 ${consultant_select_field}    xpath://span[@class="select2-selection select2-selection--single" and @aria-labelledby="select2-consultant_doctor-container"]
 ${bed_status_save_button}    css:button[id="formaddbtn"]
+
 ${add_death_record}    xpath://a[@class='btn btn-primary btn-sm deathrecord']
 ${add_birth_record}    xpath://a[@class='btn btn-primary btn-sm birthrecord']
 ${birth_record_death_record}    xpath://a/i[@class='fa fa-birthday-cake']
@@ -107,8 +107,24 @@ ${doctor_check_box}    (//input[@type="checkbox"])[6]
 ${Pathologist_check_box}    (//input[@type="checkbox"])[8]
 ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
+${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
 ${doctal_consultant_select}    xpath://select[@id='consultant_doctor']
 ${patient_name}    xpath://li[@class='select2-results__option select2-results__option--highlighted']
+${verification_text_invalid}    The Send Through field is required.
+${sms_body}    Hiiii all
+${template_id}    MSGID0001
+${title}    Gropu message to doctor,Pathologist,Pharmacy
+${verification_text_invalid}    The Send Through field is required.
+${sms_body}    Hiiii all
+${template_id}    MSGID0001
+${title}    Gropu message to doctor,Pathologist,Pharmacy
+
+
+
+${unsuccessful_msg}    (//span[@class="text-danger"])[3]/p
+${unsuccessful_msg_text}    The Notice Date field is required.
+
+ 
 *** Keywords ***
 
 Change the valid system language
@@ -178,7 +194,6 @@ Verify the successfull adding of new patient
 
 Verify the unsuccessfull addition of new patient
     Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required. 
-
 
 Successfull update of the bed status
     Click Link    ${betstatus_icon}
@@ -266,6 +281,7 @@ assert the birth record search
 search value in death record
     Input Text    ${search_in_birthRate}   Dennis Coates
 
+
 Invalid value in death record
     Input Text    ${search_in_birthRate}   dinesh
 
@@ -332,3 +348,66 @@ Fill the send SMS form
 
 To assert sucessfully message sent
     Element Text Should Be    ${assert_sms}    ${verification_text}
+
+check the alert for invalid add death record
+    Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
+    Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
+
+    
+
+To verify the unsucessful message sent
+    Element Text Should Be    ${assert_sms}    The Send Through field is required.
+
+To verify the sucessful message sent
+    Element Text Should Be    ${assert_sms}    Record Saved Successfully
+To verify the unsucessful message sent
+    Element Text Should Be    ${assert_sms}    ${verification_text}
+
+
+Fill the send SMS form using invalid details
+    Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy
+    Input Text    ${sms_template}    MSGID0001
+    # Click Element    ${sms_checkbox}
+    Input Text    ${text_area}    Hiiii all
+    Click Element    ${admin_check_box}
+    Click Element    ${doctor_check_box}
+    Click Element    ${Pathologist_check_box}
+    Click Element    ${Pharmacist_check_box}
+    Click Button    ${send_sms_btn}
+
+
+Fill the send SMS form withought clicking send through 
+    Input Text    ${sms_title}    ${title}
+    Input Text    ${sms_template}    ${template_id}
+    Input Text    ${text_area}    ${sms_body}
+    Click Element    ${admin_check_box}
+    Click Element    ${doctor_check_box}
+    Click Element    ${Pathologist_check_box}
+    Click Element    ${Pharmacist_check_box}
+    Click Button    ${send_sms_btn}
+
+
+Fill post new message form using invalid notification date
+        Input Text    ${title_locator}    To my friend
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${publish_on}    05/30/2024
+
+Fill post new message form using invalid title
+        
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${notice_date}    05/29/2024
+        Input Text    ${publish_on}    05/30/2024
+
+    
+Verify unsuccessful msg sent using invalid notification date
+    Element Text Should Be    ${unsuccessful_msg}    ${unsuccessful_msg_text}
+
+Verify unsuccessful msg sent using invalid title
+    Element Text Should Be    (//span[@class="text-danger"])/p    The Title field is required.
+    

@@ -22,6 +22,5 @@ Successfull addition of new patient
     LoginResources.Fill the successfull login form by clicking the doctor role
     LoginResources.Verify the successfull login with valid credentials for doctor
     DoctorResources.Addition of new patient in the IPD inpatient with valid Credentials    ${patient_name}    ${guardian_name}    ${dob}    ${bloodgroup}    ${marital_status}    ${phone_number}    ${email}    ${address}    ${known_allergies}    ${TPA_ID}    ${TPA_Validity}    ${ni_number}    ${alternate_number}
-    DoctorResources.Verify the successfull adding of new patient
 
 

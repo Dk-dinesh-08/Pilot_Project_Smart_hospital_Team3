@@ -1,0 +1,1939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T16:59:30.395127" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test appointment history" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_appointment_history.robot">
+<test id="s1-s1-t1" name="validate appointment history" line="13">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:31.396026" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T16:59:31.396026" elapsed="7.714854"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:39.112880" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T16:59:39.111879" elapsed="0.748535"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T16:59:39.861408" elapsed="3.268683"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T16:59:43.131083" elapsed="0.005547"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:31.394007" elapsed="11.742623"/>
+</kw>
+<kw name="click the log in button" owner="GenericResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:43.139621" level="INFO">Clicking element 'xpath://ul[@class="top-right"]//a'.</msg>
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:43.138619" elapsed="2.595514"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:43.137628" elapsed="2.596505"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:45.736130" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:45.736130" elapsed="7.115753"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:45.735136" elapsed="7.117752"/>
+</kw>
+<kw name="click the my appointment button" owner="UserResources">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${My_appointment_button}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-28T16:59:52.854886" elapsed="0.365240"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:53.221119" level="INFO">Clicking element 'css:i[class='fas fa-hospital-alt']'.</msg>
+<arg>${My_appointment_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:53.221119" elapsed="2.082053"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:52.853905" elapsed="2.449267"/>
+</kw>
+<kw name="Collect and count list of history" owner="UserResources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-28T16:59:55.305166" level="INFO">${table_xpath} = //div[@id='DataTables_Table_0_wrapper']//table</msg>
+<var>${table_xpath}</var>
+<arg>//div[@id='DataTables_Table_0_wrapper']//table</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.305166" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${table_xpath}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.307190" elapsed="0.080926"/>
+</kw>
+<msg time="2024-05-28T16:59:55.388116" level="INFO">${table_visible} = True</msg>
+<var>${table_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${table_xpath}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.305166" elapsed="0.082950"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${table_visible}</arg>
+<arg>Fail</arg>
+<arg>Element '${table_xpath}' not visible after ${timeout}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.389131" elapsed="0.000000"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T16:59:55.427747" level="INFO">${rows} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.85")&gt;, &lt;selenium.webdriv...</msg>
+<var>${rows}</var>
+<arg>${table_xpath}//tbody//tr</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.390131" elapsed="0.037616"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T16:59:55.429748" level="INFO">${table_data} = []</msg>
+<var>${table_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.428753" elapsed="0.000995"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:00.474175" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T16:59:55.431261" elapsed="5.042914"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:00.475174" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:00.475174" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:00.477172" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:00.477172" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:00.476174" elapsed="0.000998"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:00.476174" elapsed="0.001996"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:00.478170" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.85")&gt;</var>
+<status status="PASS" start="2024-05-28T16:59:55.429748" elapsed="5.048422"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:05.491314" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:00.479170" elapsed="5.012144"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:05.492314" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:05.491314" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:05.493315" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:05.493315" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:05.492314" elapsed="0.001001"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:05.492314" elapsed="0.001001"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:05.493315" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.86")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:00.479170" elapsed="5.015145"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:10.554970" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:05.494315" elapsed="5.060655"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:10.555978" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:10.554970" elapsed="0.001008"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:10.558982" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:10.560009" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:10.557986" elapsed="0.003012"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:10.555978" elapsed="0.005020"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:10.560998" elapsed="0.001000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.87")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:05.494315" elapsed="5.067683"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:15.584012" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:10.561998" elapsed="5.022014"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:15.588009" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:15.585999" elapsed="0.002010"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:15.591013" elapsed="0.000995"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:15.592008" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:15.590000" elapsed="0.002008"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:15.588009" elapsed="0.004993"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:15.593002" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.88")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:10.561998" elapsed="5.032005"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:20.643905" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:15.595030" elapsed="5.048875"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:20.644903" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:20.643905" elapsed="0.000998"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:20.646903" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:20.646903" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:20.645900" elapsed="0.002015"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:20.645900" elapsed="0.003001"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:20.648901" elapsed="0.001001"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.89")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:15.594003" elapsed="5.055899"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:25.793936" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:20.651416" elapsed="5.143526"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:25.795936" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:25.794942" elapsed="0.000994"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:25.798940" elapsed="0.000999"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:25.799939" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:25.798940" elapsed="0.002000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:25.795936" elapsed="0.005004"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:25.800940" elapsed="0.000997"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.90")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:20.649902" elapsed="5.152035"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:31.107158" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:25.801937" elapsed="5.306225"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:31.109157" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:31.108162" elapsed="0.000995"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:31.111157" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:31.112156" elapsed="0.001001"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:31.110158" elapsed="0.002999"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:31.110158" elapsed="0.002999"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:31.114154" elapsed="0.003015"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.91")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:25.801937" elapsed="5.315232"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:36.180486" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:31.117169" elapsed="5.063317"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:36.183496" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:36.182488" elapsed="0.001008"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:36.185488" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:36.185488" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:36.184488" elapsed="0.001000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:36.183496" elapsed="0.001992"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:36.186485" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.92")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:31.117169" elapsed="5.069316"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:41.213570" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:36.187485" elapsed="5.026085"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:41.214571" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:41.213570" elapsed="0.002000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:41.216586" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:41.216586" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:41.215570" elapsed="0.002006"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:41.215570" elapsed="0.002006"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:41.217576" elapsed="0.001000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.93")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:36.186485" elapsed="5.032091"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:46.289557" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:41.218576" elapsed="5.070981"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.291067" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.291067" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:46.292081" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:46.293078" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:46.292081" elapsed="0.000997"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:46.291067" elapsed="0.002011"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.293078" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.94")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:41.218576" elapsed="5.075502"/>
+</iter>
+<var>${row}</var>
+<value>@{rows}</value>
+<status status="PASS" start="2024-05-28T16:59:55.429748" elapsed="50.864330"/>
+</for>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.295078" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.294078" elapsed="0.001000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.294078" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.296080" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.295078" elapsed="0.001002"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.295078" elapsed="0.001002"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.297080" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.297080" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.296080" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.298079" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.297080" elapsed="0.000999"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.297080" elapsed="0.000999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.299080" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.298079" elapsed="0.001001"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.298079" elapsed="0.001001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.299080" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.299080" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.299080" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.300310" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.300310" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.299080" elapsed="0.001230"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.301311" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.300310" elapsed="0.001001"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.300310" elapsed="0.001001"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.301311" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.301311" elapsed="0.000999"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.301311" elapsed="0.000999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.302310" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.302310" elapsed="0.001019"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:00:46.302310" elapsed="0.001019"/>
+</iter>
+<var>${row}</var>
+<value>@{table_data}</value>
+<status status="PASS" start="2024-05-28T17:00:46.294078" elapsed="0.009251"/>
+</for>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.303329" level="INFO">Length is 10.</msg>
+<msg time="2024-05-28T17:00:46.303329" level="INFO">${row_count} = 10</msg>
+<var>${row_count}</var>
+<arg>${table_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.303329" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.304310" level="INFO">Number of rows: 10</msg>
+<arg>Number of rows: ${row_count}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.304310" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-28T16:59:55.304170" elapsed="51.000140"/>
+</kw>
+<kw name="Next page button" owner="UserResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:46.305308" level="INFO">Clicking element 'xpath:(//a[@class='paginate_button '])[1]'.</msg>
+<arg>${next_page_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.305308" elapsed="0.100287"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:46.304310" elapsed="0.101285"/>
+</kw>
+<kw name="Collect and count list of history" owner="UserResources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.407599" level="INFO">${table_xpath} = //div[@id='DataTables_Table_0_wrapper']//table</msg>
+<var>${table_xpath}</var>
+<arg>//div[@id='DataTables_Table_0_wrapper']//table</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.407599" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${table_xpath}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.408600" elapsed="0.042552"/>
+</kw>
+<msg time="2024-05-28T17:00:46.451152" level="INFO">${table_visible} = True</msg>
+<var>${table_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${table_xpath}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.408600" elapsed="0.042552"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${table_visible}</arg>
+<arg>Fail</arg>
+<arg>Element '${table_xpath}' not visible after ${timeout}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.451152" elapsed="0.001515"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:46.474531" level="INFO">${rows} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.101")&gt;, &lt;selenium.webdri...</msg>
+<var>${rows}</var>
+<arg>${table_xpath}//tbody//tr</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.453197" elapsed="0.021334"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:46.475533" level="INFO">${table_data} = []</msg>
+<var>${table_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.475533" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:51.536229" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:46.477531" elapsed="5.058698"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:51.536229" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:51.536229" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:51.537232" elapsed="0.001004"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:51.538236" elapsed="0.001000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:51.537232" elapsed="0.002004"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:51.537232" elapsed="0.002004"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:51.539236" elapsed="0.001006"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.101")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:46.476530" elapsed="5.063712"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:56.563925" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:51.541731" elapsed="5.022194"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:00:56.566958" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:00:56.563925" elapsed="0.004027"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:56.568967" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:00:56.569952" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:00:56.568967" elapsed="0.000985"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:00:56.567952" elapsed="0.002000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:00:56.569952" elapsed="0.001000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.102")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:51.541731" elapsed="5.029221"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:01.777821" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:56.571951" elapsed="5.205870"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:01.779813" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:01.778811" elapsed="0.001002"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:01.788817" elapsed="0.004000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:01.794814" elapsed="0.001013"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:01.781828" elapsed="0.014990"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:01.779813" elapsed="0.017005"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:01.797822" elapsed="0.002000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.103")&gt;</var>
+<status status="PASS" start="2024-05-28T17:00:56.570952" elapsed="5.229867"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:07.009928" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:01.801813" elapsed="5.208115"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:07.011474" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:07.010939" elapsed="0.000535"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:07.012532" elapsed="0.001026"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:07.014556" elapsed="0.000995"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:07.012010" elapsed="0.004067"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:07.011474" elapsed="0.004603"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:07.017115" elapsed="0.000989"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.104")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:01.800819" elapsed="5.217285"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:12.127721" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:07.019103" elapsed="5.108618"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:12.128721" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:12.127721" elapsed="0.001000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:12.129720" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:12.130719" elapsed="0.002314"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:12.129720" elapsed="0.003313"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:12.128721" elapsed="0.004312"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:12.133033" elapsed="0.001479"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.105")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:07.019103" elapsed="5.115409"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:17.228903" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:12.135528" elapsed="5.093375"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:17.229907" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:17.228903" elapsed="0.001004"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:17.231921" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:17.232924" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:17.230905" elapsed="0.002019"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:17.229907" elapsed="0.003017"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:17.232924" elapsed="0.000998"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.106")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:12.134512" elapsed="5.099410"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:22.282047" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:17.234920" elapsed="5.047127"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:22.282047" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:22.282047" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:22.282047" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:22.282047" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:22.282047" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:22.282047" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:22.282047" elapsed="0.015647"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.107")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:17.234920" elapsed="5.062774"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:27.353419" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:22.297694" elapsed="5.055725"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:27.353419" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:27.353419" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:27.353419" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:27.353419" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:27.353419" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:27.353419" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:27.353419" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.108")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:22.297694" elapsed="5.055725"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:32.366827" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:27.353419" elapsed="5.013408"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:32.366827" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:32.366827" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:32.366827" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:32.366827" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:32.366827" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:32.366827" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:32.366827" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.109")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:27.353419" elapsed="5.013408"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:32.366827" elapsed="5.026901"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.110")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:32.366827" elapsed="5.026901"/>
+</iter>
+<var>${row}</var>
+<value>@{rows}</value>
+<status status="PASS" start="2024-05-28T17:00:46.476530" elapsed="50.917198"/>
+</for>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.393728" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.011605"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.405333" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.405333" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.405333" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</iter>
+<var>${row}</var>
+<value>@{table_data}</value>
+<status status="PASS" start="2024-05-28T17:01:37.393728" elapsed="0.011605"/>
+</for>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.405333" level="INFO">Length is 10.</msg>
+<msg time="2024-05-28T17:01:37.405333" level="INFO">${row_count} = 10</msg>
+<var>${row_count}</var>
+<arg>${table_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.405333" level="INFO">Number of rows: 10</msg>
+<arg>Number of rows: ${row_count}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.405333" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:46.406597" elapsed="50.998736"/>
+</kw>
+<kw name="The next page button" owner="UserResources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:37.409953" level="INFO">Clicking element 'xpath://a[text()='3']'.</msg>
+<arg>${The_next_page_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.409953" elapsed="0.093778"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:37.409953" elapsed="0.093778"/>
+</kw>
+<kw name="Collect and count list of history" owner="UserResources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.503731" level="INFO">${table_xpath} = //div[@id='DataTables_Table_0_wrapper']//table</msg>
+<var>${table_xpath}</var>
+<arg>//div[@id='DataTables_Table_0_wrapper']//table</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.503731" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${table_xpath}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.505595" elapsed="0.031630"/>
+</kw>
+<msg time="2024-05-28T17:01:37.537225" level="INFO">${table_visible} = True</msg>
+<var>${table_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${table_xpath}</arg>
+<arg>timeout=${timeout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.503731" elapsed="0.033494"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${table_visible}</arg>
+<arg>Fail</arg>
+<arg>Element '${table_xpath}' not visible after ${timeout}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.537225" elapsed="0.000000"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:37.553130" level="INFO">${rows} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.113")&gt;, &lt;selenium.webdri...</msg>
+<var>${rows}</var>
+<arg>${table_xpath}//tbody//tr</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.537225" elapsed="0.015905"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:37.553130" level="INFO">${table_data} = []</msg>
+<var>${table_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.553130" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:42.610490" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:37.553130" elapsed="5.057360"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:42.610490" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:42.610490" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:42.610490" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:42.610490" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:42.610490" elapsed="0.004112"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:42.610490" elapsed="0.004112"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:42.614602" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.113")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:37.553130" elapsed="5.061472"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:47.687255" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:42.614602" elapsed="5.072653"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:47.687255" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:47.687255" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:47.687255" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:47.687255" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:47.687255" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:47.687255" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:47.687255" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.114")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:42.614602" elapsed="5.072653"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:52.736924" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:47.687255" elapsed="5.049669"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:52.736924" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:52.736924" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:52.736924" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:52.736924" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:52.736924" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:52.736924" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:52.736924" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.115")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:47.687255" elapsed="5.049669"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:01:57.786934" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:52.736924" elapsed="5.050010"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:01:57.786934" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:01:57.786934" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:57.786934" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:01:57.786934" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:01:57.786934" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:01:57.786934" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:01:57.786934" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.116")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:52.736924" elapsed="5.050010"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:02:02.810823" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:01:57.786934" elapsed="5.023889"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:02:02.810823" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:02:02.810823" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:02.810823" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:02.810823" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:02:02.810823" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:02:02.810823" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:02:02.810823" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.117")&gt;</var>
+<status status="PASS" start="2024-05-28T17:01:57.786934" elapsed="5.023889"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:02:07.822754" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:02:02.816869" elapsed="5.005885"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:02:07.822754" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:02:07.822754" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:07.822754" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:07.822754" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:02:07.822754" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:02:07.822754" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:02:07.822754" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.118")&gt;</var>
+<status status="PASS" start="2024-05-28T17:02:02.810823" elapsed="5.019283"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:02:12.847520" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:02:07.831209" elapsed="5.016311"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:02:12.847520" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:02:12.847520" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:12.847520" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:12.847520" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:02:12.847520" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:02:12.847520" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:02:12.847520" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.119")&gt;</var>
+<status status="PASS" start="2024-05-28T17:02:07.830634" elapsed="5.016886"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:02:17.922111" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:02:12.847520" elapsed="5.074732"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:02:17.922437" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:02:17.922437" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:17.922437" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:17.922437" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:02:17.922437" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:02:17.922437" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:02:17.922437" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.120")&gt;</var>
+<status status="PASS" start="2024-05-28T17:02:12.847520" elapsed="5.074917"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:02:22.938744" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:02:17.922437" elapsed="5.016307"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:02:22.938744" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:02:22.938744" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:22.938744" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:22.938744" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:02:22.938744" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:02:22.938744" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:02:22.938744" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.121")&gt;</var>
+<status status="PASS" start="2024-05-28T17:02:17.922437" elapsed="5.016307"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:02:27.971565" level="INFO">${cols} = []</msg>
+<var>${cols}</var>
+<arg>${row}//td</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:02:22.938744" elapsed="5.032821"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.971565" level="INFO">${row_data} = []</msg>
+<var>${row_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${cell_text}</var>
+<arg>${col}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${row_data}</arg>
+<arg>${cell_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<var name="${col}"/>
+<status status="NOT RUN" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</iter>
+<var>${col}</var>
+<value>@{cols}</value>
+<status status="NOT RUN" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</for>
+<kw name="Append To List" owner="Collections">
+<arg>${table_data}</arg>
+<arg>${row_data}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<var name="${row}">&lt;selenium.webdriver.remote.webelement.WebElement (session="8dd704a200654b32c1ccc3ca0f80df6d", element="f.4711983ACDB2FA7A6C55357BA152DAB0.d.D9759B7D61035D1BF24BFB5BD1DC1A2E.e.122")&gt;</var>
+<status status="PASS" start="2024-05-28T17:02:22.938744" elapsed="5.032821"/>
+</iter>
+<var>${row}</var>
+<value>@{rows}</value>
+<status status="PASS" start="2024-05-28T17:01:37.553130" elapsed="50.418435"/>
+</for>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.971565" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.971565" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.971565" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.971565" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.971565" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.980817" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980201" elapsed="0.000616"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.980201" elapsed="0.000616"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.980817" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.980817" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.980817" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.980817" level="INFO">[]</msg>
+<arg>${row}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</kw>
+<var name="${row}">[]</var>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</iter>
+<var>${row}</var>
+<value>@{table_data}</value>
+<status status="PASS" start="2024-05-28T17:02:27.971565" elapsed="0.009252"/>
+</for>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.980817" level="INFO">Length is 10.</msg>
+<msg time="2024-05-28T17:02:27.980817" level="INFO">${row_count} = 10</msg>
+<var>${row_count}</var>
+<arg>${table_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-28T17:02:27.980817" level="INFO">Number of rows: 10</msg>
+<arg>Number of rows: ${row_count}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:01:37.503731" elapsed="50.477086"/>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="2.216315"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:02:27.980817" elapsed="2.216315"/>
+</kw>
+<tag>smoke</tag>
+<status status="PASS" start="2024-05-28T16:59:31.392990" elapsed="178.804142"/>
+</test>
+<doc>To validate appointment history</doc>
+<status status="PASS" start="2024-05-28T16:59:30.464894" elapsed="179.732238"/>
+</suite>
+<status status="PASS" start="2024-05-28T16:59:30.426342" elapsed="179.770790"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test appointment history">TestCases.Test appointment history</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
