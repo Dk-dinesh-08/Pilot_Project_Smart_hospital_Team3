@@ -1,4 +1,4 @@
-* Settings *
+*** Settings ***
 Documentation    To verify succesful queue search  
 Library    SeleniumLibrary
 Library    DataDriver    file=../TestData/QueueSearch_ValidData.xlsx    sheet_name=Sheet1
@@ -10,7 +10,7 @@ Resource    ../Resources/LoginResources.robot
 Test Template    To validate succesful queue search
 
 
-* Variables *
+*** Variables ***
 
 ${Doctor} 
 ${Shift}
@@ -18,14 +18,16 @@ ${Date}
 ${Slot}  
 
 
-* Test Cases *
+
+
+*** Test Cases ***
 
 To validate succesful queue search     ${Doctor}    ${Shift}    ${Date}    ${Slot}   
     [Tags]    regression 
     [Documentation]   To verify search results of patient list
      
     
-* Keywords *
+*** Keywords ***
 
 To validate succesful queue search
     

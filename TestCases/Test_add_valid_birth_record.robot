@@ -31,6 +31,7 @@ validate add birth record
     Switch Window     new
     click the doctor button
     click the sign In button
+    #click accept in alert
     click birth record and death record
     click birth record
     click add birth record

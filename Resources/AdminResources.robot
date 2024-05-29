@@ -17,6 +17,10 @@ ${slot_field}    select[id=slot]
 ${date_field}    input[id=datetimepicker]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
 ${doctor_wise_appionment_btn}    //a[@href="https://demo.smart-hospital.in/admin/onlineappointment/patientschedule"]
+${queue_button}    (//div[@class="box-tools pull-right"])//a[3]
+${login_password}    css:input[id='loginpassword']
+${login_btn}    xpath://button[text()='Log in']
+${close_btn}    xpath://div[@id="logInModal"]/div/div/div[3]/button[1]
 ${doctor_field}   //span[@class='select2-selection__rendered']
 ${date_field}    //input[@name="date"]
 ${search_button}    //button[@class="btn btn-primary btn-sm pull-right"]
@@ -24,7 +28,9 @@ ${shift_field}    select[id="global_shift"]
 ${slot_locator}    //select[@id="slot"]
 ${date_field}    input[id=datetimepicker]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
+
 ${doctor_wise_search_btn}    (//a[@class="btn btn-primary btn-sm"])[1]
+
 ${login_password}    css:input[id='loginpassword']
 ${login_btn}    xpath://button[text()='Log in']
 ${close_btn}    xpath://div[@id="logInModal"]/div/div/div[3]/button[1]
@@ -33,6 +39,13 @@ ${date_fld}    //input[@name="date"]
 ${search_button}    //button[@class="btn btn-primary btn-sm pull-right"]
 ${verify_text}    Records: 1 to 1 of 1
 ${search_result}     //div[@class="dataTables_info"]  
+
+
+
+#for valid doctor wise search results
+${verify_text}   Records: 0 to 0 of 0
+${search_result}     //div[@class="dataTables_info"]  
+${invalid_patient_search_txt}                 Records: 1 to 100 of 149
 
 #for form Queue search
 ${select_doctor_field}    (//select[@class="form-control select2"])[1]
@@ -50,7 +63,6 @@ ${queue_text}    No Record Found
 ${patient_search}    //input[@class="form-control search-form search-form3"]
 ${patient_search_button}    (//button[@class="btn btn-flat"]/i)[1]
 ${table_value}    (//a[@class="btn btn-default btn-xs"])[1]
-
 #add stock item
 ${inventory}    //i[@class="fas fa-luggage-cart"]//parent::a
 ${item_stockList}    //div[@class="box-header ptbnull"]//h3
@@ -70,6 +82,8 @@ ${invalid_search_text}    The Doctor field is required.
 
 
 
+${error_msg_loc}    //div[@class="toast-message"]/p
+
 *** Keywords ***
 Fill the appointment wise search form
     [Arguments]    ${doctor_name}   
@@ -85,6 +99,12 @@ Fill the appointment wise search form
 Enter the date feild
     Click Element  ${date_in_appointment}      
     Input Text    ${date_in_appointment}    ${date_value}
+    # Log    ${options_texts}
+    # Log To Console    ${options_texts}
+    
+    # Click Element    ${date_fld}
+    Input Text    ${date_fld}    ${date} 
+
        
 
 Click the search button
@@ -100,13 +120,27 @@ Click the Appoinment wise search button
 Verify patient queue page opens
     Element Text Should Not Be    .box-title.titlefix    Patient Queue
 
-Verify doctor wise appoinment search for invalid doctor name
-   Element Text Should Be   ${invalid_search_loc}    ${invalid_search_text}
 
 
 Click Appoinment link
     Click Link    ${appoinment_link}
 
+
+# Fill the Queue form
+#     [Arguments]     ${doctor_name}  ${shift}  ${date}    ${slot}    
+#     Select From List By Label    ${doctor_name}
+#     Select From List By Label    ${shift}
+#     Select From List By Label    ${date}
+#     Select From List By Label    ${slot}
+#     Click Button    ${search_button}
+
+
+Verify doctor wise appoinment search
+   Element Text Should Be   //div[text()="Records: 0 to 0 of 0"]      Records: 0 to 0 of 0  # ${verify_text}
+   Sleep    10s
+
+Verify doctor wise appoinment search for invalid doctor name
+   Element Text Should Be    ${search_result}    ${verify_text}
 
 
 Fill the Queue form
@@ -169,6 +203,49 @@ Click the save button
 Verify item added to stock
     Element Text Should Be    //td/a    Syringe Pump
 
+
 Verify doctor wise appoinment search
     Wait Until Page Contains Element    ${search_result}
     Element Text Should Be   ${search_result}    ${verify_text}
+
+
+
+
+Verify invalid search results 
+    Element Text Should Be   ${search_result}    ${invalid_patient_search_txt}
+
+Verify invalid patient search results 
+    Element Text Should Be   ${search_result}   Records: 0 to 0 of 0
+
+
+Fill add item stock form without purchase price
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Input Text    ${quantity}    10   
+    Select From List By Label    ${item}    Syringe Pump
+    Select From List By Label    ${store}    Vinay Pharmacy
+    Input Text    ${quantity}    3
+
+
+verify add item stock form without purchase price
+    Element Text Should Be    ${error_msg_loc}  The Purchase Price field is required.
+
+
+Fill add item stock form without quantity
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Select From List By Label    ${item}    Syringe Pump
+    Select From List By Label    ${store}    Vinay Pharmacy
+    
+
+verify add item stock form without quantity
+    Element Text Should Be  ${error_msg_loc}  The Quantity field is required.
+
+Fill add item stock form without supplier sore
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Input Text    ${quantity}    10   
+    Select From List By Label    ${item}    Syringe Pump
+    Input Text    ${quantity}    3
+    Input Text    ${puchase_price}    text=50
+

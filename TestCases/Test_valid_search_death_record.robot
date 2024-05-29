@@ -20,7 +20,6 @@ validate add birth record
     click birth record and death record
     click death record
     Search value in death record
-
     
     
 

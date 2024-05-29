@@ -9,7 +9,11 @@ Resource    ../Resources/AdminResources.robot
 Resource    ../Resources/LoginResources.robot
 Test Template    To validate queue functionality of appoinment option
 
-
+*** Variables ***
+${Doctor} 
+${Shift}   
+${Date}  
+${Slot}
 
 *** Test Cases ***
 
@@ -21,6 +25,7 @@ To validate queue functionality of appoinment option     ${Doctor}    ${Shift}  
 *** Keywords ***
 
 To validate queue functionality of appoinment option
+    
     [Arguments]    ${Doctor}    ${Shift}    ${Date}    ${Slot}
     LoginResources.Go to user login
     LoginResources.Go to admin page

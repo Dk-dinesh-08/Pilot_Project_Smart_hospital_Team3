@@ -85,6 +85,10 @@ Verify the successfull view of the bill details
     Wait Until Element Is Visible    ${view_detail_assert}
     Element Text Should Be    ${view_detail_assert}    Bill No : PHARMAB307
 
+verify the unsuccessfull view of the bill details
+    Wait Until Element Is Visible    ${view_detail_assert}
+    Element Text Should Not Be    ${view_detail_assert}    Bill No : PHARMAB307
+
 Successfull payment for the bill
     Click Button    ${pay_button}
     Click Button    ${add_pay_button}
