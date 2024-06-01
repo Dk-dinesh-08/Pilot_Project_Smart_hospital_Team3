@@ -4,6 +4,7 @@ Library    SeleniumLibrary
 Library     Collections
 
 *** Variables ***
+#Home page 
 ${Dashboard}    css:i[class="fas fa-television"]
 ${Appointment}    xpath://i[@class='fa fa-calendar-check-o']//following-sibling::span
 ${IPD_in_patient}    xpath://i[@class="fas fa-procedures"]//parent::a
@@ -14,6 +15,7 @@ ${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
 ${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
 ${valid_hindi_language}    xpath://a[normalize-space()='Hindi']
 ${invalid_hindi_language}    xpath://a[normalize-space()='Spanish']
+#add new patient form
 ${add_patient_button}    css:a[id="addp"]
 ${new_patient_button}    css:a[id="addpip"]
 ${name_field}    css:input[id="name"]
@@ -34,6 +36,14 @@ ${alternate_number_field}    css:input[id="custom_fields[patient][3]"]
 ${save_button}    css:button[id="formaddpabtn"]
 ${addnewpatient_validalert}    css:div[class='toast-message']
 ${addnewpatient_invalidalert}    css:div[class='toast-message'] p
+#betstatus
+${bed_145}    xpath://div[text()='FF - 145']
+${Addmision_date}    css:input[id="admission_date"]
+${patientSelect_field}    xpath://span[@class="select2-selection select2-selection--single" and @aria-labelledby="select2-addpatient_id-container"]
+${patientinput_field}    css:input[class="select2-search__field"]
+${consultant_select_field}    xpath://span[@class="select2-selection select2-selection--single" and @aria-labelledby="select2-consultant_doctor-container"]
+${bed_status_save_button}    css:button[id="formaddbtn"]
+
 ${add_death_record}    xpath://a[@class='btn btn-primary btn-sm deathrecord']
 ${add_birth_record}    xpath://a[@class='btn btn-primary btn-sm birthrecord']
 ${birth_record_death_record}    xpath://a/i[@class='fa fa-birthday-cake']
@@ -97,9 +107,14 @@ ${doctor_check_box}    (//input[@type="checkbox"])[6]
 ${Pathologist_check_box}    (//input[@type="checkbox"])[8]
 ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
+${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
+${doctal_consultant_select}    xpath://select[@id='consultant_doctor']
+${patient_name}    xpath://li[@class='select2-results__option select2-results__option--highlighted']
 ${verification_text_invalid}    The Send Through field is required.
-<<<<<<< Updated upstream
-=======
+${sms_body}    Hiiii all
+${template_id}    MSGID0001
+${title}    Gropu message to doctor,Pathologist,Pharmacy
+${verification_text_invalid}    The Send Through field is required.
 ${sms_body}    Hiiii all
 ${template_id}    MSGID0001
 ${title}    Gropu message to doctor,Pathologist,Pharmacy
@@ -109,7 +124,6 @@ ${title}    Gropu message to doctor,Pathologist,Pharmacy
 ${unsuccessful_msg}    (//span[@class="text-danger"])[3]/p
 ${unsuccessful_msg_text}    The Notice Date field is required.
 
->>>>>>> Stashed changes
  
 *** Keywords ***
 
@@ -181,6 +195,34 @@ Verify the successfull adding of new patient
 Verify the unsuccessfull addition of new patient
     Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required. 
 
+Successfull update of the bed status
+    Click Link    ${betstatus_icon}
+    Click Element    ${bed_145}
+    Click Element    ${patientSelect_field}
+    Input Text    ${patientinput_field}   Evander  
+    Click Element    ${patient_name}
+    Click Element    ${Addmision_date}
+    Select From List By Value   ${doctal_consultant_select}     11    
+    Click Button    ${bed_status_save_button}
+
+Unsuccessfull update of the bed status
+    Click Link    ${betstatus_icon}
+    Click Element    ${bed_145}
+    Click Element    ${patientSelect_field}
+    Input Text    ${patientinput_field}   Olivier  
+    Click Element    ${patient_name}
+    Click Element    ${Addmision_date}
+    Select From List By Value   ${doctal_consultant_select}     11    
+    Click Button    ${bed_status_save_button}
+
+Verify the successfull updation of the bed status
+    Wait Until Element Is Visible    css:div[class="toast-message"] 
+    Element Text Should Be    css:div[class="toast-message"]    Patient Added Successfully
+
+Verify the unsuccessfull updation of the bed status
+    Wait Until Element Is Visible    css:div[class="toast-message"] 
+    Element Text Should Not Be    css:div[class="toast-message"]    Patient Added Successfully
+
 fill the birth record form
     [Arguments]     ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}    ${birthReports}	 
     Click Element   ${Gender_drop_down}
@@ -238,6 +280,7 @@ assert the birth record search
 
 search value in death record
     Input Text    ${search_in_birthRate}   Dennis Coates
+
 
 Invalid value in death record
     Input Text    ${search_in_birthRate}   dinesh
@@ -306,6 +349,17 @@ Fill the send SMS form
 To assert sucessfully message sent
     Element Text Should Be    ${assert_sms}    ${verification_text}
 
+check the alert for invalid add death record
+    Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
+    Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
+
+    
+
+To verify the unsucessful message sent
+    Element Text Should Be    ${assert_sms}    The Send Through field is required.
+
+To verify the sucessful message sent
+    Element Text Should Be    ${assert_sms}    Record Saved Successfully
 To verify the unsucessful message sent
     Element Text Should Be    ${assert_sms}    ${verification_text}
 
@@ -320,9 +374,7 @@ Fill the send SMS form using invalid details
     Click Element    ${Pathologist_check_box}
     Click Element    ${Pharmacist_check_box}
     Click Button    ${send_sms_btn}
-<<<<<<< Updated upstream
-    
-=======
+
 
 Fill the send SMS form withought clicking send through 
     Input Text    ${sms_title}    ${title}
@@ -359,5 +411,3 @@ Verify unsuccessful msg sent using invalid notification date
 Verify unsuccessful msg sent using invalid title
     Element Text Should Be    (//span[@class="text-danger"])/p    The Title field is required.
     
-
->>>>>>> Stashed changes

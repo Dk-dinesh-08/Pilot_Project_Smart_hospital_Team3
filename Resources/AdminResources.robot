@@ -6,6 +6,17 @@ Library    Collections
 *** Variables ***
 ${appoinment_link}    //ul[@class="sidebar-menu verttop"]//li[3]/a
 ${doctor_wise_appionment_btn}    (//div[@class="box-tools pull-right"])//a
+${queue_button}      (//div[@class="box-tools pull-right"])//a[3]
+${login_password}    css:input[id='loginpassword']
+${login_btn}    xpath://button[text()='Log in']
+${close_btn}    xpath://div[@id="logInModal"]/div/div/div[3]/button[1]
+${date_field}    //input[@name="date"]
+${search_button}    //button[@class="btn btn-primary btn-sm pull-right"]
+${shift_field}    select[id="global_shift"]
+${slot_field}    select[id=slot]
+${date_field}    input[id=datetimepicker]
+${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
+${doctor_wise_appionment_btn}    //a[@href="https://demo.smart-hospital.in/admin/onlineappointment/patientschedule"]
 ${queue_button}    (//div[@class="box-tools pull-right"])//a[3]
 ${login_password}    css:input[id='loginpassword']
 ${login_btn}    xpath://button[text()='Log in']
@@ -26,6 +37,8 @@ ${close_btn}    xpath://div[@id="logInModal"]/div/div/div[3]/button[1]
 ${doctor_field}    //span[@class="select2-selection__arrow"]
 ${date_fld}    //input[@name="date"]
 ${search_button}    //button[@class="btn btn-primary btn-sm pull-right"]
+${verify_text}    Records: 1 to 1 of 1
+${search_result}     //div[@class="dataTables_info"]  
 
 
 
@@ -36,7 +49,6 @@ ${invalid_patient_search_txt}                 Records: 1 to 100 of 149
 
 #for form Queue search
 ${select_doctor_field}    (//select[@class="form-control select2"])[1]
-${queue_button}    (//div[@class="box-tools pull-right"])//a[3]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
 ${queue_doctor_field}    select[id=doctor]    #//select[@name="doctor"]
 ${select_shift_field}    (//select[@class="form-control select2"])[2]
@@ -63,6 +75,10 @@ ${quantity}    (//input[@class="form-control miplusinput"])[1]
 ${puchase_price}    (//input[@name="purchase_price"])[1]
 ${date}    //input[@value="05/26/2024"]
 ${save_btn}    //button[@id="form1btn"]
+${date_in_appointment}    xpath://input[@class='form-control date']
+${date_value}    05/16/2024
+${invalid_search_loc}    (//span[@class="text-danger"])[1]    
+${invalid_search_text}    The Doctor field is required.
 
 
 
@@ -70,7 +86,7 @@ ${error_msg_loc}    //div[@class="toast-message"]/p
 
 *** Keywords ***
 Fill the appointment wise search form
-    [Arguments]    ${doctor_name}    ${date}
+    [Arguments]    ${doctor_name}   
     Click Element    ${doctor_field}
     ${list_of_elements}=    Get WebElements    //span[@class="select2-results"]//li
     ${options_texts}=    Create List
@@ -80,6 +96,9 @@ Fill the appointment wise search form
          Run Keyword If    '${text}' == '${doctor_name}'      Click Element    ${element}
          
     END
+Enter the date feild
+    Click Element  ${date_in_appointment}      
+    Input Text    ${date_in_appointment}    ${date_value}
     # Log    ${options_texts}
     # Log To Console    ${options_texts}
     
@@ -94,12 +113,12 @@ Click the search button
 Click the Queue button
     Click Link    ${queue_button}
 
+
 Click the Appoinment wise search button
     Click Link   ${doctor_wise_search_btn}
 
 Verify patient queue page opens
     Element Text Should Not Be    .box-title.titlefix    Patient Queue
-
 
 
 
@@ -184,11 +203,12 @@ Click the save button
 Verify item added to stock
     Element Text Should Be    //td/a    Syringe Pump
 
-<<<<<<< Updated upstream
-=======
+
 Verify doctor wise appoinment search
     Wait Until Page Contains Element    ${search_result}
     Element Text Should Be   ${search_result}    ${verify_text}
+
+
 
 
 Verify invalid search results 
@@ -228,4 +248,4 @@ Fill add item stock form without supplier sore
     Select From List By Label    ${item}    Syringe Pump
     Input Text    ${quantity}    3
     Input Text    ${puchase_price}    text=50
->>>>>>> Stashed changes
+

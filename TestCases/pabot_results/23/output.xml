@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T17:00:07.654009" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test invalidSendMsg" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalidSendMsg.robot">
+<test id="s1-s1-t1" name="To validate queue functionality of appoinment option" line="21">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:09.802861" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T17:00:09.801852" elapsed="4.110494"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:13.914354" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T17:00:13.912346" elapsed="2.980708"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T17:00:16.893054" elapsed="0.075244"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T17:00:16.969331" elapsed="0.005003"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:09.799857" elapsed="7.175461"/>
+</kw>
+<kw name="To validate queue functionality of appoinment option">
+<kw name="Go to user login" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:16.979860" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
+<arg>${User_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:16.978898" elapsed="2.318456"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:16.977319" elapsed="2.320035"/>
+</kw>
+<kw name="Go to admin page" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:19.301682" level="INFO">Clicking link '//a[text()=" Admin Login"]'.</msg>
+<arg>${admin_login_page_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:19.299679" elapsed="1.482263"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:19.298355" elapsed="1.483587"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:20.781942" elapsed="0.016090"/>
+</kw>
+<kw name="fill the admin login form" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:20.801097" level="INFO">Clicking link '//i[@class="fa fa-user ispace"]//parent::a'.</msg>
+<arg>${admin_login_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:20.799047" elapsed="0.780809"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:20.799047" elapsed="0.781794"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:21.587385" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:21.585388" elapsed="5.806063"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:21.584369" elapsed="5.808077"/>
+</kw>
+<kw name="Click Appoinment link" owner="AdminResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:27.396444" level="INFO">Clicking link '//ul[@class="sidebar-menu verttop"]//li[3]/a'.</msg>
+<arg>${appoinment_link}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:27.395444" elapsed="1.393804"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:27.393451" elapsed="1.398791"/>
+</kw>
+<kw name="Click the Queue button" owner="AdminResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:28.795243" level="INFO">Clicking button '(//div[@class="box-tools pull-right"])//a[3]'.</msg>
+<msg time="2024-05-28T17:00:29.670596" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-28T17:00:29.670596" level="FAIL">Button with locator '(//div[@class="box-tools pull-right"])//a[3]' not found.</msg>
+<arg>${queue_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2024-05-28T17:00:28.794245" elapsed="0.889460">Button with locator '(//div[@class="box-tools pull-right"])//a[3]' not found.</status>
+</kw>
+<status status="FAIL" start="2024-05-28T17:00:28.793243" elapsed="0.890462">Button with locator '(//div[@class="box-tools pull-right"])//a[3]' not found.</status>
+</kw>
+<kw name="Fill the Queue form" owner="AdminResources">
+<arg>${Doctor}</arg>
+<arg>${Shift}</arg>
+<arg>${Date}</arg>
+<arg>${Slot}</arg>
+<status status="NOT RUN" start="2024-05-28T17:00:29.684706" elapsed="0.000000"/>
+</kw>
+<kw name="click search button for queue" owner="AdminResources">
+<status status="NOT RUN" start="2024-05-28T17:00:29.684706" elapsed="0.001000"/>
+</kw>
+<kw name="Verify results for queue search" owner="AdminResources">
+<status status="NOT RUN" start="2024-05-28T17:00:29.685706" elapsed="0.000000"/>
+</kw>
+<arg>Doctor=4</arg>
+<arg>Shift=3</arg>
+<arg>Date=05-22-2024</arg>
+<arg>Slot=56</arg>
+<status status="FAIL" start="2024-05-28T17:00:16.976315" elapsed="12.709391">Button with locator '(//div[@class="box-tools pull-right"])//a[3]' not found.</status>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T17:00:29.687704" elapsed="10.352209"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:29.686701" elapsed="10.354223"/>
+</kw>
+<doc>To verify search results of patient list</doc>
+<tag>smoke</tag>
+<status status="FAIL" start="2024-05-28T17:00:09.793973" elapsed="30.246951">Button with locator '(//div[@class="box-tools pull-right"])//a[3]' not found.</status>
+</test>
+<doc>Tests to login to login page</doc>
+<status status="FAIL" start="2024-05-28T17:00:07.704445" elapsed="32.339476"/>
+</suite>
+<status status="FAIL" start="2024-05-28T17:00:07.671875" elapsed="32.374196"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test invalidSendMsg">TestCases.Test invalidSendMsg</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

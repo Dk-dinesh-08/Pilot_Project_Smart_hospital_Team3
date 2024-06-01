@@ -17,7 +17,6 @@ ${DeathReports}
 *** Test Cases ***
 Login test template    ${caseID}    ${DeathDate}    ${DeathReports}
 
-
 *** Keywords ***
 validate add death record
     [Arguments]    ${caseID}    ${DeathDate}    ${DeathReports}

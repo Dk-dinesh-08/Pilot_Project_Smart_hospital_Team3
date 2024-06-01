@@ -8,8 +8,8 @@ Resource    ../Resources/LoginResources.robot
 Resource    ../Resources/DoctorResources.robot
 
 *** Test Cases ***
-
 Unsucessfull doctor login using invalid login credentials
+    [Tags]   smoke
     GenericResources.Click the login in button
     LoginResources.Fill the login form with login credentials for doctor    ${doctor_valid_username}    ${doctor_invalid_password}
     LoginResources.Verify the unsucessfull login with invalid credentials

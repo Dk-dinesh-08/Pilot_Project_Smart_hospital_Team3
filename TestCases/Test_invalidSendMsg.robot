@@ -37,5 +37,3 @@ To validate queue functionality of appoinment option
     AdminResources.Fill the Queue form    ${Doctor}    ${Shift}    ${Date}    ${Slot}
     AdminResources.click search button for queue
     AdminResources.Verify results for queue search
-
-

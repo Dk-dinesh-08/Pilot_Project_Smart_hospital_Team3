@@ -1,12 +1,12 @@
 *** Settings ***
-Documentation    To validate the Login form
+Documentation    To validate Invalid Death Record
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
 Resource    ../Resources/GenericResources.robot
 Resource    ../Resources/LoginResources.robot
 Resource    ../Resources/DoctorResources.robot
-Library    DataDriver    file=../TestData/DeathRateForm.xlsx   sheet_name=validLogin
+Library    DataDriver    file=../TestData/DeathRateForm.xlsx   sheet_name=InvalidLogin
 Test Template   validate add death record
 
 *** Variables ***
@@ -16,6 +16,7 @@ ${DeathReports}
 
 *** Test Cases ***
 Login test template    ${caseID}    ${DeathDate}    ${DeathReports}
+    [Tags]    regression
 
 
 *** Keywords ***
@@ -30,6 +31,8 @@ validate add death record
     click death record
     click add death record
     fill the death record form    ${caseID}    ${DeathDate}    ${DeathReports}
+    check the alert for invalid add death record
+
     
 
 

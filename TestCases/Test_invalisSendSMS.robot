@@ -21,6 +21,6 @@ To validate the functionality of send sms
     DoctorResources.Verify successful login of doctor
     DoctorResources.Click messaging button
     DoctorResources.click send sms button
-    DoctorResources.Fill the send SMS form using invalid details 
+    DoctorResources.Fill the send SMS form withought clicking send through
     DoctorResources.Send the message
     DoctorResources.To verify the unsucessful message sent

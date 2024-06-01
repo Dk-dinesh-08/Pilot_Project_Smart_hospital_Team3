@@ -18,7 +18,7 @@ ${zip_code}
 
 *** Test Cases ***
 Payment Test Template    ${mail}  	${expDate}  	${ccv}	  ${card_num}	 ${zip_code}
-
+    [Tags]    smoke
 
 *** Keywords ***
 validate payment method
@@ -28,7 +28,8 @@ validate payment method
     click the my appointment button
     click pay button
     click pay with card
-    Fill payment form    dinesh@gmail.com 	 4242424242424242  05/24	  123	 636004
+    assert the payment page
+   
     
 
     

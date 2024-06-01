@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate the Login form
+Documentation    To validate Invalid birth record
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser

@@ -1,0 +1,29 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test invalidAppionmentSearch :: To verify search results of patie...
+==============================================================================
+To verify the invalid search using invalid doctor name :: To verif...   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalidAppionmentSearch.robot:13
+    T:  To verify the invalid search using invalid doctor name    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalidAppionmentSearch.robot:24
+      Fill the appointment wise search form    ${option_to_select}
+      |  ${option_to_select} = <Unable to define variable value>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\AdminResources.robot:78
+      Click Element    ${doctor_field}
+      |  ${doctor_field} = span[id='select2-doctor-container'] (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'span[id='select2-doctor-container']' not found.
+------------------------------------------------------------------------------
+TestCases.Test invalidAppionmentSearch :: To verify search results... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\22\output.xml

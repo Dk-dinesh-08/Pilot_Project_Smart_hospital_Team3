@@ -54,6 +54,9 @@ ${zip_Code_field}    xpath://div[@class='zipCodeInput input bottom']
 ${pay_button}    xpath://span[@class='iconTick']
 #${pay_button}    css:span[class='iconTick']
 ${mail_iframe}    xpath=//iframe[contains(@src, 'stripe.com')]
+${Cancel_appointment_button}    css:i[class='fa fa-trash']
+${assert_in_empty_add_appointment}    xpath://div[@class='toast toast-error']
+${Search_feild_in_history}    xpath://div[@class='dataTables_filter']/label/input
 
 *** Keywords ***
 Sucessfull search by bill number
@@ -205,3 +208,26 @@ Fill payment form
     Wait Until Element Is Visible    ${pay_button}    20s
     Click Element    ${pay_button}
     Unselect Frame
+
+assert the payment page
+    Select Frame    ${mail_iframe}
+    Wait Until Element Is Visible    ${mail_feild}    20s
+
+cancel appointment button
+    Click Element    ${Cancel_appointment_button}
+    
+Add appointment button in User
+    Click Element    ${Add_appointment}
+
+
+assert the it shows the empty error message
+    Element Should Be Visible    ${assert_in_empty_add_appointment}
+    
+Enter the value into search
+    Wait Until Element Is Visible    ${Search_feild_in_history}
+    Input Text    ${Search_feild_in_history}    Pending
+
+Enter the aproved value into search
+    Wait Until Element Is Visible    ${Search_feild_in_history}
+    Input Text    ${Search_feild_in_history}    APPNO5717
+
