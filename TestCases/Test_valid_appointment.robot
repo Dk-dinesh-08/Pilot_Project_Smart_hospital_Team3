@@ -9,24 +9,30 @@ Resource    ../Resources/UserResources.robot
 Library    DataDriver    file=../TestData/UserData.xlsx   sheet_name=valid
 Test Template     validate the user appointment
 
+
 *** Variables ***
 ${Date_data}
 ${Message_data}
 ${adress}
+${slot_feild_data}
 
 *** Test Cases ***
-valid user appointement    ${Date_data}    ${Message_data}    ${adress}
+valid user appointement    ${Date_data}    ${Message_data}    ${adress}     ${slot_feild_data}
 
 
 *** Keywords ***
 validate the user appointment
-    [Arguments]    ${Date_data}    ${Message_data}    ${adress}
+    [Arguments]    ${Date_data}    ${Message_data}    ${adress}     ${slot_feild_data}
     click the log in button
     click the sign In button
     click the my appointment button
-    Fill the user apointment form     ${Date_data}  
+     Sleep    5s
+    Fill the user apointment form     ${Date_data}      ${slot_feild_data}
+     Sleep    5s
     Fill the user apointment remaining form     ${Message_data}      ${adress}
+     Sleep    5s
     choose valid slot
+    Sleep    5s
     save button
     
     

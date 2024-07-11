@@ -18,16 +18,10 @@ To verify valid appionment search doctor wise
     LoginResources.Go to admin page
     Switch Window    new
     LoginResources.fill the admin login form
-
     LoginResources.click the sign in button
-   
-    
     AdminResources.Click Appoinment link
-
     AdminResources.Click the Appoinment wise search button
-
     ${option_to_select}=    Set Variable    Sonia Bush (9002)
-    
     AdminResources.Fill the appointment wise search form    ${option_to_select}
     Enter the date feild
     Click the search button    
