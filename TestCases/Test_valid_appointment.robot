@@ -26,13 +26,9 @@ validate the user appointment
     click the log in button
     click the sign In button
     click the my appointment button
-     Sleep    5s
     Fill the user apointment form     ${Date_data}      ${slot_feild_data}
-     Sleep    5s
     Fill the user apointment remaining form     ${Message_data}      ${adress}
-     Sleep    5s
     choose valid slot
-    Sleep    5s
     save button
     
     
