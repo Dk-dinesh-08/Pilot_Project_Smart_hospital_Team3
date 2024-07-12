@@ -9,6 +9,7 @@ Resource    ../Resources/UserResources.robot
 Library    DataDriver    file=../TestData/UserData.xlsx   sheet_name=Empty
 Test Template     validate the Empty user appointment
 
+
 *** Variables ***
 ${Date_data}
 ${Message_data}
@@ -27,7 +28,6 @@ validate the Empty user appointment
     Add appointment button in User
     save button
     assert the it shows the empty error message
-
-    
+   
     
     

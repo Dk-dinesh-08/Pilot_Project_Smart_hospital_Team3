@@ -1,0 +1,28 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test Invalid search birth record :: To validate the Login form      
+==============================================================================
+validate Invalid search birth record                                    
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_search_birth_record.robot:12
+    T:  validate Invalid search birth record    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_search_birth_record.robot:14
+      click the log in button    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\GenericResources.robot:26
+      Click Element    ${login_button}
+      |  ${login_button} = xpath://ul[@class="top-right"]//a (str)
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://ul[@class="top-right"]//a' not found.
+------------------------------------------------------------------------------
+TestCases.Test Invalid search birth record :: To validate the Logi... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\4\output.xml

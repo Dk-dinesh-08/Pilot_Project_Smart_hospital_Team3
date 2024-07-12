@@ -57,7 +57,7 @@ ${save_btn}    id:formaddbtn
 ${deadDate}    id:death_date
 ${deadReports}    id:death_report
 ${search_in_birthRate}    xpath://input[@type='search']
-${assert_birth_record}    xpath://tr[@class='odd']
+${assert_birth_record}    xpath://tr[@class='even']
 ${death_record_list}    xpath://div/table[@class='table table-striped table-bordered table-hover ajaxlist dataTable no-footer']
 ${value}    DREF49
 ${Invalid_search_record_assert}    xpath=//div[contains(text(), 'No data available in table')] 
@@ -98,6 +98,16 @@ ${Pathologist_check_box}    (//input[@type="checkbox"])[8]
 ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
+${verification_text_invalid}    The Send Through field is required.
+${sms_body}    Hiiii all
+${template_id}    MSGID0001
+${title}    Gropu message to doctor,Pathologist,Pharmacy
+
+
+
+${unsuccessful_msg}    (//span[@class="text-danger"])[3]/p
+${unsuccessful_msg_text}    The Notice Date field is required.
+
  
 *** Keywords ***
 
@@ -169,6 +179,8 @@ Verify the successfull adding of new patient
 Verify the unsuccessfull addition of new patient
     Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required. 
 
+
+
 fill the birth record form
     [Arguments]     ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}    ${birthReports}	 
     Click Element   ${Gender_drop_down}
@@ -212,7 +224,6 @@ click add death record
     Click Element    ${add_death_record}
 
 search value in birth record
-    Wait Until Element Is Visible   ${search_in_birthRate} 
     Input Text    ${search_in_birthRate}   3704
 
 Invalid search in birth record
@@ -226,7 +237,8 @@ assert the birth record search
     Wait Until Element Contains   ${assert_birth_record}    BREF66
 
 search value in death record
-    Input Text    ${search_in_birthRate}   4723
+    Input Text    ${search_in_birthRate}   Dennis Coates
+
 
 Invalid value in death record
     Input Text    ${search_in_birthRate}   dinesh
@@ -295,8 +307,63 @@ Fill the send SMS form
 To assert sucessfully message sent
     Element Text Should Be    ${assert_sms}    ${verification_text}
 
-
 check the alert for invalid add death record
     Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
     Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
+
+    
+
+To verify the unsucessful message sent
+    Element Text Should Be    ${assert_sms}    The Send Through field is required.
+
+To verify the sucessful message sent
+    Element Text Should Be    ${assert_sms}    Record Saved Successfully
+
+
+Fill the send SMS form using invalid details
+    Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy
+    Input Text    ${sms_template}    MSGID0001
+    # Click Element    ${sms_checkbox}
+    Input Text    ${text_area}    Hiiii all
+    Click Element    ${admin_check_box}
+    Click Element    ${doctor_check_box}
+    Click Element    ${Pathologist_check_box}
+    Click Element    ${Pharmacist_check_box}
+    Click Button    ${send_sms_btn}
+
+
+Fill the send SMS form withought clicking send through 
+    Input Text    ${sms_title}    ${title}
+    Input Text    ${sms_template}    ${template_id}
+    Input Text    ${text_area}    ${sms_body}
+    Click Element    ${admin_check_box}
+    Click Element    ${doctor_check_box}
+    Click Element    ${Pathologist_check_box}
+    Click Element    ${Pharmacist_check_box}
+    Click Button    ${send_sms_btn}
+
+
+Fill post new message form using invalid notification date
+        Input Text    ${title_locator}    To my friend
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${publish_on}    05/30/2024
+
+Fill post new message form using invalid title
+        
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${notice_date}    05/29/2024
+        Input Text    ${publish_on}    05/30/2024
+
+    
+Verify unsuccessful msg sent using invalid notification date
+    Element Text Should Be    ${unsuccessful_msg}    ${unsuccessful_msg_text}
+
+Verify unsuccessful msg sent using invalid title
+    Element Text Should Be    (//span[@class="text-danger"])/p    The Title field is required.
     

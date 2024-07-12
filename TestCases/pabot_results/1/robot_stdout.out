@@ -1,0 +1,31 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test Invalid Addnewpatient :: Test case to add new patient in the...
+==============================================================================
+addition of new patient                                                 
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_Addnewpatient.robot:16
+    T:  addition of new patient    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_Addnewpatient.robot:19
+      Unsuccessfull addition of new patient    patient_name=    guardian_name=krish    dob=05/29/2002    bloodgroup=O+    marital_status=Single    phone_number=9977554433    email=praburam@gmail.com    address=kaveri avenu,amman nager,coimbatore-98    known_allergies=voimiting    TPA_ID=1876548    TPA_Validity=2026-09-01 00:00:00    ni_number=345678    alternate_number=9876543456
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Invalid_Addnewpatient.robot:25
+      Verify the unsuccessfull addition of new patient    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\DoctorResources.robot:172
+      Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required.
+      |  ${addnewpatient_invalidalert} = css:div[class='toast-message'] p (str)
+______________________________________________________________________________
+| FAIL |
+The text of element 'css:div[class='toast-message'] p' should have been 'The Name field is required.' but it was 'The Nombre field is required.'.
+------------------------------------------------------------------------------
+TestCases.Test Invalid Addnewpatient :: Test case to add new patie... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\1\output.xml

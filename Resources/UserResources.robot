@@ -33,14 +33,14 @@ ${Date}    id:dates
 ${Speacialist}    id:specialist
 ${Doctor}    id:doctor
 ${Shift_feild}    xpath:(//select[@class='form-control select2'])[1]
-${Slot_feild}    id:shift_id
+${Slot_feild}    //select[@id="shift_id"]
 ${appointment_prioirity_feild}    name:priority
 ${message_feild}    name:message
 ${live_consulting}    id:live_consult
 ${alternate_adress}    css:textarea[id='custom_fields[appointment][4]']
 ${Available_slots}    id:slot_0
 ${save_btn}    css:button[class='btn btn-info pull-right']
-${invalid_assert_slot}    id:slot_1
+${invalid_assert_slot}    id:slot_0
 ${Empty_alert}    div[class='toast toast-error']
 ${sorting_status}    xpath://th[@class='sorting' and text()='Status']
 ${pay}    xpath:(//a[@class='btn btn-info btn-xs']/i)[1]
@@ -57,7 +57,6 @@ ${mail_iframe}    xpath=//iframe[contains(@src, 'stripe.com')]
 ${Cancel_appointment_button}    css:i[class='fa fa-trash']
 ${assert_in_empty_add_appointment}    xpath://div[@class='toast toast-error']
 ${Search_feild_in_history}    xpath://div[@class='dataTables_filter']/label/input
-
 
 *** Keywords ***
 Sucessfull search by bill number
@@ -76,7 +75,7 @@ Verify the successfull search by bill number
 
 Verify the unsuccessfull search by bill number
     Wait Until Element Is Visible    ${pharmacy_bill_record_assert} 
-    Element Text Should Be    ${pharmacy_bill_record_assert}    Records: 0 to 0 of 0 (filtered from 10 total records)
+    Element Text Should Be    ${pharmacy_bill_record_assert}    Records: 0 to 0 of 0 (filtered from 14 total records)
 
 Successfull view of the bill details
     Wait Until Element Is Enabled    ${pharmacy_view_details}
@@ -138,13 +137,13 @@ The next page button
     Click Element    ${The_next_page_button}
 
 Fill the user apointment form
-    [Arguments]    ${Date_data}    
+    [Arguments]    ${Date_data}    ${slot_feild_data}
     Click Element    ${Add_appointment}
     Input Text    ${Date}    ${Date_data}   
     Select From List By Value    ${Speacialist}    2
     Select From List By Value    ${Doctor}    12
     Select From List By Value    ${Shift_feild}    1
-    Select From List By Value    ${Slot_feild}    39
+    Select From List By Value    ${Slot_feild}   ${slot_feild_data}
     
 Fill the user apointment remaining form
     [Arguments]   ${Message_data}     ${adress}
@@ -231,3 +230,4 @@ Enter the value into search
 Enter the aproved value into search
     Wait Until Element Is Visible    ${Search_feild_in_history}
     Input Text    ${Search_feild_in_history}    APPNO5717
+

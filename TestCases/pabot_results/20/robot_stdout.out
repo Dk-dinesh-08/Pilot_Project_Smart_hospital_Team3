@@ -1,0 +1,20 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test invalid admin login :: To test the login functionality of ad...
+==============================================================================
+To validate invalid login of admin :: To verify search results of ... | PASS |
+------------------------------------------------------------------------------
+To validate invalid login of admin :: To verify search results of ... | PASS |
+------------------------------------------------------------------------------
+To validate invalid login of admin :: To verify search results of ... | PASS |
+------------------------------------------------------------------------------
+To validate invalid login of admin :: To verify search results of ... | PASS |
+------------------------------------------------------------------------------
+TestCases.Test invalid admin login :: To test the login functional... | PASS |
+4 tests, 4 passed, 0 failed
+==============================================================================
+TestCases                                                             | PASS |
+4 tests, 4 passed, 0 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\20\output.xml

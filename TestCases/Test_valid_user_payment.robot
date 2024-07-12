@@ -29,7 +29,7 @@ validate payment method
     click pay button
     click pay with card
     assert the payment page
-    #Fill payment form    dinesh@gmail.com 	 4242424242424242  05/24	  123	 636004
+   
     
 
     

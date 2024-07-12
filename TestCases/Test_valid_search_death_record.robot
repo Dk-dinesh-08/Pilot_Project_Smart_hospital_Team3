@@ -11,6 +11,7 @@ Resource    ../Resources/DoctorResources.robot
 *** Test Cases ***
 validate add birth record
     [Tags]    regression
+
     click the log in button
     click the admin login
     Switch Window     new
@@ -19,7 +20,6 @@ validate add birth record
     click birth record and death record
     click death record
     Search value in death record
-      
     
     
 

@@ -21,7 +21,7 @@ ${birthReports}
 *** Test Cases ***
 Login test template    ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}	   ${birthReports}
     [Tags]    regression 
-    
+
 
 *** Keywords ***
 validate add birth record
@@ -31,6 +31,7 @@ validate add birth record
     Switch Window     new
     click the doctor button
     click the sign In button
+    #click accept in alert
     click birth record and death record
     click birth record
     click add birth record
