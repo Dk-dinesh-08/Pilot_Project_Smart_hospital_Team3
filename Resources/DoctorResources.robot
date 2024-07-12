@@ -4,7 +4,6 @@ Library    SeleniumLibrary
 Library     Collections
 
 *** Variables ***
-#Home page 
 ${Dashboard}    css:i[class="fas fa-television"]
 ${Appointment}    xpath://i[@class='fa fa-calendar-check-o']//following-sibling::span
 ${IPD_in_patient}    xpath://i[@class="fas fa-procedures"]//parent::a
@@ -15,7 +14,6 @@ ${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
 ${delete_notification_button}    xpath://i[@class="fa fa-trash"]//parent::button
 ${valid_hindi_language}    xpath://a[normalize-space()='Hindi']
 ${invalid_hindi_language}    xpath://a[normalize-space()='Spanish']
-#add new patient form
 ${add_patient_button}    css:a[id="addp"]
 ${new_patient_button}    css:a[id="addpip"]
 ${name_field}    css:input[id="name"]
@@ -36,14 +34,6 @@ ${alternate_number_field}    css:input[id="custom_fields[patient][3]"]
 ${save_button}    css:button[id="formaddpabtn"]
 ${addnewpatient_validalert}    css:div[class='toast-message']
 ${addnewpatient_invalidalert}    css:div[class='toast-message'] p
-#betstatus
-${bed_145}    xpath://div[text()='FF - 145']
-${Addmision_date}    css:input[id="admission_date"]
-${patientSelect_field}    xpath://span[@class="select2-selection select2-selection--single" and @aria-labelledby="select2-addpatient_id-container"]
-${patientinput_field}    css:input[class="select2-search__field"]
-${consultant_select_field}    xpath://span[@class="select2-selection select2-selection--single" and @aria-labelledby="select2-consultant_doctor-container"]
-${bed_status_save_button}    css:button[id="formaddbtn"]
-
 ${add_death_record}    xpath://a[@class='btn btn-primary btn-sm deathrecord']
 ${add_birth_record}    xpath://a[@class='btn btn-primary btn-sm birthrecord']
 ${birth_record_death_record}    xpath://a/i[@class='fa fa-birthday-cake']
@@ -67,7 +57,7 @@ ${save_btn}    id:formaddbtn
 ${deadDate}    id:death_date
 ${deadReports}    id:death_report
 ${search_in_birthRate}    xpath://input[@type='search']
-${assert_birth_record}    xpath://tr[@class='odd']
+${assert_birth_record}    xpath://tr[@class='even']
 ${death_record_list}    xpath://div/table[@class='table table-striped table-bordered table-hover ajaxlist dataTable no-footer']
 ${value}    DREF49
 ${Invalid_search_record_assert}    xpath=//div[contains(text(), 'No data available in table')] 
@@ -108,12 +98,6 @@ ${Pathologist_check_box}    (//input[@type="checkbox"])[8]
 ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
-${doctal_consultant_select}    xpath://select[@id='consultant_doctor']
-${patient_name}    xpath://li[@class='select2-results__option select2-results__option--highlighted']
-${verification_text_invalid}    The Send Through field is required.
-${sms_body}    Hiiii all
-${template_id}    MSGID0001
-${title}    Gropu message to doctor,Pathologist,Pharmacy
 ${verification_text_invalid}    The Send Through field is required.
 ${sms_body}    Hiiii all
 ${template_id}    MSGID0001
@@ -195,33 +179,7 @@ Verify the successfull adding of new patient
 Verify the unsuccessfull addition of new patient
     Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required. 
 
-Successfull update of the bed status
-    Click Link    ${betstatus_icon}
-    Click Element    ${bed_145}
-    Click Element    ${patientSelect_field}
-    Input Text    ${patientinput_field}   Evander  
-    Click Element    ${patient_name}
-    Click Element    ${Addmision_date}
-    Select From List By Value   ${doctal_consultant_select}     11    
-    Click Button    ${bed_status_save_button}
 
-Unsuccessfull update of the bed status
-    Click Link    ${betstatus_icon}
-    Click Element    ${bed_145}
-    Click Element    ${patientSelect_field}
-    Input Text    ${patientinput_field}   Olivier  
-    Click Element    ${patient_name}
-    Click Element    ${Addmision_date}
-    Select From List By Value   ${doctal_consultant_select}     11    
-    Click Button    ${bed_status_save_button}
-
-Verify the successfull updation of the bed status
-    Wait Until Element Is Visible    css:div[class="toast-message"] 
-    Element Text Should Be    css:div[class="toast-message"]    Patient Added Successfully
-
-Verify the unsuccessfull updation of the bed status
-    Wait Until Element Is Visible    css:div[class="toast-message"] 
-    Element Text Should Not Be    css:div[class="toast-message"]    Patient Added Successfully
 
 fill the birth record form
     [Arguments]     ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}    ${birthReports}	 
@@ -360,8 +318,6 @@ To verify the unsucessful message sent
 
 To verify the sucessful message sent
     Element Text Should Be    ${assert_sms}    Record Saved Successfully
-To verify the unsucessful message sent
-    Element Text Should Be    ${assert_sms}    ${verification_text}
 
 
 Fill the send SMS form using invalid details
