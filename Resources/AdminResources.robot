@@ -135,10 +135,6 @@ Click Appoinment link
 #     Click Button    ${search_button}
 
 
-Verify doctor wise appoinment search
-   Element Text Should Be   //div[text()="Records: 0 to 0 of 0"]      Records: 0 to 0 of 0  # ${verify_text}
-   Sleep    10s
-
 Verify doctor wise appoinment search for invalid doctor name
    Element Text Should Be    ${search_result}    ${verify_text}
 
@@ -203,13 +199,9 @@ Click the save button
 Verify item added to stock
     Element Text Should Be    //td/a    Syringe Pump
 
-
 Verify doctor wise appoinment search
     Wait Until Page Contains Element    ${search_result}
     Element Text Should Be   ${search_result}    ${verify_text}
-
-
-
 
 Verify invalid search results 
     Element Text Should Be   ${search_result}    ${invalid_patient_search_txt}
@@ -226,10 +218,8 @@ Fill add item stock form without purchase price
     Select From List By Label    ${store}    Vinay Pharmacy
     Input Text    ${quantity}    3
 
-
 verify add item stock form without purchase price
     Element Text Should Be    ${error_msg_loc}  The Purchase Price field is required.
-
 
 Fill add item stock form without quantity
     Select From List By Label    ${item_category}    Medical Equipment
@@ -237,7 +227,6 @@ Fill add item stock form without quantity
     Select From List By Label    ${item}    Syringe Pump
     Select From List By Label    ${store}    Vinay Pharmacy
     
-
 verify add item stock form without quantity
     Element Text Should Be  ${error_msg_loc}  The Quantity field is required.
 

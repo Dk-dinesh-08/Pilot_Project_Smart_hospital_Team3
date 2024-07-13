@@ -353,16 +353,11 @@ check the alert for invalid add death record
     Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
     Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
 
-    
-
 To verify the unsucessful message sent
     Element Text Should Be    ${assert_sms}    The Send Through field is required.
 
 To verify the sucessful message sent
     Element Text Should Be    ${assert_sms}    Record Saved Successfully
-To verify the unsucessful message sent
-    Element Text Should Be    ${assert_sms}    ${verification_text}
-
 
 Fill the send SMS form using invalid details
     Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy

@@ -37,8 +37,6 @@ change default language english
     Select From List By Value   ${slect_language_option}    4
         
 
-click alert button
-    Handle Alert    ACCEPT
 
 
 
