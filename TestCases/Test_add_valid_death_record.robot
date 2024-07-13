@@ -1,5 +1,4 @@
 *** Settings ***
-Documentation    To validate the Login form
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
@@ -16,6 +15,7 @@ ${DeathReports}
 
 *** Test Cases ***
 Login test template    ${caseID}    ${DeathDate}    ${DeathReports}
+    [Tags]    regression
 
 *** Keywords ***
 validate add death record

@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate successful addition of stock item
+Documentation    To validate unsuccessful addition of stock item
 Library    SeleniumLibrary
 Test Setup    Open the Browser with URL
 Test Teardown    close the browser

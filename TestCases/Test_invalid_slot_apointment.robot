@@ -13,18 +13,19 @@ Test Template     validate the invalid slot in user appointment
 ${Date_data}
 ${Message_data}
 ${adress}
+${slot_feild_data}
 
 *** Test Cases ***
-user appointment     ${Date_data}    ${Message_data}    ${adress}
+user appointment     ${Date_data}    ${Message_data}    ${adress}    ${slot_feild_data}
     [Tags]    smoke
 
 *** Keywords ***
 validate the invalid slot in user appointment
-    [Arguments]      ${Date_data}    ${Message_data}    ${adress}
+    [Arguments]      ${Date_data}    ${Message_data}    ${adress}    ${slot_feild_data}
     click the log in button      
     click the sign In button
     click the my appointment button
-    Fill the user apointment form    ${Date_data} 
+    Fill the user apointment form    ${Date_data}     ${slot_feild_data}
     alert accpet
     Fill the user apointment remaining form    ${Message_data}    ${adress}
     choose invalid slot

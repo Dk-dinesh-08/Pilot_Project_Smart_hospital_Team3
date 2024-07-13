@@ -13,18 +13,19 @@ ${conditon}
 ${Date_data}
 ${Message_data}
 ${adress}
+${slot_feild_data}
 
 *** Test Cases ***
-Invaliduser appointment     ${Date_data}    ${Message_data}    ${adress}
+Invaliduser appointment     ${Date_data}    ${Message_data}    ${adress}   ${slot_feild_data}
     [Tags]    smoke
 
 *** Keywords ***
 validate Invalid user apointment
-    [Arguments]       ${Date_data}    ${Message_data}    ${adress}
+    [Arguments]       ${Date_data}    ${Message_data}    ${adress}    ${slot_feild_data}
     click the log in button
     click the sign In button
     click the my appointment button
-    Fill the user apointment form   ${Date_data} 
+    Fill the user apointment form   ${Date_data}     ${slot_feild_data}
     alert accpet
     Fill the user apointment remaining form    ${Message_data}     ${adress}
     choose valid slot
