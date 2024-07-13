@@ -13,18 +13,19 @@ Test Template     validate the user appointment
 ${Date_data}
 ${Message_data}
 ${adress}
+${slot_feild_data}
 
 *** Test Cases ***
-valid user appointement    ${Date_data}    ${Message_data}    ${adress}
+valid user appointement    ${Date_data}    ${Message_data}    ${adress}    ${slot_feild_data}
     [Tags]    smoke
     
 *** Keywords ***
 validate the user appointment
-    [Arguments]    ${Date_data}    ${Message_data}    ${adress}
+    [Arguments]    ${Date_data}    ${Message_data}    ${adress}    ${slot_feild_data}
     click the log in button
     click the sign In button
     click the my appointment button
-    Fill the user apointment form     ${Date_data}  
+    Fill the user apointment form     ${Date_data}      ${slot_feild_data}
     Fill the user apointment remaining form     ${Message_data}      ${adress}
     choose valid slot
     save button

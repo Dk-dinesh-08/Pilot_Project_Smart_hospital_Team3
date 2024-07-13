@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    To validate the Login form
+Documentation    To validate appointment history
 Library        SeleniumLibrary
 Test Setup    Open the browser with url
 Test Teardown    close the browser
@@ -11,6 +11,7 @@ Resource    ../Resources/UserResources.robot
 
 *** Test Cases ***
 validate appointment history
+    [Tags]    smoke
     click the log in button
     click the sign In button
     click the my appointment button
