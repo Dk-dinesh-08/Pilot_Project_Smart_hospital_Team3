@@ -34,6 +34,7 @@ validate add birth record
     click birth record
     click add birth record
     fill the birth record form     ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}	   ${birthReports}
+    
 
 
 
