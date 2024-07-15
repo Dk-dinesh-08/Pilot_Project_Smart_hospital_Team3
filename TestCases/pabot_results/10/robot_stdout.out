@@ -1,0 +1,27 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test Valid Notificationdelete :: Test case for valid delete all n...
+==============================================================================
+Sucsessfull deletion of notification message                            
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Valid_Notificationdelete.robot:13
+    T:  Sucsessfull deletion of notification message    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_Valid_Notificationdelete.robot:18
+      Verify sucsessfull deletion of all notification messages    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\DoctorResources.robot:162
+      Element Text Should Be    css:div[class="alert alert-danger"]    No Record Found
+______________________________________________________________________________
+| FAIL |
+The text of element 'css:div[class="alert alert-danger"]' should have been 'No Record Found' but it was 'ningún record fue encontrado'.
+------------------------------------------------------------------------------
+TestCases.Test Valid Notificationdelete :: Test case for valid del... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\10\output.xml

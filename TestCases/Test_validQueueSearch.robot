@@ -18,6 +18,8 @@ ${Date}
 ${Slot}  
 
 
+
+
 *** Test Cases ***
 
 To validate succesful queue search     ${Doctor}    ${Shift}    ${Date}    ${Slot}   
@@ -40,5 +42,3 @@ To validate succesful queue search
     AdminResources.Fill the Queue form    ${Doctor}    ${Shift}    ${Date}    ${Slot}
     AdminResources.click search button for queue
     AdminResources.Verify results for queue search
-
-

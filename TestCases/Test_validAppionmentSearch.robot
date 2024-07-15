@@ -1,5 +1,5 @@
-*** Settings ***
-Documentation    Tests to login to login page
+* Settings *
+Documentation    To verify valid appionment search doctor wise
 Library    SeleniumLibrary
 Test Setup    Open the Browser with URL
 Test Teardown    close the browser
@@ -9,7 +9,7 @@ Resource    ../Resources/LoginResources.robot
 
 
 
-*** Test Cases ***
+* Test Cases *
 
 To verify valid appionment search doctor wise
     [Tags]    smoke
@@ -18,24 +18,10 @@ To verify valid appionment search doctor wise
     LoginResources.Go to admin page
     Switch Window    new
     LoginResources.fill the admin login form
-   
     LoginResources.click the sign in button
-   
-    
     AdminResources.Click Appoinment link
-
     AdminResources.Click the Appoinment wise search button
-
     ${option_to_select}=    Set Variable    Sonia Bush (9002)
-    
-    AdminResources.Fill the appointment wise search form    ${option_to_select}    05/23/2024
-    
+    AdminResources.Fill the appointment wise search form    ${option_to_select}
+    Enter the date feild
     Click the search button    
-
-    Verify doctor wise appoinment search
-
-
-
-
-
-

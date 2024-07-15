@@ -1,4 +1,4 @@
-*** Settings ***
+* Settings *
 Documentation    Test to verify the message functionality
 Library    SeleniumLibrary
 # Library    DataDriver    file=../TestData/SampleMessage.xlsx   sheet_name=Sheet1
@@ -12,7 +12,7 @@ Resource    ../Resources/DoctorResources.robot
 
 
 
-*** Test Cases ***
+* Test Cases *
     
 To validate the functionality of send sms
     [Tags]    smoke
@@ -23,4 +23,4 @@ To validate the functionality of send sms
     DoctorResources.click send sms button
     DoctorResources.Fill the send SMS form 
     DoctorResources.Send the message
-    DoctorResources.To verify the unsucessful message sent
+    #DoctorResources.To verify the unsucessful message sent

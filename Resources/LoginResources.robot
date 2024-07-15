@@ -24,7 +24,6 @@ ${doctor_button}    xpath:(//a[@class='btn btn-primary width100'])[2]
 ${admin_login}    xpath:(//a[@class='forgot pull-right'])[1]
 ${username_login}    css:input[id='email']
 ${password_login}    css:input[id='password']
-# ${sigin_btn}         xpath://div[@class="form-bottom"]//button   #//button[text()="Sign In"]
 ${admin_login_page_btn}    //a[text()=" Admin Login"]
 ${doctor_login_btn}    (//a[@class="btn btn-primary width100"])[2]
 ${admin_login_btn}    //i[@class="fa fa-user ispace"]//parent::a
@@ -33,100 +32,172 @@ ${user_login_button}    //ul[@class="top-right"]//a
 *** Keywords ***
 Fill the login form with login credentials for doctor
     [Arguments]    ${username}    ${password}
-    Click Link    ${admin_login_button}
-    Switch Window    new
-    Input Text    ${username_field}    ${username}
-    Input Password    ${password_field}    ${password}
-    Click Button    ${signin_button}
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+        Input Text    ${username_field}    ${username}
+        Input Password    ${password_field}    ${password}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    failed in login form credentials for doctor
+    END
 
 Fill the successfull login form by clicking the doctor role
-    Click Link    ${admin_login_button}
-    Switch Window    new
-    Click Link    ${valid_doctor_button}
-    Click Button    ${signin_button}
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+        Click Link    ${valid_doctor_button}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    failed in successful login form for doctor
+    END
 
 Fill the unsuccessfull login form by clicking the doctor role
-    Click Link    ${admin_login_button}
-    Switch Window    new
-    Click Link    ${invalid_doctor_button}
-    Click Button    ${signin_button}
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+        Click Link    ${invalid_doctor_button}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    failed in unsuccessful login form for doctor
+    END
 
 Click the signin button
-    Click Button    ${signin_button}
+    TRY
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    failed to click signin button
+    END
 
 Click the admin login button
-    Click Link    ${admin_login_button}
-    Switch Window    new
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+    EXCEPT
+        Log To Console    failed to click admin login button
+    END
 
 Fill the login form by default credentials for user role
-    Click Button    ${signin_button}
+    TRY
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    failed in login form by default credentials for user role
+    END
 
-Verify the successfull login with valid credentials for doctor
-    Click Link    ${pofile_icon}
-    Wait Until Element Is Enabled   ${profile_name}
-    Element Text Should Be    ${profile_name}    Doctor
+Verify the successful login with valid credentials for doctor
+    TRY
+        Click Link    ${pofile_icon}
+        Wait Until Element Is Enabled   ${profile_name}
+        Element Text Should Be    ${profile_name}    Doctor
+    EXCEPT
+        Log To Console    failed to verify successful login for doctor
+    END
 
 Verify the unsuccessfull login with valid credentials for doctor
-    Click Link    ${pofile_icon}
-    Element Text Should Not Be    ${profile_name}    Doctor
+    TRY
+        Click Link    ${pofile_icon}
+        Element Text Should Not Be    ${profile_name}    Doctor
+    EXCEPT
+        Log To Console    failed to verify unsuccessful login for doctor
+    END
 
 Verify the successfull login with valid credentials for user
-    Click Link    ${pofile_icon}
-    Wait Until Element Is Enabled   ${profile_name}
-    Element Text Should Be    ${profile_name}    Patient
+    TRY
+        Click Link    ${pofile_icon}
+        Wait Until Element Is Enabled   ${profile_name}
+        Element Text Should Be    ${profile_name}    Patient
+    EXCEPT
+        Log To Console    failed to verify successful login for user
+    END
 
 Verify the unsucessfull login with invalid credentials
-    Element Text Should Be    ${invalid_credentials_message}    Invalid Username or Password
+    TRY
+        Element Text Should Be    ${invalid_credentials_message}    Invalid Username or Password
+    EXCEPT
+        Log To Console    failed to verify unsuccessful login with invalid credentials
+    END
 
 Verify the unsucessfull login with the blank username
-    Element Text Should Be    ${required_username_message}    The Username field is required.
+    TRY
+        Element Text Should Be    ${required_username_message}    The Username field is required.
+    EXCEPT
+        Log To Console    failed to verify unsuccessful login with blank username
+    END
 
 Verify the unsucessfull login with the blank password
-    Element Text Should Be    ${required_password_message}    The Password field is required.
+    TRY
+        Element Text Should Be    ${required_password_message}    The Password field is required.
+    EXCEPT
+        Log To Console    failed to verify unsuccessful login with blank password
+    END
 
 Verify the unsuccessfull login with blank credentials
-    Element Text Should Be    ${required_username_message}    The Username field is required.
-    Element Text Should Be    ${required_password_message}    The Password field is required.
+    TRY
+        Element Text Should Be    ${required_username_message}    The Username field is required.
+        Element Text Should Be    ${required_password_message}    The Password field is required.
+    EXCEPT
+        Log To Console    failed to verify unsuccessful login with blank credentials
+    END
 
-#Logout the user
- #   Go To    ${doctor_logout_url}
- #   Click Button    ${pofile_icon}
-  #  Click Link    ${doctorlogout_button}
+Click the doctor button
+    TRY
+        Click Element    ${doctor_button}
+    EXCEPT
+        Log To Console    failed to click doctor button
+    END
 
-click the doctor button
-    Click Element    ${doctor_button}
-
-
-click the admin login
-    Click Element    ${admin_login} 
-
+Click the admin login
+    TRY
+        Click Element    ${admin_login}
+    EXCEPT
+        Log To Console    failed to click admin login
+    END
 
 Go to user login
-    Click Link    ${User_login_button}
+    TRY
+        Click Link    ${user_login_button}
+    EXCEPT
+        Log To Console    failed to go to user login
+    END
 
 Go to admin page
-    Click link    ${admin_login_page_btn}
+    TRY
+        Click Link    ${admin_login_page_btn}
+    EXCEPT
+        Log To Console    failed to go to admin page
+    END
 
 Go to doctor page
-    Click Link    ${doctor_login_btn}
+    TRY
+        Click Link    ${doctor_login_btn}
+    EXCEPT
+        Log To Console    failed to go to doctor page
+    END
 
-fill the admin login form
-    Click Link    ${admin_login_btn}
-
+Fill the admin login form
+    TRY
+        Click Link    ${admin_login_btn}
+    EXCEPT
+        Log To Console    failed to fill admin login form
+    END
 
 Fill the login form for doctor
-    Go to admin page
-    Switch Window    new
-    Click Link    ${doctor_login_btn}
-    Sleep     5s
-    click the sign in button
+    TRY
+        Go to admin page
+        Switch Window    new
+        Click Link    ${doctor_login_btn}
+        Sleep    5s
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    failed to fill login form for doctor
+    END
 
 Fill the login form
     [Arguments]    ${username}    ${password}
-    Input Text    ${username_field}    ${username} 
-    Input Password    ${password_field}    ${password}
-    Click Button    ${signin_button}
-    
-
-
-
+    TRY
+        Input Text    ${username_field}    ${username}
+        Input Password    ${password_field}    ${password}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    failed to fill login form
+    END

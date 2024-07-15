@@ -20,16 +20,8 @@ To verify the invalid search using invalid doctor name
     LoginResources.click the sign in button
     AdminResources.Click Appoinment link
     AdminResources.Click the Appoinment wise search button
-    ${option_to_select}=    Set Variable   Amit Singh (9009)
-    
-    AdminResources.Fill the appointment wise search form    ${option_to_select}        05/23/2024
-    
+    ${option_to_select}=    Set Variable   
+    AdminResources.Fill the appointment wise search form    ${option_to_select}
+    Enter the date feild
     Click the search button    
-
-    Verify doctor wise appoinment search
-
-    
-
-    
-
-
+    Verify doctor wise appoinment search for invalid doctor name

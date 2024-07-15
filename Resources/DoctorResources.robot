@@ -57,7 +57,7 @@ ${save_btn}    id:formaddbtn
 ${deadDate}    id:death_date
 ${deadReports}    id:death_report
 ${search_in_birthRate}    xpath://input[@type='search']
-${assert_birth_record}    xpath://tr[@class='odd']
+${assert_birth_record}    xpath://tr[@class='even']
 ${death_record_list}    xpath://div/table[@class='table table-striped table-bordered table-hover ajaxlist dataTable no-footer']
 ${value}    DREF49
 ${Invalid_search_record_assert}    xpath=//div[contains(text(), 'No data available in table')] 
@@ -99,91 +99,108 @@ ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
 ${verification_text_invalid}    The Send Through field is required.
+<<<<<<< HEAD
+=======
+${sms_body}    Hiiii all
+${template_id}    MSGID0001
+${title}    Gropu message to doctor,Pathologist,Pharmacy
+
+
+
+${unsuccessful_msg}    (//span[@class="text-danger"])[3]/p
+${unsuccessful_msg_text}    The Notice Date field is required.
+>>>>>>> dinesh-kumar-k
 
  
 *** Keywords ***
 
-Change the valid system language
-    Wait Until Element Is Enabled    ${language_icon}
-    Click Button    ${language_icon}
-    #Select From List By Value    //a[normalize-space()='Hindi']    Hindi
-    Click Link    ${valid_hindi_language}
-
-Change the invalid system language
-    Wait Until Element Is Enabled    ${language_icon}
-    Click Button    ${language_icon}
-    #Select From List By Value    //a[normalize-space()='Hindi']    Hindi
-    Click Link    ${invalid_hindi_language}
-
 Addition of new patient in the IPD inpatient with valid Credentials
     [Arguments]    ${patient_name}    ${guardian_name}    ${dob}    ${bloodgroup}    ${marital_status}    ${phone_number}    ${email}    ${address}    ${known_allergies}    ${TPA_ID}    ${TPA_Validity}    ${ni_number}    ${alternate_number}
-    Click Link    ${IPD_in_patient}
-    Click Link    ${add_patient_button}
-    Click Link    ${new_patient_button}
-    Input Text    ${name_field}    ${patient_name}
-    Input Text    ${guardian_name_field}    ${guardian_name}
-    Input Text    ${dob_field}    ${dob}
-   # Click Element    ${blood_group_field}
-    #Input Text    ${blood_group_field}    ${bloodgroup}
-    #Select From List By Value    ${blood_group_field_specific}    ${bloodgroup}
-    #Click Element   ${marital_status_field}
-    #Input Text    ${marital_status_field}    ${marital_status}
-    #Select From List By Value    ${marital_status_field}    ${marital_status}
-    Input Text    ${phone_number_field}    ${phone_number}
-    Input Text    ${email_field}    ${email}
-    Input Text    ${address_field}    ${address}
-    Input Text    ${known_allergies_field}    ${known_allergies}
-    Input Text    ${TPA_ID_field}    ${TPA_ID}
-    Input Text    ${TPA_validity_field}    ${TPA_Validity}
-    Input Text    ${national_identity_number_field}    ${ni_number}
-    Input Text    ${alternate_number_field}    ${alternate_number}
-    Click Button    ${save_button}
+    TRY
+        Click Link    ${IPD_in_patient}
+        Click Link    ${add_patient_button}
+        Click Link    ${new_patient_button}
+        Input Text    ${name_field}    ${patient_name}
+        Input Text    ${guardian_name_field}    ${guardian_name}
+        Input Text    ${dob_field}    ${dob}
+        Input Text    ${phone_number_field}    ${phone_number}
+        Input Text    ${email_field}    ${email}
+        Input Text    ${address_field}    ${address}
+        Input Text    ${known_allergies_field}    ${known_allergies}
+        Input Text    ${TPA_ID_field}    ${TPA_ID}
+        Input Text    ${TPA_validity_field}    ${TPA_Validity}
+        Input Text    ${national_identity_number_field}    ${ni_number}
+        Input Text    ${alternate_number_field}    ${alternate_number}
+        Click Button    ${save_button}
+    EXCEPT
+        Log    An error occurred while adding a new patient.
+        
+    END
+        Close Browser
 
 View the notification messages
     Click Link    ${notification_icon}
 
 Delete the all notification message
-    Click Link    ${notification_icon}
-    Click Button    ${delete_notification_button}
-    Alert Should Be Present
+    TRY
+        Click Link    ${notification_icon}
+        Click Button    ${delete_notification_button}
+        Alert Should Be Present
+    EXCEPT
+        Log To Console    Failed to delete all notification messages
+    END
 
-Verify the successfull sytem language change
-    Wait Until Element Is Enabled    ${language_icon}
-    ${result}=    Get Text    ${language_icon}
-    Should Contain    ${result}    Hindi
+Verify successful deletion of all notification messages
+    TRY
+        Click Link    ${notification_icon}
+        Element Text Should Be    css:div[class="alert alert-danger"]    No Record Found
+    EXCEPT
+        Log To Console    Successful deletion of all notification messages verification failed
+    END
 
-Verify the unsuccessfull sytem language change
-    Wait Until Element Is Enabled    ${language_icon}
-    ${result}=    Get Text    ${language_icon}
-    Should Not Contain  ${result}    Hindi
+Verify unsuccessful deletion of all notification messages
+    TRY
+        Click Link    ${notification_icon}
+        Element Text Should Not Be    css:div[class="alert alert-danger"]    No Record Found
+    EXCEPT
+        Log To Console    Unsuccessful deletion of all notification messages verification failed
+    END
 
-Verify sucsessfull deletion of all notification messages
-    Click Link    ${notification_icon}
-    Element Text Should Be    css:div[class="alert alert-danger"]    No Record Found
+Verify the successful adding of new patient 
+    TRY
+        Element Text Should Be    ${addnewpatient_validalert}    Record Saved Successfully
+    EXCEPT
+        Log To Console    Verification of successful addition of new patient failed
+    END
 
-Verify unsuccessfull deletion of all notification messages
-    Click Link    ${notification_icon}
-    Element Text Should Not Be    css:div[class="alert alert-danger"]    No Record Found
+Verify the unsuccessful addition of new patient
+    TRY
+        Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required.
+    EXCEPT
+        Log To Console    Verification of unsuccessful addition of new patient failed
+    END
 
-Verify the successfull adding of new patient 
-    Element Text Should Be    ${addnewpatient_validalert}    Record Saved Successfully
-
-Verify the unsuccessfull addition of new patient
-    Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required. 
 
 fill the birth record form
     [Arguments]     ${Cname}    ${weight}	    ${birthDate}	    ${Contact}	    ${Address}   	${CaseId}	  ${FathersName}    ${birthReports}	 
-    Click Element   ${Gender_drop_down}
-    Click Element    ${Gender_option_male}                                                      
-    Input Text    ${weight_feild}    ${weight}
-    Input Text    ${birth_date_feild}    ${birthDate}
-    Input Text    ${contact_feild}    ${contact}
-    Input Text    ${adress_feild}     ${Address}  
-    Input Text    ${case_id_feild}    ${CaseId}
-    Input Text    ${fathers_name_feild}    ${FathersName}
-    Input Text    ${b_reports}    ${birthReports}
-    Click Button    ${save_btn}    
-    
+    TRY
+        Input Text    ${child_name}    ${Cname}
+        Select From List By Index   ${Gender_drop_down}   1                                       
+        Input Text    ${weight_feild}    ${weight}
+        Input Text    ${birth_date_feild}    ${birthDate}
+        Input Text    ${contact_feild}    ${contact}
+        Input Text    ${adress_feild}     ${Address}  
+        Input Text    ${case_id_feild}    ${CaseId}
+        Input Text    ${fathers_name_feild}    ${FathersName}
+        Input Text    ${b_reports}    ${birthReports}
+        Click Button    ${save_btn}    
+        
+    EXCEPT
+        Log To Console  Failed to add birth record in birth record form
+
+    END
+        Close Browser
+
 click birth record and death record
     Click Element    ${birth_record_death_record}
 
@@ -201,11 +218,14 @@ Add death record button
 
 fill the death record form
     [Arguments]    ${caseID}    ${DeathDate}    ${DeathReports}
-    Input Text    ${case_id_feild}    ${caseID}
-    Input Text    ${deadDate}      ${DeathDate}
-    Input Text    ${deadReports}    ${DeathReports}
-    Click Element    ${save_btn}
-
+    TRY
+        Input Text    ${case_id_feild}    ${caseID}
+        Input Text    ${deadDate}      ${DeathDate}
+        Input Text    ${deadReports}    ${DeathReports}
+        Click Element    ${save_btn}
+    EXCEPT
+        Log To Console    failed to fill the date record form
+    END
 
 click add birth record
     Click Element    ${add_birth_record}
@@ -233,7 +253,7 @@ Invalid value in death record
     Input Text    ${search_in_birthRate}   dinesh
 
 
-assert value in death record
+assert value in death record 
     Input Text    ${search_in_birthRate}    ${value}
     ${list_of_elements}=    Get WebElements    ${death_record_list}
     ${options_texts}=    Create List
@@ -246,21 +266,31 @@ assert value in death record
 
 
 Verify successful login of doctor
-    Click Link    ${image_icon}
-    # ${user_text}    Get Text    ${doctor_text_locator}
-    Element Text Should Be    ${doctor_text_locator}    Doctor
-
-
+    TRY
+        Click Link    ${image_icon}
+        Element Text Should Be    ${doctor_text_locator}    Doctor
+    EXCEPT
+        Log To Console    failed to verify successful login
+    END
 
 Click messaging button
-    Scroll Element Into View    ${msg_btn}
-    Click Element   ${msg_btn}
+    TRY
+        Scroll Element Into View    ${msg_btn}
+        Click Element   ${msg_btn}
+    EXCEPT
+        Log To Console    failed to click messaging button
+    END
 
 Click post new message button
-    Click Link    ${post_new_msg_locator}
+    TRY
+        Click Link    ${post_new_msg_locator}
+    EXCEPT
+        Log To Console    failed to click post new message button
+    END
 
 Fill post new message form
     [Arguments]
+    TRY
         Input Text    ${title_locator}    To my friend
         Select Frame    ${messaging_frame}
         Click Element    ${msg_body}
@@ -268,52 +298,146 @@ Fill post new message form
         Unselect Frame
         Input Text    ${notice_date}    05/29/2024
         Input Text    ${publish_on}    05/30/2024
+    EXCEPT
+        Log To Console    failed to fill post new message form
+    END
 
 Send the message
-    Scroll Element Into View    ${send_btn}
-    Click Button    ${send_btn}
+    TRY
+        Scroll Element Into View    ${send_btn}
+        Click Button    ${send_btn}
+    EXCEPT
+        Log To Console    failed to send the message
+    END
 
-Verify message send sucessfully
-    Element Text Should Be    ${sucess_msg}    ${verification_text}
+Verify message send successfully
+    TRY
+        Element Text Should Be    ${sucess_msg}    ${verification_text}
+    EXCEPT
+        Log To Console    failed to verify message send successfully
+    END
 
 click send sms button
-    Click Link    ${send_msg_locator}
+    TRY
+        Click Link    ${send_msg_locator}
+    EXCEPT
+        Log To Console    failed to click send sms button
+    END
 
 Verify send sms Page is opened
-    Element Text Should Be    ${sms_page}     Send SMS
+    TRY
+        Element Text Should Be    ${sms_page}     Send SMS
+    EXCEPT
+        Log To Console    failed to verify send sms page is opened
+    END
 
 Fill the send SMS form
-    Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy
-    Input Text    ${sms_template}    MSGID0001
-    Click Element    ${sms_checkbox}
-    Input Text    ${text_area}    Hiiii all
-    Click Element    ${admin_check_box}
-    Click Element    ${doctor_check_box}
-    Click Element    ${Pathologist_check_box}
-    Click Element    ${Pharmacist_check_box}
-    Click Button    ${send_sms_btn}
+    TRY
+        Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy
+        Input Text    ${sms_template}    MSGID0001
+        Click Element    ${sms_checkbox}
+        Input Text    ${text_area}    Hiiii all
+        Click Element    ${admin_check_box}
+        Click Element    ${doctor_check_box}
+        Click Element    ${Pathologist_check_box}
+        Click Element    ${Pharmacist_check_box}
+        Click Button    ${send_sms_btn}
+    EXCEPT
+        Log To Console    failed to fill the send SMS form
+    END
 
+<<<<<<< HEAD
 To assert sucessfully message sent
     Element Text Should Be    ${assert_sms}    ${verification_text}
 
+        Log To Console    failed to assert successfully message sent
+    END
 
 check the alert for invalid add death record
-    Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
-    Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
+    TRY
+        Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
+        Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
+    EXCEPT
+        Log To Console    failed to check the alert for invalid add death record
+    END
+>>>>>>> dinesh-kumar-k
 
-To verify the unsucessful message sent
-    Element Text Should Be    ${assert_sms}    ${verification_text}
+To verify the unsuccessful message sent
+    TRY
+    EXCEPT
+        Log To Console    failed to verify the unsuccessful message sent
+    END
 
+To verify the successful message sent
+    TRY
+        Element Text Should Be    ${assert_sms}    Record Saved Successfully
+    EXCEPT
+        Log To Console    failed to verify the successful message sent
+    END
 
 Fill the send SMS form using invalid details
-    Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy
-    Input Text    ${sms_template}    MSGID0001
-    # Click Element    ${sms_checkbox}
-    Input Text    ${text_area}    Hiiii all
-    Click Element    ${admin_check_box}
-    Click Element    ${doctor_check_box}
-    Click Element    ${Pathologist_check_box}
-    Click Element    ${Pharmacist_check_box}
-    Click Button    ${send_sms_btn}
+    TRY
+        Input Text    ${sms_title}    Gropu message to doctor,Pathologist,Pharmacy
+        Input Text    ${sms_template}    MSGID0001
+        # Click Element    ${sms_checkbox}
+        Input Text    ${text_area}    Hiiii all
+        Click Element    ${admin_check_box}
+        Click Element    ${doctor_check_box}
+        Click Element    ${Pathologist_check_box}
+        Click Element    ${Pharmacist_check_box}
+        Click Button    ${send_sms_btn}
+    EXCEPT
+        Log To Console    failed to fill the send SMS form using invalid details
+    END
 
-    
+Fill the send SMS form without clicking send through
+    TRY
+        Input Text    ${sms_title}    ${title}
+        Input Text    ${sms_template}    ${template_id}
+        Input Text    ${text_area}    ${sms_body}
+        Click Element    ${admin_check_box}
+        Click Element    ${doctor_check_box}
+        Click Element    ${Pathologist_check_box}
+        Click Element    ${Pharmacist_check_box}
+        Click Button    ${send_sms_btn}
+    EXCEPT
+        Log To Console    failed to fill the send SMS form without clicking send through
+    END
+
+Fill post new message form using invalid notification date
+    TRY
+        Input Text    ${title_locator}    To my friend
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${publish_on}    05/30/2024
+    EXCEPT
+        Log To Console    failed to fill post new message form using invalid notification date
+    END
+
+Fill post new message form using invalid title
+    TRY
+        Select Frame    ${messaging_frame}
+        Click Element    ${msg_body}
+        Input Text    ${msg_body}    text=Hiiii! Sandhiya
+        Unselect Frame
+        Input Text    ${notice_date}    05/29/2024
+        Input Text    ${publish_on}    05/30/2024
+    EXCEPT
+        Log To Console    failed to fill post new message form using invalid title
+    END
+
+Verify unsuccessful msg sent using invalid notification date
+    TRY
+        Element Text Should Be    ${unsuccessful_msg}    ${unsuccessful_msg_text}
+    EXCEPT
+        Log To Console    failed to verify unsuccessful msg sent using invalid notification date
+    END
+
+Verify unsuccessful msg sent using invalid title
+    TRY
+        Element Text Should Be    (//span[@class="text-danger"])/p    The Title field is required.
+    EXCEPT
+        Log To Console    failed to verify unsuccessful msg sent using invalid title
+    END

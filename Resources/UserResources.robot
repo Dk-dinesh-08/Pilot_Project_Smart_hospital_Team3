@@ -33,14 +33,14 @@ ${Date}    id:dates
 ${Speacialist}    id:specialist
 ${Doctor}    id:doctor
 ${Shift_feild}    xpath:(//select[@class='form-control select2'])[1]
-${Slot_feild}    id:shift_id
+${Slot_feild}    //select[@id="shift_id"]
 ${appointment_prioirity_feild}    name:priority
 ${message_feild}    name:message
 ${live_consulting}    id:live_consult
 ${alternate_adress}    css:textarea[id='custom_fields[appointment][4]']
 ${Available_slots}    id:slot_0
 ${save_btn}    css:button[class='btn btn-info pull-right']
-${invalid_assert_slot}    id:slot_1
+${invalid_assert_slot}    id:slot_0
 ${Empty_alert}    div[class='toast toast-error']
 ${sorting_status}    xpath://th[@class='sorting' and text()='Status']
 ${pay}    xpath:(//a[@class='btn btn-info btn-xs']/i)[1]
@@ -57,6 +57,11 @@ ${mail_iframe}    xpath=//iframe[contains(@src, 'stripe.com')]
 ${Cancel_appointment_button}    css:i[class='fa fa-trash']
 ${assert_in_empty_add_appointment}    xpath://div[@class='toast toast-error']
 ${Search_feild_in_history}    xpath://div[@class='dataTables_filter']/label/input
+${status_button}    //th[contains(@aria-controls,'DataTables_Table_0') and text()='Status']
+${email_in_Payment}    //div[@class='emailInput input']/input
+${Card_number_payment}    ull sadf
+${month/yr}    //input[@id='cc-exp']
+${payment_form_pay_button}    //span[@class='iconTick']
 
 *** Keywords ***
 Sucessfull search by bill number
@@ -75,7 +80,7 @@ Verify the successfull search by bill number
 
 Verify the unsuccessfull search by bill number
     Wait Until Element Is Visible    ${pharmacy_bill_record_assert} 
-    Element Text Should Be    ${pharmacy_bill_record_assert}    Records: 0 to 0 of 0 (filtered from 10 total records)
+    Element Text Should Be    ${pharmacy_bill_record_assert}    Records: 0 to 0 of 0 (filtered from 14 total records)
 
 Successfull view of the bill details
     Wait Until Element Is Enabled    ${pharmacy_view_details}
@@ -108,6 +113,8 @@ Verify the successfull payment for the bill
 click the my appointment button
     Wait Until Element Is Visible    ${My_appointment_button}
     Click Element    ${My_appointment_button}
+    Double Click Element    ${status_button}
+
 
 Collect and count list of history
     ${table_xpath}=    Set Variable    //div[@id='DataTables_Table_0_wrapper']//table
@@ -137,13 +144,13 @@ The next page button
     Click Element    ${The_next_page_button}
 
 Fill the user apointment form
-    [Arguments]    ${Date_data}    
+    [Arguments]    ${Date_data}    ${slot_feild_data}
     Click Element    ${Add_appointment}
     Input Text    ${Date}    ${Date_data}   
     Select From List By Value    ${Speacialist}    2
     Select From List By Value    ${Doctor}    12
     Select From List By Value    ${Shift_feild}    1
-    Select From List By Value    ${Slot_feild}    39
+    Select From List By Value    ${Slot_feild}   ${slot_feild_data}
     
 Fill the user apointment remaining form
     [Arguments]   ${Message_data}     ${adress}
@@ -231,3 +238,21 @@ Enter the aproved value into search
     Wait Until Element Is Visible    ${Search_feild_in_history}
     Input Text    ${Search_feild_in_history}    APPNO5717
 
+<<<<<<< HEAD
+=======
+Enter details of payment form
+    TRY 
+        Select Frame    xpath://iframe[@name='stripe_checkout_app']
+        Input Text    ${email_in_Payment}    Dheemegam0008@gmail.com
+        Input Text    ${Card_number_payment}    42424242
+        Input Text    ${month/yr}    022026
+        Input Text    ${card_cvv_field}    123
+        Input Text    ${card_pincode}    636004
+        Click Element    ${payment_form_pay_button} 
+    EXCEPT
+        Log To Console    payement is fail
+    END
+
+
+
+>>>>>>> dinesh-kumar-k

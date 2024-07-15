@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-05-28T17:00:07.669328" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCases" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases">
+<suite id="s1-s1" name="Test invalisSendSMS" source="D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalisSendSMS.robot">
+<test id="s1-s1-t1" name="To validate the functionality of send sms" line="17">
+<kw name="Open the browser with url" owner="GenericResources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:08.377822" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-05-28T17:00:08.377822" elapsed="2.007811"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:10.387151" level="INFO">Opening url 'https://demo.smart-hospital.in/'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-05-28T17:00:10.385633" elapsed="0.602941"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-28T17:00:10.988574" elapsed="2.212062"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-05-28T17:00:13.201638" elapsed="0.002528"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:08.373016" elapsed="4.831150"/>
+</kw>
+<kw name="Go to user login" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:13.205166" level="INFO">Clicking link 'xpath://i[@class="fa fa-user"]//parent::a'.</msg>
+<arg>${User_login_button}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:13.205166" elapsed="2.015356"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:13.204166" elapsed="2.016356"/>
+</kw>
+<kw name="Fill the login form for doctor" owner="LoginResources">
+<kw name="Go to admin page" owner="LoginResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:15.224953" level="INFO">Clicking link '//a[text()=" Admin Login"]'.</msg>
+<arg>${admin_login_page_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:15.222954" elapsed="1.066722"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:15.221934" elapsed="1.067742"/>
+</kw>
+<kw name="Switch Window" owner="SeleniumLibrary">
+<arg>new</arg>
+<doc>Switches to browser window matching ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:16.290191" elapsed="0.021026"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:16.313265" level="INFO">Clicking link '(//a[@class="btn btn-primary width100"])[2]'.</msg>
+<arg>${doctor_login_btn}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:16.312729" elapsed="0.338990"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-28T17:00:21.653633" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-28T17:00:16.652705" elapsed="5.000928"/>
+</kw>
+<kw name="Click the signin button" owner="LoginResources">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:21.662653" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
+<arg>${signin_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:21.661653" elapsed="7.634967"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:21.654654" elapsed="7.641966"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:15.220522" elapsed="14.076098"/>
+</kw>
+<kw name="Verify successful login of doctor" owner="DoctorResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:29.303637" level="INFO">Clicking link '//a[@class="dropdown-toggle"]'.</msg>
+<arg>${image_icon}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:29.300633" elapsed="0.340210"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:29.644842" level="INFO">Verifying element '//div[@class="sstopuser-test"]/h5' contains exact text 'Doctor'.</msg>
+<arg>${doctor_text_locator}</arg>
+<arg>Doctor</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-05-28T17:00:29.641846" elapsed="0.305669"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:29.297620" elapsed="0.649895"/>
+</kw>
+<kw name="Click messaging button" owner="DoctorResources">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${msg_btn}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-28T17:00:29.950517" elapsed="0.546074"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:30.502590" level="INFO">Clicking element '//a/i[@class='fas fa-bullhorn']'.</msg>
+<arg>${msg_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:30.497588" elapsed="1.250214"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:29.948524" elapsed="1.799278"/>
+</kw>
+<kw name="click send sms button" owner="DoctorResources">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:31.749806" level="INFO">Clicking link '(//a[@class="btn btn-primary btn-sm"])[2]'.</msg>
+<arg>${send_msg_locator}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:31.748807" elapsed="0.646213"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:31.747802" elapsed="0.648730"/>
+</kw>
+<kw name="Fill the send SMS form using invalid details" owner="DoctorResources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:32.397546" level="INFO">Typing text 'Gropu message to doctor,Pathologist,Pharmacy' into text field '//div[@class="form-group"]//input[@name="group_title"]'.</msg>
+<arg>${sms_title}</arg>
+<arg>Gropu message to doctor,Pathologist,Pharmacy</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:32.397546" elapsed="0.693605"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:33.093170" level="INFO">Typing text 'MSGID0001' into text field '//input[@name="group_template_id"]'.</msg>
+<arg>${sms_template}</arg>
+<arg>MSGID0001</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:33.092154" elapsed="0.334226"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:33.427375" level="INFO">Typing text 'Hiiii all' into text field '//textarea[@name="group_message"]'.</msg>
+<arg>${text_area}</arg>
+<arg>Hiiii all</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:33.426380" elapsed="0.358149"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:33.785542" level="INFO">Clicking element '(//input[@type="checkbox"])[4]'.</msg>
+<arg>${admin_check_box}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:33.785542" elapsed="0.107917"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:33.894460" level="INFO">Clicking element '(//input[@type="checkbox"])[6]'.</msg>
+<arg>${doctor_check_box}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:33.893459" elapsed="0.117870"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:34.013337" level="INFO">Clicking element '(//input[@type="checkbox"])[8]'.</msg>
+<arg>${Pathologist_check_box}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:34.012327" elapsed="0.096722"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:34.110052" level="INFO">Clicking element '(//input[@type="checkbox"])[7]'.</msg>
+<arg>${Pharmacist_check_box}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:34.109049" elapsed="0.091858"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:34.201910" level="INFO">Clicking button '//button[@class="btn btn-primary submit_group"]'.</msg>
+<arg>${send_sms_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:34.201910" elapsed="0.119055"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:32.396532" elapsed="1.925432"/>
+</kw>
+<kw name="Send the message" owner="DoctorResources">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${send_btn}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-05-28T17:00:34.323971" elapsed="0.306122"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:34.630093" level="INFO">Clicking button '(//div[@class="pull-right"])[2]/button'.</msg>
+<arg>${send_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-28T17:00:34.630093" elapsed="0.135126"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:34.321964" elapsed="0.443255"/>
+</kw>
+<kw name="To verify the unsucessful message sent" owner="DoctorResources">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-05-28T17:00:34.767218" level="INFO">Verifying element '//div[@class="toast-message"]' contains exact text 'Record Saved Successfully'.</msg>
+<msg time="2024-05-28T17:00:34.992531" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-05-28T17:00:34.992531" level="FAIL">The text of element '//div[@class="toast-message"]' should have been 'Record Saved Successfully' but it was 'The Enviar a través de field is required.'.</msg>
+<arg>${assert_sms}</arg>
+<arg>${verification_text}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2024-05-28T17:00:34.766219" elapsed="0.231457">The text of element '//div[@class="toast-message"]' should have been 'Record Saved Successfully' but it was 'The Enviar a través de field is required.'.</status>
+</kw>
+<status status="FAIL" start="2024-05-28T17:00:34.766219" elapsed="0.231457">The text of element '//div[@class="toast-message"]' should have been 'Record Saved Successfully' but it was 'The Enviar a través de field is required.'.</status>
+</kw>
+<kw name="close the browser" owner="GenericResources" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-28T17:00:34.999683" elapsed="9.988479"/>
+</kw>
+<status status="PASS" start="2024-05-28T17:00:34.999683" elapsed="9.988479"/>
+</kw>
+<tag>smoke</tag>
+<status status="FAIL" start="2024-05-28T17:00:08.371505" elapsed="36.616657">The text of element '//div[@class="toast-message"]' should have been 'Record Saved Successfully' but it was 'The Enviar a través de field is required.'.</status>
+</test>
+<doc>Test to verify the message functionality</doc>
+<status status="FAIL" start="2024-05-28T17:00:07.720442" elapsed="37.269719"/>
+</suite>
+<status status="FAIL" start="2024-05-28T17:00:07.690442" elapsed="37.300721"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestCases">TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Test invalisSendSMS">TestCases.Test invalisSendSMS</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

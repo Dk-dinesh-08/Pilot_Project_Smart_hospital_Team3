@@ -1,0 +1,29 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test invalisSendSMS :: Test to verify the message functionality     
+==============================================================================
+To validate the functionality of send sms                               
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalisSendSMS.robot:17
+    T:  To validate the functionality of send sms    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_invalisSendSMS.robot:26
+      To verify the unsucessful message sent    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\DoctorResources.robot:305
+      Element Text Should Be    ${assert_sms}    ${verification_text}
+      |  ${assert_sms} = //div[@class="toast-message"] (str)
+      |  ${verification_text} = Record Saved Successfully (str)
+______________________________________________________________________________
+| FAIL |
+The text of element '//div[@class="toast-message"]' should have been 'Record Saved Successfully' but it was 'The Enviar a través de field is required.'.
+------------------------------------------------------------------------------
+TestCases.Test invalisSendSMS :: Test to verify the message functi... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\24\output.xml

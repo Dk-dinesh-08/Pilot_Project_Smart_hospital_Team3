@@ -1,0 +1,29 @@
+==============================================================================
+TestCases                                                                     
+==============================================================================
+TestCases.Test validPostMessage :: Test to verify the message functionality   
+==============================================================================
+To validate the functionality of post a new message                     
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_validPostMessage.robot:13
+    T:  To validate the functionality of post a new message    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\Test_validPostMessage.robot:22
+      Verify message send sucessfully    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  D:\main_repository\Pilot_Project_Smart_hospital_Team3\Resources\DoctorResources.robot:277
+      Element Text Should Be    ${sucess_msg}    ${verification_text}
+      |  ${sucess_msg} = //div[@class="alert alert-success"] (str)
+      |  ${verification_text} = Record Saved Successfully (str)
+______________________________________________________________________________
+| FAIL |
+The text of element '//div[@class="alert alert-success"]' should have been 'Record Saved Successfully' but it was 'Registro guardado con éxito'.
+------------------------------------------------------------------------------
+TestCases.Test validPostMessage :: Test to verify the message func... | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+TestCases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  D:\main_repository\Pilot_Project_Smart_hospital_Team3\TestCases\pabot_results\35\output.xml
