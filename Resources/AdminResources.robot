@@ -263,6 +263,7 @@ Verify item added to stock
         Log To Console    Failed to verify item added to stock
     END
 
+ 
 
 Verify invalid patient search results
     TRY
