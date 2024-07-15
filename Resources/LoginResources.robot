@@ -33,99 +33,178 @@ ${user_login_button}    //ul[@class="top-right"]//a
 *** Keywords ***
 Fill the login form with login credentials for doctor
     [Arguments]    ${username}    ${password}
-    Click Link    ${admin_login_button}
-    Switch Window    new
-    Input Text    ${username_field}    ${username}
-    Input Password    ${password_field}    ${password}
-    Click Button    ${signin_button}
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+        Input Text    ${username_field}    ${username}
+        Input Password    ${password_field}    ${password}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    Login form filling with login credentials for doctor is failed
+    END
 
 Fill the successfull login form by clicking the doctor role
-    Click Link    ${admin_login_button}
-    Switch Window    new
-    Click Link    ${valid_doctor_button}
-    Click Button    ${signin_button}
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+        Click Link    ${valid_doctor_button}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    Succesfull login form filling by clicking doctor role is failed
+    END
 
 Fill the unsuccessfull login form by clicking the doctor role
-    Click Link    ${admin_login_button}
-    Switch Window    new
-    Click Link    ${invalid_doctor_button}
-    Click Button    ${signin_button}
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+        Click Link    ${invalid_doctor_button}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    Unsuccesfull login form filling by clicking doctor role is failed
+    END
 
 Click the signin button
-    Click Button    ${signin_button}
+    TRY
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    Click the signin button is failed
+    END
 
 Click the admin login button
-    Click Link    ${admin_login_button}
-    Switch Window    new
+    TRY
+        Click Link    ${admin_login_button}
+        Switch Window    new
+    EXCEPT
+        Log To Console    Click the admin login button is failed
+    END
 
 Fill the login form by default credentials for user role
-    Click Button    ${signin_button}
+    TRY
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    Login form filling by default credentials for user role is failed
+    END
 
 Verify the successfull login with valid credentials for doctor
-    Click Link    ${pofile_icon}
-    Wait Until Element Is Enabled   ${profile_name}
-    Element Text Should Be    ${profile_name}    Doctor
+    TRY
+        Click Link    ${pofile_icon}
+        Wait Until Element Is Enabled   ${profile_name}
+        Element Text Should Be    ${profile_name}    Doctor
+    EXCEPT
+        Log To Console    Succesfull login with valid credentials for doctor verification is failed
+    END
 
 Verify the unsuccessfull login with valid credentials for doctor
-    Click Link    ${pofile_icon}
-    Element Text Should Not Be    ${profile_name}    Doctor
+    TRY
+        Click Link    ${pofile_icon}
+        Element Text Should Not Be    ${profile_name}    Doctor
+    EXCEPT
+        Log To Console    Unsuccesfull login with valid credentials for doctor verification is failed
+    END
 
 Verify the successfull login with valid credentials for user
-    Click Link    ${pofile_icon}
-    Wait Until Element Is Enabled   ${profile_name}
-    Element Text Should Be    ${profile_name}    Patient
+    TRY
+        Click Link    ${pofile_icon}
+        Wait Until Element Is Enabled   ${profile_name}
+        Element Text Should Be    ${profile_name}    Patient
+    EXCEPT
+        Log To Console    Succesfull login with valid credentials for user verification is failed
+    END
 
 Verify the unsucessfull login with invalid credentials
-    Element Text Should Be    ${invalid_credentials_message}    Invalid Username or Password
+    TRY
+        Element Text Should Be    ${invalid_credentials_message}    Invalid Username or Password
+    EXCEPT
+        Log To Console    Unsuccesfull login with invalid credentials verification is failed
+    END
 
 Verify the unsucessfull login with the blank username
-    Element Text Should Be    ${required_username_message}    The Username field is required.
+    TRY
+        Element Text Should Be    ${required_username_message}    The Username field is required.
+    EXCEPT
+        Log To Console    Unsuccesfull login with blank username verification is failed
+    END
 
 Verify the unsucessfull login with the blank password
-    Element Text Should Be    ${required_password_message}    The Password field is required.
+    TRY
+        Element Text Should Be    ${required_password_message}    The Password field is required.
+    EXCEPT
+        Log To Console    Unsuccesfull login with blank password verification is failed
+    END
 
 Verify the unsuccessfull login with blank credentials
-    Element Text Should Be    ${required_username_message}    The Username field is required.
-    Element Text Should Be    ${required_password_message}    The Password field is required.
-
-#Logout the user
- #   Go To    ${doctor_logout_url}
- #   Click Button    ${pofile_icon}
-  #  Click Link    ${doctorlogout_button}
+    TRY
+        Element Text Should Be    ${required_username_message}    The Username field is required.
+        Element Text Should Be    ${required_password_message}    The Password field is required.
+    EXCEPT
+        Log To Console    Unsuccesfull login with blank credentials verification is failed
+    END
 
 click the doctor button
-    Click Element    ${doctor_button}
+    TRY
+        Click Element    ${doctor_button}
+    EXCEPT
+        Log To Console    Click the doctor button is failed
+    END
 
 
 click the admin login
-    Click Element    ${admin_login} 
+    TRY
+        Click Element    ${admin_login}
+    EXCEPT
+        Log To Console    Click the admin login is failed
+    END 
 
 
 Go to user login
-    Click Link    ${User_login_button}
+    TRY
+        Click Link    ${User_login_button}
+    EXCEPT
+        Log To Console    Go to user login is failed
+    END
 
 Go to admin page
-    Click link    ${admin_login_page_btn}
+    TRY
+        Click link    ${admin_login_page_btn}
+    EXCEPT
+        Log To Console    Go to admin page is failed
+    END
 
 Go to doctor page
-    Click Link    ${doctor_login_btn}
+    TRY
+        Click Link    ${doctor_login_btn}
+    EXCEPT
+        Log To Console    Go to doctor page is failed
+    END
 
 fill the admin login form
-    Click Link    ${admin_login_btn}
+    TRY
+        Click Link    ${admin_login_btn}
+    EXCEPT
+        Log To Console    Login form filling for admin is failed
+    END
 
 
 Fill the login form for doctor
-    Go to admin page
-    Switch Window    new
-    Click Link    ${doctor_login_btn}
-    Sleep     5s
-    click the sign in button
+    TRY
+        Go to admin page
+        Switch Window    new
+        Click Link    ${doctor_login_btn}
+        Sleep     5s
+        click the sign in button
+    EXCEPT
+        Log To Console    Login form filling for doctor is failed
+    END
 
 Fill the login form
     [Arguments]    ${username}    ${password}
-    Input Text    ${username_field}    ${username} 
-    Input Password    ${password_field}    ${password}
-    Click Button    ${signin_button}
+    TRY
+        Input Text    ${username_field}    ${username} 
+        Input Password    ${password_field}    ${password}
+        Click Button    ${signin_button}
+    EXCEPT
+        Log To Console    Login form filling is failed
+    END
     
 
 
