@@ -37,17 +37,7 @@ click the log in button
 close the browser
     Close Browser
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-=======
 change default language english
     Wait Until Element Is Visible    ${slect_language_option}
     Select From List By Value   ${slect_language_option}    4
     
->>>>>>> dinesh-kumar-k

@@ -99,8 +99,6 @@ ${Pharmacist_check_box}    (//input[@type="checkbox"])[7]
 ${assert_sms}    //div[@class="toast-message"]
 ${assert_invalid_add_Death_record}    xpath://div[text()='Patient Not Found']
 ${verification_text_invalid}    The Send Through field is required.
-<<<<<<< HEAD
-=======
 ${sms_body}    Hiiii all
 ${template_id}    MSGID0001
 ${title}    Gropu message to doctor,Pathologist,Pharmacy
@@ -109,7 +107,6 @@ ${title}    Gropu message to doctor,Pathologist,Pharmacy
 
 ${unsuccessful_msg}    (//span[@class="text-danger"])[3]/p
 ${unsuccessful_msg_text}    The Notice Date field is required.
->>>>>>> dinesh-kumar-k
 
  
 *** Keywords ***
@@ -346,34 +343,25 @@ Fill the send SMS form
         Log To Console    failed to fill the send SMS form
     END
 
-<<<<<<< HEAD
 To assert sucessfully message sent
-    Element Text Should Be    ${assert_sms}    ${verification_text}
-
+    TRY
+        Element Text Should Be    ${assert_sms}    ${verification_text}
+    EXCEPT
         Log To Console    failed to assert successfully message sent
     END
 
 check the alert for invalid add death record
-    TRY
-        Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
-        Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
-    EXCEPT
-        Log To Console    failed to check the alert for invalid add death record
-    END
->>>>>>> dinesh-kumar-k
+    Wait Until Page Contains Element    ${assert_invalid_add_Death_record}
+    Element Text Should Be    ${assert_invalid_add_Death_record}    Patient Not Found
 
-To verify the unsuccessful message sent
-    TRY
-    EXCEPT
-        Log To Console    failed to verify the unsuccessful message sent
-    END
+    
 
-To verify the successful message sent
-    TRY
-        Element Text Should Be    ${assert_sms}    Record Saved Successfully
-    EXCEPT
-        Log To Console    failed to verify the successful message sent
-    END
+To verify the unsucessful message sent
+    Element Text Should Be    ${assert_sms}    The Send Through field is required.
+
+To verify the sucessful message sent
+    Element Text Should Be    ${assert_sms}    Record Saved Successfully
+
 
 Fill the send SMS form using invalid details
     TRY
