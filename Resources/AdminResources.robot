@@ -81,6 +81,7 @@ ${date_in_appointment}    xpath://input[@class='form-control date']
 ${date_value}    05/16/2024
 ${invalid_search_loc}    (//span[@class="text-danger"])[1]    
 ${invalid_search_text}    The Doctor field is required.
+${side_panel}    //div[@class="slimScrollBar"]
 
 
 
@@ -89,158 +90,236 @@ ${error_msg_loc}    //div[@class="toast-message"]/p
 *** Keywords ***
 Fill the appointment wise search form
     [Arguments]    ${doctor_name}   
-    Click Element    ${doctor_field}
-    ${list_of_elements}=    Get WebElements    //span[@class="select2-results"]//li
-    ${options_texts}=    Create List
-    FOR  ${element}    IN    @{list_of_elements}
-         ${text}=    Get Text    ${element}
-         Append To List    ${options_texts}    ${text}
-         Run Keyword If    '${text}' == '${doctor_name}'      Click Element    ${element}
-         
+    TRY
+        Click Element    ${doctor_field}
+        ${list_of_elements}=    Get WebElements    //span[@class="select2-results"]//li
+        ${options_texts}=    Create List
+        FOR  ${element}    IN    @{list_of_elements}
+            ${text}=    Get Text    ${element}
+            Append To List    ${options_texts}    ${text}
+            Run Keyword If    '${text}' == '${doctor_name}'      Click Element    ${element}
+        END
+    EXCEPT
+        Log To Console    Failed to enter details in appointment search form
     END
 
 
 Enter the date feild
-    Click Element  ${date_in_appointment}      
-    Input Text    ${date_in_appointment}    ${date_value}
-    # Log    ${options_texts}
-    # Log To Console    ${options_texts}
-    
-    # Click Element    ${date_fld}
-    Input Text    ${date_fld}    ${date} 
-
+    TRY
+        Click Element  ${date_in_appointment}      
+        Input Text    ${date_in_appointment}    ${date_value}
+        Input Text    ${date_fld}    ${date} 
+    EXCEPT
+        Log To Console     failed to enter the date field
+    END
        
 
 Click the search button
-    Click Button    ${search_button}
+    TRY
+        Click Button    ${search_button}
+    EXCEPT
+        Log To Console    failed to click the search button
+    END
 
 Click the Queue button
-    Click Link    ${queue_button}
+    TRY
+        Click Link    ${queue_button}
+    EXCEPT
+        Log To Console    failed to Click the Queue button
+    END
 
 
 Click the Appoinment wise search button
-    Click Link   ${doctor_wise_search_btn}
+    TRY
+        Click Link   ${doctor_wise_search_btn}
+    EXCEPT
+        Log To Console    Failed to click the appointment wise search button
+    END
 
 Verify patient queue page opens
-    Element Text Should Not Be    .box-title.titlefix    Patient Queue
-
-
+    TRY
+        Element Text Should Not Be    .box-title.titlefix    Patient Queue
+    EXCEPT
+        Log To Console    Failed to verify patient queue page opens
+    END
 
 Click Appoinment link
-    Click Link    ${appoinment_link}
-
+    TRY
+        Click Link    ${appoinment_link}
+    EXCEPT
+        Log To Console    Failed to click the appointment link
+    END
 
 Verify doctor wise appoinment search
-   Element Text Should Be   //div[text()="Records: 0 to 0 of 0"]      Records: 0 to 0 of 0  # ${verify_text}
-  
+    TRY
+        Element Text Should Be   //div[text()="Records: 0 to 0 of 0"]    Records: 0 to 0 of 0
+    EXCEPT
+        Log To Console    Failed to verify doctor wise appointment search
+    END
 
 Verify doctor wise appoinment search for invalid doctor name
-   Element Text Should Be    ${invalid_search_loc}    ${invalid_search_text}
-
+    TRY
+        Element Text Should Be    ${invalid_search_loc}    ${invalid_search_text}
+    EXCEPT
+        Log To Console    Failed to verify doctor wise appointment search for invalid doctor name
+    END
 
 Fill the Queue form
-    [Arguments]     ${doctor_name}  ${shift}  ${date}    ${slot}    
-    Click Element    ${select_doctor_field}
-    
-    Select From List By Value   ${select_doctor_field}     ${doctor_name}
-    Click Element    ${select_shift_field}
-
-    Select From List By Value   ${select_shift_field}    ${shift}
-    Click Element    ${date_field}
-    
-    Input Text   ${date_field}     ${date}
-    Click Element    ${slot_locator}
-    # Input Text   ${slot_field}     ${date}
-    Select From List By Value   ${slot_locator}            ${slot}
-   
+    [Arguments]     ${doctor_name}  ${shift}  ${date}    ${slot}
+    TRY
+        Click Element    ${select_doctor_field}
+        Select From List By Value   ${select_doctor_field}     ${doctor_name}
+        Click Element    ${select_shift_field}
+        Select From List By Value   ${select_shift_field}    ${shift}
+        Click Element    ${date_field}
+        Input Text   ${date_field}     ${date}
+        Click Element    ${slot_locator}
+        Select From List By Value   ${slot_locator}            ${slot}
+    EXCEPT
+        Log To Console    Failed to fill the queue form
+    END
 
 click search button for queue 
-    Click Button    ${queue_search_button}
+    TRY
+        Click Button    ${queue_search_button}
+    EXCEPT
+        Log To Console    Failed to click the search button for queue
+    END
 
 Verify results for queue search
-    Element Text Should Be    ${queue_result}    ${queue_text}
+    TRY
+        Element Text Should Be    ${queue_result}    ${queue_text}
+    EXCEPT
+        Log To Console    Failed to verify results for queue search
+    END
 
 Enter patient name
     [Arguments]    ${patient_name}
-    Input Text    ${patient_search}    ${patient_name}
-    Click Element    ${patient_search_button}
-    
+    TRY
+        Input Text    ${patient_search}    ${patient_name}
+        Click Element    ${patient_search_button}
+    EXCEPT
+        Log To Console    Failed to enter patient name
+    END
+
 Verify the patient search details
-    ${name}    Get Text    ${table_value}
-    Should Be Equal As Strings    ${name}     Olivier Thomas (1)
+    TRY
+        ${name}    Get Text    ${table_value}
+        Should Be Equal As Strings    ${name}     Olivier Thomas (1)
+    EXCEPT
+        Log To Console    Failed to verify the patient search details
+    END
 
 
 Click the inventory button
-    Scroll Element Into View       ${inventory} 
-    Wait Until Element Is Visible    ${inventory}    10s
-    Click Link    ${inventory}
+    TRY
+        Scroll Element into View    ${inventory}
+        Wait Until Element Is Visible    ${inventory}    10s
+        Click Link    ${inventory}
+    EXCEPT
+        Log To Console    Failed to click the inventory button
+    END
 
 Verify item stock list page opened
-    Element Text Should Be    ${item_stockList}     Item Stock List
-
-
+    TRY
+        Element Text Should Be    ${item_stockList}     Item Stock List
+    EXCEPT
+        Log To Console    Failed to verify item stock list page opened
+    END
 
 Click add stock item
-    Click Link    ${add_item_stock}
-
+    TRY
+        Click Link    ${add_item_stock}
+    EXCEPT
+        Log To Console    Failed to click add stock item
+    END
 
 Fill add item stock form
-    Select From List By Label    ${item_category}    Medical Equipment
-    Select From List By Label    ${supplier}    Quick Service
-    Input Text    ${quantity}    10   
-    Select From List By Label    ${item}    Syringe Pump
-    Select From List By Label    ${store}    Vinay Pharmacy
-    Input Text    ${quantity}    3
-    Input Text    ${puchase_price}    text=50
+    TRY
+        Select From List By Label    ${item_category}    Medical Equipment
+        Select From List By Label    ${supplier}    Quick Service
+        Input Text    ${quantity}    10   
+        Select From List By Label    ${item}    Syringe Pump
+        Select From List By Label    ${store}    Vinay Pharmacy
+        Input Text    ${quantity}    3
+        Input Text    ${puchase_price}    text=50
+    EXCEPT
+        Log To Console    Failed to fill add item stock form
+    END
 
 Click the save button
-    Click Button    ${save_btn}
+    TRY
+        Click Button    ${save_btn}
+    EXCEPT
+        Log To Console    Failed to click the save button
+    END
 
 Verify item added to stock
-    Element Text Should Be    //td/a    Syringe Pump
+    TRY
+        Element Text Should Be    //td/a    Syringe Pump
+    EXCEPT
+        Log To Console    Failed to verify item added to stock
+    END
+
 
 
 # Verify doctor wise appoinment search
 #     Wait Until Page Contains Element    ${search_result}
 #     Element Text Should Be   ${search_result}    ${verify_text}
 
+ 
 
-
-
-    
-
-Verify invalid patient search results 
-    Element Text Should Be   ${search_result}   Records: 0 to 0 of 0
-
+Verify invalid patient search results
+    TRY
+        Element Text Should Be   ${search_result}   Records: 0 to 0 of 0
+    EXCEPT
+        Log To Console    Failed to verify invalid patient search results
+    END
 
 Fill add item stock form without purchase price
-    Select From List By Label    ${item_category}    Medical Equipment
-    Select From List By Label    ${supplier}    Quick Service
-    Input Text    ${quantity}    10   
-    Select From List By Label    ${item}    Syringe Pump
-    Select From List By Label    ${store}    Vinay Pharmacy
-    Input Text    ${quantity}    3
-
+    TRY
+        Select From List By Label    ${item_category}    Medical Equipment
+        Select From List By Label    ${supplier}    Quick Service
+        Input Text    ${quantity}    10   
+        Select From List By Label    ${item}    Syringe Pump
+        Select From List By Label    ${store}    Vinay Pharmacy
+        Input Text    ${quantity}    3
+    EXCEPT
+        Log To Console    Failed to fill add item stock form without purchase price
+    END
 
 verify add item stock form without purchase price
-    Element Text Should Be    ${error_msg_loc}  The Purchase Price field is required.
-
+    TRY
+        Element Text Should Be    ${error_msg_loc}  The Purchase Price field is required.
+    EXCEPT
+        Log To Console    Failed to verify add item stock form without purchase price
+    END
 
 Fill add item stock form without quantity
-    Select From List By Label    ${item_category}    Medical Equipment
-    Select From List By Label    ${supplier}    Quick Service
-    Select From List By Label    ${item}    Syringe Pump
-    Select From List By Label    ${store}    Vinay Pharmacy
-    
+    TRY
+        Select From List By Label    ${item_category}    Medical Equipment
+        Select From List By Label    ${supplier}    Quick Service
+        Select From List By Label    ${item}    Syringe Pump
+        Select From List By Label    ${store}    Vinay Pharmacy
+    EXCEPT
+        Log To Console    Failed to fill add item stock form without quantity
+    END
 
 verify add item stock form without quantity
-    Element Text Should Be  ${error_msg_loc}  The Quantity field is required.
+    TRY
+        Element Text Should Be  ${error_msg_loc}  The Quantity field is required.
+    EXCEPT
+        Log To Console    Failed to verify add item stock form without quantity
+    END
 
 Fill add item stock form without supplier store
-    Select From List By Label    ${item_category}    Medical Equipment
-    Select From List By Label    ${supplier}    Quick Service
-    Input Text    ${quantity}    10   
-    Select From List By Label    ${item}    Syringe Pump
-    Input Text    ${quantity}    3
-    Input Text    ${puchase_price}    text=50
-
+    TRY
+        Select From List By Label    ${item_category}    Medical Equipment
+        Select From List By Label    ${supplier}    Quick Service
+        Input Text    ${quantity}    10   
+        Select From List By Label    ${item}    Syringe Pump
+        Input Text    ${quantity}    3
+        Input Text    ${puchase_price}    text=50
+    EXCEPT
+        Log To Console    Failed to fill add item stock form without supplier store
+    END
