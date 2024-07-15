@@ -23,6 +23,7 @@ Payment Test Template    ${mail}  	${expDate}  	${ccv}	  ${card_num}	 ${zip_code
 *** Keywords ***
 validate payment method
     [Arguments]     ${mail}  	${expDate}  	${ccv}	  ${card_num}	 ${zip_code}
+<<<<<<< HEAD
     click the log in button
     click the sign In button
     click the my appointment button
@@ -30,6 +31,16 @@ validate payment method
     click pay with card
     assert the payment page
    
+=======
+        click the log in button
+        click the sign In button
+        click the my appointment button
+        click pay button
+        click pay with card
+        Enter details of payment form
+  
+    
+>>>>>>> dinesh-kumar-k
     
 
     

@@ -58,7 +58,6 @@
 </kw>
 <status status="PASS" start="2024-07-15T21:10:23.403185" elapsed="0.670434"/>
 </kw>
-<kw name="Click the signin button" owner="LoginResources">
 <kw name="Click Button" owner="SeleniumLibrary">
 <msg time="2024-07-15T21:10:24.099003" level="INFO">Clicking button 'css:button[class='btn']'.</msg>
 <arg>${signin_button}</arg>
@@ -95,11 +94,19 @@
 <doc>Logs the given message to the console.</doc>
 <status status="NOT RUN" start="2024-07-15T21:11:28.020521" elapsed="0.000000"/>
 </kw>
+
 <status status="NOT RUN" start="2024-07-15T21:11:28.019681" elapsed="0.000840"/>
 </branch>
 <status status="PASS" start="2024-07-15T21:11:23.323174" elapsed="4.697347"/>
 </try>
 <status status="PASS" start="2024-07-15T21:11:23.322677" elapsed="4.697844"/>
+
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-07-12T18:08:00.783163" level="INFO">Clicking element 'xpath://a[@class='btn btn-primary btn-sm deathrecord']'.</msg>
+<arg>${add_death_record}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-07-12T18:08:00.782551" elapsed="0.140606"/>
+
 </kw>
 <kw name="Click add stock item" owner="AdminResources">
 <try>

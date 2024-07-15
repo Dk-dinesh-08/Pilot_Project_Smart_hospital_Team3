@@ -28,9 +28,7 @@ ${shift_field}    select[id="global_shift"]
 ${slot_locator}    //select[@id="slot"]
 ${date_field}    input[id=datetimepicker]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
-
 ${doctor_wise_search_btn}    (//a[@class="btn btn-primary btn-sm"])[1]
-
 ${login_password}    css:input[id='loginpassword']
 ${login_btn}    xpath://button[text()='Log in']
 ${close_btn}    xpath://div[@id="logInModal"]/div/div/div[3]/button[1]
@@ -137,11 +135,13 @@ Click the Appoinment wise search button
     END
 
 Verify patient queue page opens
+
     TRY
         Element Text Should Not Be    .box-title.titlefix    Patient Queue
     EXCEPT
         Log To Console    Failed to verify patient queue page opens
     END
+
 
 Click Appoinment link
     TRY
@@ -150,12 +150,14 @@ Click Appoinment link
         Log To Console    Failed to click the appointment link
     END
 
+
 Verify doctor wise appoinment search
     TRY
         Element Text Should Be   //div[text()="Records: 0 to 0 of 0"]    Records: 0 to 0 of 0
     EXCEPT
         Log To Console    Failed to verify doctor wise appointment search
     END
+
 
 Verify doctor wise appoinment search for invalid doctor name
     TRY
@@ -262,10 +264,10 @@ Verify item added to stock
     END
 
 
+Verify doctor wise appoinment search
+    Wait Until Page Contains Element    ${search_result}
+    Element Text Should Be   ${search_result}    ${verify_text}
 
-# Verify doctor wise appoinment search
-#     Wait Until Page Contains Element    ${search_result}
-#     Element Text Should Be   ${search_result}    ${verify_text}
 
  
 
@@ -304,6 +306,30 @@ Fill add item stock form without quantity
     EXCEPT
         Log To Console    Failed to fill add item stock form without quantity
     END
+
+Verify invalid search results 
+    Element Text Should Be   ${search_result}    ${invalid_patient_search_txt}
+
+Verify invalid patient search results 
+    Element Text Should Be   ${search_result}   Records: 0 to 0 of 0
+
+
+Fill add item stock form without purchase price
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Input Text    ${quantity}    10   
+    Select From List By Label    ${item}    Syringe Pump
+    Select From List By Label    ${store}    Vinay Pharmacy
+    Input Text    ${quantity}    3
+
+verify add item stock form without purchase price
+    Element Text Should Be    ${error_msg_loc}  The Purchase Price field is required.
+
+Fill add item stock form without quantity
+    Select From List By Label    ${item_category}    Medical Equipment
+    Select From List By Label    ${supplier}    Quick Service
+    Select From List By Label    ${item}    Syringe Pump
+    Select From List By Label    ${store}    Vinay Pharmacy
 
 verify add item stock form without quantity
     TRY

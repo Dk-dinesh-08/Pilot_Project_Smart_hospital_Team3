@@ -31,7 +31,10 @@ validate add birth record
     Switch Window     new
     click the doctor button
     click the sign In button
+<<<<<<< HEAD
+=======
     #click accept in alert
+>>>>>>> dinesh-kumar-k
     click birth record and death record
     click birth record
     click add birth record
