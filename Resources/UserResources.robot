@@ -57,6 +57,11 @@ ${mail_iframe}    xpath=//iframe[contains(@src, 'stripe.com')]
 ${Cancel_appointment_button}    css:i[class='fa fa-trash']
 ${assert_in_empty_add_appointment}    xpath://div[@class='toast toast-error']
 ${Search_feild_in_history}    xpath://div[@class='dataTables_filter']/label/input
+${status_button}    //th[contains(@aria-controls,'DataTables_Table_0') and text()='Status']
+${email_in_Payment}    //div[@class='emailInput input']/input
+${Card_number_payment}    ull sadf
+${month/yr}    //input[@id='cc-exp']
+${payment_form_pay_button}    //span[@class='iconTick']
 
 *** Keywords ***
 Sucessfull search by bill number
@@ -108,6 +113,8 @@ Verify the successfull payment for the bill
 click the my appointment button
     Wait Until Element Is Visible    ${My_appointment_button}
     Click Element    ${My_appointment_button}
+    Double Click Element    ${status_button}
+
 
 Collect and count list of history
     ${table_xpath}=    Set Variable    //div[@id='DataTables_Table_0_wrapper']//table
@@ -230,4 +237,19 @@ Enter the value into search
 Enter the aproved value into search
     Wait Until Element Is Visible    ${Search_feild_in_history}
     Input Text    ${Search_feild_in_history}    APPNO5717
+
+Enter details of payment form
+    TRY 
+        Select Frame    xpath://iframe[@name='stripe_checkout_app']
+        Input Text    ${email_in_Payment}    Dheemegam0008@gmail.com
+        Input Text    ${Card_number_payment}    42424242
+        Input Text    ${month/yr}    022026
+        Input Text    ${card_cvv_field}    123
+        Input Text    ${card_pincode}    636004
+        Click Element    ${payment_form_pay_button} 
+    EXCEPT
+        Log To Console    payement is fail
+    END
+
+
 
