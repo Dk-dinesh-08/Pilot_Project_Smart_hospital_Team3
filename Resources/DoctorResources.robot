@@ -170,7 +170,7 @@ Verify the successful adding of new patient
         Log To Console    Verification of successful addition of new patient failed
     END
 
-Verify the unsuccessful addition of new patient
+Verify the unsuccessfull addition of new patient
     TRY
         Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required.
     EXCEPT
