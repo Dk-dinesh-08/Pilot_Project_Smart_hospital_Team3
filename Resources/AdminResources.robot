@@ -28,9 +28,7 @@ ${shift_field}    select[id="global_shift"]
 ${slot_locator}    //select[@id="slot"]
 ${date_field}    input[id=datetimepicker]
 ${queue_search_button}    //button[@class="btn btn-primary btn-sm"]
-
 ${doctor_wise_search_btn}    (//a[@class="btn btn-primary btn-sm"])[1]
-
 ${login_password}    css:input[id='loginpassword']
 ${login_btn}    xpath://button[text()='Log in']
 ${close_btn}    xpath://div[@id="logInModal"]/div/div/div[3]/button[1]
@@ -123,7 +121,6 @@ Click the Appoinment wise search button
 
 Verify patient queue page opens
     Element Text Should Not Be    .box-title.titlefix    Patient Queue
-
 
 
 Click Appoinment link
