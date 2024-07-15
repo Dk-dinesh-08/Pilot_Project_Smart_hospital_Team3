@@ -263,12 +263,6 @@ Verify item added to stock
         Log To Console    Failed to verify item added to stock
     END
 
-
-Verify doctor wise appoinment search
-    Wait Until Page Contains Element    ${search_result}
-    Element Text Should Be   ${search_result}    ${verify_text}
-
-
  
 
 Verify invalid patient search results
@@ -310,26 +304,6 @@ Fill add item stock form without quantity
 Verify invalid search results 
     Element Text Should Be   ${search_result}    ${invalid_patient_search_txt}
 
-Verify invalid patient search results 
-    Element Text Should Be   ${search_result}   Records: 0 to 0 of 0
-
-
-Fill add item stock form without purchase price
-    Select From List By Label    ${item_category}    Medical Equipment
-    Select From List By Label    ${supplier}    Quick Service
-    Input Text    ${quantity}    10   
-    Select From List By Label    ${item}    Syringe Pump
-    Select From List By Label    ${store}    Vinay Pharmacy
-    Input Text    ${quantity}    3
-
-verify add item stock form without purchase price
-    Element Text Should Be    ${error_msg_loc}  The Purchase Price field is required.
-
-Fill add item stock form without quantity
-    Select From List By Label    ${item_category}    Medical Equipment
-    Select From List By Label    ${supplier}    Quick Service
-    Select From List By Label    ${item}    Syringe Pump
-    Select From List By Label    ${store}    Vinay Pharmacy
 
 verify add item stock form without quantity
     TRY
