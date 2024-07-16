@@ -13,11 +13,7 @@ Test Template    To validate queue functionality of appoinment option
 ${Doctor} 
 ${Shift}   
 ${Date}  
-<<<<<<< HEAD
-${Slot}    
-=======
 ${Slot}
->>>>>>> f77fe68bb04c3aba70e7d72bdc7f9f0e45c0c9b6
 
 *** Test Cases ***
 

@@ -16,11 +16,7 @@ ${adress}
 ${slot_feild_data}
 
 *** Test Cases ***
-<<<<<<< HEAD
-user appointment     ${Date_data}    ${Message_data}    ${adress}
-=======
 user appointment     ${Date_data}    ${Message_data}    ${adress}    ${slot_feild_data}
->>>>>>> dinesh-kumar-k
     [Tags]    smoke
 
 *** Keywords ***

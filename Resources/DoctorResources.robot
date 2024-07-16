@@ -155,6 +155,7 @@ Verify successful deletion of all notification messages
         Log To Console    Successful deletion of all notification messages verification failed
     END
 
+
 Verify unsuccessful deletion of all notification messages
     TRY
         Click Link    ${notification_icon}
