@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation    To validate unsuccessful addition of stock item
 Library    SeleniumLibrary
-Library    DataDriver    file=../TestData/SampleMessage.xlsx  sheet_name=AddStockItem
 Test Setup    Open the Browser with URL
 Test Teardown    close the browser
 Resource    ../Resources/GenericResources.robot
@@ -14,7 +13,7 @@ Resource    ../Resources/LoginResources.robot
 
 
 To verify successful addition of stock item
-    [Tags]    confirmation
+    [Tags]    smoke
     LoginResources.Go to user login
     LoginResources.Go to admin page
     Switch Window    new
@@ -26,7 +25,7 @@ To verify successful addition of stock item
     AdminResources.Verify item stock list page opened
 
 To verify successful addition of stock item without choosing suppiler store
-    [Tags]    confirmation
+    [Tags]    smoke
     LoginResources.Go to user login
     LoginResources.Go to admin page
     Switch Window    new

@@ -4,6 +4,14 @@ Library    SeleniumLibrary
 Library     Collections
 
 *** Variables ***
+${bed_145}    xpath://div[text()='FF - 145']
+${Addmision_date}    css:input[id="admission_date"]
+${patientSelect_field}    xpath://span[@class="select2-selection select2-selection--single" and @aria-labelledby="select2-addpatient_id-container"]
+${patientinput_field}    css:input[class="select2-search__field"]
+${consultant_select_field}    xpath://span[@class="select2-selection select2-selection--single" and @aria-labelledby="select2-consultant_doctor-container"]
+${bed_status_save_button}    css:button[id="formaddbtn"]
+${doctal_consultant_select}    xpath://select[@id='consultant_doctor']
+${patient_name}    xpath://li[@class='select2-results__option select2-results__option--highlighted']
 ${Dashboard}    css:i[class="fas fa-television"]
 ${Appointment}    xpath://i[@class='fa fa-calendar-check-o']//following-sibling::span
 ${IPD_in_patient}    xpath://i[@class="fas fa-procedures"]//parent::a
@@ -102,9 +110,6 @@ ${verification_text_invalid}    The Send Through field is required.
 ${sms_body}    Hiiii all
 ${template_id}    MSGID0001
 ${title}    Gropu message to doctor,Pathologist,Pharmacy
-
-
-
 ${unsuccessful_msg}    (//span[@class="text-danger"])[3]/p
 ${unsuccessful_msg_text}    The Notice Date field is required.
 
@@ -155,6 +160,7 @@ Verify successful deletion of all notification messages
         Log To Console    Successful deletion of all notification messages verification failed
     END
 
+
 Verify unsuccessful deletion of all notification messages
     TRY
         Click Link    ${notification_icon}
@@ -170,7 +176,7 @@ Verify the successful adding of new patient
         Log To Console    Verification of successful addition of new patient failed
     END
 
-Verify the unsuccessful addition of new patient
+Verify the unsuccessfull addition of new patient
     TRY
         Element Text Should Be    ${addnewpatient_invalidalert}    The Name field is required.
     EXCEPT
@@ -268,6 +274,52 @@ Verify successful login of doctor
         Element Text Should Be    ${doctor_text_locator}    Doctor
     EXCEPT
         Log To Console    failed to verify successful login
+    END
+
+Successfull update of the bed status
+    TRY
+        Click Link    ${betstatus_icon}
+        Click Element    ${bed_145}
+        Click Element    ${patientSelect_field}
+        Input Text    ${patientinput_field}   Evander  
+        Click Element    ${patient_name}
+        Click Element    ${Addmision_date}
+        Select From List By Value   ${doctal_consultant_select}     11    
+        Click Button    ${bed_status_save_button}
+    EXCEPT
+        Log To Console    failed to verify successful login
+    END
+
+
+Unsuccessfull update of the bed status
+    TRY
+        Click Link    ${betstatus_icon}
+        Click Element    ${bed_145}
+        Click Element    ${patientSelect_field}
+        Input Text    ${patientinput_field}   Olivier  
+        Click Element    ${patient_name}
+        Click Element    ${Addmision_date}
+        Select From List By Value   ${doctal_consultant_select}     11    
+        Click Button    ${bed_status_save_button}
+    EXCEPT
+            Log To Console    failed to verify successful login
+    END
+
+
+Verify the successfull updation of the bed status
+    TRY
+        Wait Until Element Is Visible    css:div[class="toast-message"] 
+        Element Text Should Be    css:div[class="toast-message"]    Patient Added Successfully
+    EXCEPT
+            Log To Console    failed to verify successful login
+    END
+
+Verify the unsuccessfull updation of the bed status
+    TRY
+        Wait Until Element Is Visible    css:div[class="toast-message"] 
+        Element Text Should Not Be    css:div[class="toast-message"]    Patient Added Successfully
+    EXCEPT
+            Log To Console    failed to verify successful login
     END
 
 Click messaging button

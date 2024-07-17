@@ -1,14 +1,13 @@
 * Settings *
 Documentation    Test to verify the message functionality
 Library    SeleniumLibrary
-# Library    DataDriver    file=../TestData/SampleMessage.xlsx   sheet_name=Sheet1
 Test Setup    Open the Browser with URL
 Test Teardown    close the browser
 Resource    ../Resources/GenericResources.robot
 Resource    ../Resources/AdminResources.robot
 Resource    ../Resources/LoginResources.robot
 Resource    ../Resources/DoctorResources.robot
-# Test Template    To validate succesful queue search
+
 
 
 
@@ -23,4 +22,3 @@ To validate the functionality of send sms
     DoctorResources.click send sms button
     DoctorResources.Fill the send SMS form 
     DoctorResources.Send the message
-    #DoctorResources.To verify the unsucessful message sent

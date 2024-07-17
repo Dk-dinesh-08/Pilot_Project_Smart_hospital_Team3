@@ -19,4 +19,4 @@ To validate the functionality of post a new message
     DoctorResources.Click post new message button
     DoctorResources.Fill post new message form
     DoctorResources.Send the message
-    DoctorResources.Verify message send sucessfully
+    DoctorResources.Verify message send successfully
